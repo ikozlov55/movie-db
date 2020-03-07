@@ -59,13 +59,125 @@
 		14C18A142413B7BA00332C65 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
-				14C18A152413B7BA00332C65 /* AppDelegate.swift */,
-				14C18A192413B7BA00332C65 /* ViewController.swift */,
-				14C18A1E2413B7BE00332C65 /* Assets.xcassets */,
-				14C18A202413B7BE00332C65 /* LaunchScreen.storyboard */,
-				14C18A232413B7BE00332C65 /* Info.plist */,
+				14C18A382413E07800332C65 /* Client */,
+				14C18A372413E06E00332C65 /* Persistency */,
+				14C18A362413E05E00332C65 /* Business Logic */,
+				14C18A352413E05700332C65 /* Model */,
+				14C18A2B2413CF4300332C65 /* Presentation */,
+				14C18A2C2413CF5800332C65 /* Application */,
+				14C18A292413CEFF00332C65 /* Resources */,
 			);
 			path = MovieDB;
+			sourceTree = "<group>";
+		};
+		14C18A292413CEFF00332C65 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				14C18A202413B7BE00332C65 /* LaunchScreen.storyboard */,
+				14C18A1E2413B7BE00332C65 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		14C18A2B2413CF4300332C65 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				14C18A2E2413DB8D00332C65 /* Login */,
+				14C18A2F2413DBD500332C65 /* Make PIN */,
+				14C18A312413DCB000332C65 /* Login with PIN */,
+				14C18A302413DBE800332C65 /* Film Search */,
+				14C18A322413DCF500332C65 /* Film Detail */,
+				14C18A332413DD0100332C65 /* Favorite */,
+				14C18A342413DD0900332C65 /* Profile */,
+				14C18A192413B7BA00332C65 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		14C18A2C2413CF5800332C65 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				14C18A232413B7BE00332C65 /* Info.plist */,
+				14C18A152413B7BA00332C65 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		14C18A2E2413DB8D00332C65 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		14C18A2F2413DBD500332C65 /* Make PIN */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Make PIN";
+			sourceTree = "<group>";
+		};
+		14C18A302413DBE800332C65 /* Film Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Film Search";
+			sourceTree = "<group>";
+		};
+		14C18A312413DCB000332C65 /* Login with PIN */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Login with PIN";
+			sourceTree = "<group>";
+		};
+		14C18A322413DCF500332C65 /* Film Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Film Detail";
+			sourceTree = "<group>";
+		};
+		14C18A332413DD0100332C65 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		14C18A342413DD0900332C65 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		14C18A352413E05700332C65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		14C18A362413E05E00332C65 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		14C18A372413E06E00332C65 /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persistency;
+			sourceTree = "<group>";
+		};
+		14C18A382413E07800332C65 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 		43BD91F253DD8D28980AD966 /* Frameworks */ = {
@@ -82,7 +194,6 @@
 				5FDD8F5B5DB723AC3E5C5166 /* Pods-MovieDB.debug.xcconfig */,
 				D508415F5227372EC3DB5884 /* Pods-MovieDB.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -97,6 +208,7 @@
 				14C18A0E2413B7BA00332C65 /* Sources */,
 				14C18A0F2413B7BA00332C65 /* Frameworks */,
 				14C18A102413B7BA00332C65 /* Resources */,
+				14C18A2D2413D24B00332C65 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -153,6 +265,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		14C18A2D2413D24B00332C65 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/SwiftLint/swiftlint --config $SRCROOT/swiftlint.yml\n";
+		};
 		301617A9C6ACD25EA044E29C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,7 +451,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J38JUKLSM9;
-				INFOPLIST_FILE = MovieDB/Info.plist;
+				INFOPLIST_FILE = MovieDB/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -331,7 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.ikozlov.MovieDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -342,7 +471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J38JUKLSM9;
-				INFOPLIST_FILE = MovieDB/Info.plist;
+				INFOPLIST_FILE = MovieDB/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -351,7 +480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.ikozlov.MovieDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
