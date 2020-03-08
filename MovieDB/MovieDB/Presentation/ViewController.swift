@@ -12,7 +12,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = ColorName.backgroundBlack.color
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = L10n.welcomeTitle
+        label.font = UIFont.systemFont(ofSize: 32, weight: .medium)
+        label.textColor = ColorName.lightBlue.color
+        view.addSubview(label)
+        
+        let safeArea = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            label.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 30)
+        ])
     }
 
 }

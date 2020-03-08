@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  MovieDB
+
+  Created by Илья Козлов on 08.03.2020.
+  Copyright © 2020 Илья Козлов. All rights reserved.
+*/
+
+// Login
+"welcome_title" = "Добро пожаловать!";
+"welcome_subtitle" = "Укажите логин и пароль, которые вы использовали для входа";
+"login_field_placeholder" = "Логин";
+"password_field_placeholder" = "Пароль";
+"login_button_text" = "Войти";
+
+// Login - errors
+"invalid_credentials_error" = "Неверный логин или пароль";
+"login_failed_error" = "Что-то пошло не так, попробуйте войти позже";
+
+// Make PIN
+"enter_new_pin_title" = "Придумайте пин-код для быстрого входа";
+"repeat_pin_title" = "Повторите ваш пин-код";
+"invalid_pin_error" = "Неверный пин-код";
+"logut_numpad_button_text" = "Выйти";
+
+// TabBar
+"films" = "Фильмы";
+"favorite" = "Избранное";
+"profile" = "Профиль";
+
+// Film Search
+"film_search_title" = "Найдем любой фильм на ваш вкус";
+"film_search_bar_placeholder" = "Поиск фильмов";
+"film_not_found_title" = "По вашему запросу ничего не найдено :(";
+
+//Film Detail
+"film_runtime" = "Время";
+"film_raiting" = "Рейтинг фильма";
+
+//Favorite
+"favorite_title" = "Избранное";
+"favorite_empty_title" = "Вы не добавили ни одного фильма";
+"favorite_find_title" = "Найти любимые фильмы";
+
+//Profile
+"logout_button_text" = "Время";

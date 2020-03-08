@@ -7,7 +7,6 @@ target 'MovieDB' do
 
   # Pods for MovieDB
   pod 'SwiftLint', '0.39.1'
-  pod 'SwiftFormat/CLI', '0.44.4'
   pod 'SwiftGen', '6.0'
 
 end
