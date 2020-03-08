@@ -44,8 +44,8 @@ internal struct ColorName {
   /// Alpha: 100% <br/> (0xe1172fff)
   internal static let red = ColorName(rgbaValue: 0xe1172fff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#282c3f"></span>
-  /// Alpha: 100% <br/> (0x282c3fff)
-  internal static let tabBarBlue = ColorName(rgbaValue: 0x282c3fff)
+  /// Alpha: 90% <br/> (0x282c3fe6)
+  internal static let tabBarBlue = ColorName(rgbaValue: 0x282c3fe6)
 }
 // swiftlint:enable identifier_name line_length type_body_length
 

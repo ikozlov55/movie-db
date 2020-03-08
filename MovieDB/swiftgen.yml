@@ -2,16 +2,16 @@ colors:
     inputs: MovieDB/Resources/colors.json
     outputs:
       templateName: swift4
-      output: MovieDB/Presentation/Common/Colors.swift
+      output: MovieDB/Presentation/Common/Style/Colors.swift
 
 xcassets:
     inputs: MovieDB/Resources/Assets.xcassets
     outputs:
       templateName: swift4
-      output: MovieDB/Presentation/Common/Images.swift
+      output: MovieDB/Presentation/Common/Style/Images.swift
 
 strings:                      
     inputs: MovieDB/Resources/en.lproj/Localizable.strings
     outputs:
       templateName: structured-swift4
-      output: MovieDB/Presentation/Common/Strings.swift
+      output: MovieDB/Presentation/Common/Style/Strings.swift

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        window?.rootViewController = ViewController()
+        window?.rootViewController = MainTabBarController()
         window?.makeKeyAndVisible()
         return true
     }

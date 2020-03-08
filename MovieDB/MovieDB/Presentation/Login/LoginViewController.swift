@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 07.03.2020.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ColorName.backgroundBlack.color
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = L10n.welcomeTitle

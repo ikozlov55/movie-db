@@ -13,12 +13,12 @@ import Foundation
 internal enum L10n {
   /// Придумайте пин-код для быстрого входа
   internal static let enterNewPinTitle = L10n.tr("Localizable", "enter_new_pin_title")
-  /// Избранное
-  internal static let favorite = L10n.tr("Localizable", "favorite")
   /// Вы не добавили ни одного фильма
   internal static let favoriteEmptyTitle = L10n.tr("Localizable", "favorite_empty_title")
   /// Найти любимые фильмы
   internal static let favoriteFindTitle = L10n.tr("Localizable", "favorite_find_title")
+  /// Избранное
+  internal static let favoriteTabTitle = L10n.tr("Localizable", "favorite_tab_title")
   /// Избранное
   internal static let favoriteTitle = L10n.tr("Localizable", "favorite_title")
   /// По вашему запросу ничего не найдено :(
@@ -32,7 +32,7 @@ internal enum L10n {
   /// Найдем любой фильм на ваш вкус
   internal static let filmSearchTitle = L10n.tr("Localizable", "film_search_title")
   /// Фильмы
-  internal static let films = L10n.tr("Localizable", "films")
+  internal static let filmsTabTitle = L10n.tr("Localizable", "films_tab_title")
   /// Неверный логин или пароль
   internal static let invalidCredentialsError = L10n.tr("Localizable", "invalid_credentials_error")
   /// Неверный пин-код
@@ -50,7 +50,7 @@ internal enum L10n {
   /// Пароль
   internal static let passwordFieldPlaceholder = L10n.tr("Localizable", "password_field_placeholder")
   /// Профиль
-  internal static let profile = L10n.tr("Localizable", "profile")
+  internal static let profileTabTitle = L10n.tr("Localizable", "profile_tab_title")
   /// Повторите ваш пин-код
   internal static let repeatPinTitle = L10n.tr("Localizable", "repeat_pin_title")
   /// Укажите логин и пароль, которые вы использовали для входа

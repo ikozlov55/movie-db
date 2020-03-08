@@ -24,9 +24,9 @@
 "logut_numpad_button_text" = "Выйти";
 
 // TabBar
-"films" = "Фильмы";
-"favorite" = "Избранное";
-"profile" = "Профиль";
+"films_tab_title" = "Фильмы";
+"favorite_tab_title" = "Избранное";
+"profile_tab_title" = "Профиль";
 
 // Film Search
 "film_search_title" = "Найдем любой фильм на ваш вкус";
