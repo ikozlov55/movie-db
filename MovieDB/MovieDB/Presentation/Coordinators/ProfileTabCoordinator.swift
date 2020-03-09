@@ -33,5 +33,12 @@ class ProfileTabCoordinator: Coordinator {
         vc.tabBarItem = tabBarItem
         nc.pushViewController(vc, animated: false)
     }
+    
+    func logout() {
+        let nc = MDBNavigationController()
+        let coordinator = LoginCoordinator(nc)
+        UIApplication.shared.windows.first?.rootViewController = nc
+        coordinator.start()
+    }
 
 }

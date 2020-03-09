@@ -16,6 +16,8 @@
 		148FE9D0241662B60079111E /* GetNewTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9CF241662B60079111E /* GetNewTokenDTO.swift */; };
 		148FE9D2241664D90079111E /* GetNewSessionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9D1241664D90079111E /* GetNewSessionDTO.swift */; };
 		148FE9D4241665300079111E /* GetAccountDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9D3241665300079111E /* GetAccountDTO.swift */; };
+		148FE9D7241686580079111E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9D6241686580079111E /* ProfileView.swift */; };
+		148FE9D9241686E10079111E /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9D8241686E10079111E /* LogoutButton.swift */; };
 		14A2943D2414FB6800E846D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14A2943F2414FB6800E846D6 /* Localizable.strings */; };
 		14A294472415070700E846D6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A294462415070700E846D6 /* MainTabBarController.swift */; };
 		14A2944A2415077100E846D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A294492415077100E846D6 /* Coordinator.swift */; };
@@ -58,6 +60,8 @@
 		148FE9CF241662B60079111E /* GetNewTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewTokenDTO.swift; sourceTree = "<group>"; };
 		148FE9D1241664D90079111E /* GetNewSessionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewSessionDTO.swift; sourceTree = "<group>"; };
 		148FE9D3241665300079111E /* GetAccountDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountDTO.swift; sourceTree = "<group>"; };
+		148FE9D6241686580079111E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		148FE9D8241686E10079111E /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		14A294402414FB7700E846D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A294412414FC7400E846D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A294462415070700E846D6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,15 @@
 				148FE9D3241665300079111E /* GetAccountDTO.swift */,
 			);
 			path = Decodable;
+			sourceTree = "<group>";
+		};
+		148FE9D5241686430079111E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				148FE9D6241686580079111E /* ProfileView.swift */,
+				148FE9D8241686E10079111E /* LogoutButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		14A29444241506D000E846D6 /* View */ = {
@@ -331,6 +344,7 @@
 		14C18A342413DD0900332C65 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				148FE9D5241686430079111E /* View */,
 				14F2366924150D890094444E /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -550,6 +564,7 @@
 				148FE9CD24165C9A0079111E /* AuthService.swift in Sources */,
 				14E28087241541D3004167EB /* PasswordTextField.swift in Sources */,
 				14F927272415158400215707 /* Strings.swift in Sources */,
+				148FE9D9241686E10079111E /* LogoutButton.swift in Sources */,
 				14F927332415367900215707 /* SubtitleLabel.swift in Sources */,
 				14F9272924151C2D00215707 /* MDBNavigationController.swift in Sources */,
 				148EB5FE24162D2C00AE511D /* ErrorLabel.swift in Sources */,
@@ -564,6 +579,7 @@
 				148EB6052416431500AE511D /* FilmSearchView.swift in Sources */,
 				14F2366A24150D890094444E /* ProfileViewController.swift in Sources */,
 				14A294502415090100E846D6 /* ProfileTabCoordinator.swift in Sources */,
+				148FE9D7241686580079111E /* ProfileView.swift in Sources */,
 				14A2944A2415077100E846D6 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

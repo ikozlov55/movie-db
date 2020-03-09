@@ -43,7 +43,7 @@ internal enum L10n {
   internal static let loginFailedError = L10n.tr("Localizable", "login_failed_error")
   /// Логин
   internal static let loginFieldPlaceholder = L10n.tr("Localizable", "login_field_placeholder")
-  /// Время
+  /// Выйти
   internal static let logoutButtonText = L10n.tr("Localizable", "logout_button_text")
   /// Выйти
   internal static let logutNumpadButtonText = L10n.tr("Localizable", "logut_numpad_button_text")

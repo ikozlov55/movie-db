@@ -33,6 +33,5 @@ class LoginCoordinator: Coordinator {
         let tabBar = MainTabBarController()
         tabBar.modalPresentationStyle = .fullScreen
         nc.present(tabBar, animated: true)
-        //nc.viewControllers.first?.present(tabBar, animated: true)
     }
 }

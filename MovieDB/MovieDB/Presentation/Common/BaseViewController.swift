@@ -10,6 +10,10 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    // MARK: - Public Properties
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
