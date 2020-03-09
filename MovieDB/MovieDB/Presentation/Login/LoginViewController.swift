@@ -16,6 +16,8 @@ class LoginViewController: BaseViewController {
     
     private var loginView = LoginView()
     
+    private let authService: AuthServiceProtocol = AuthService.shared
+    
     // MARK: - Lifecycle
     
     override func loadView() {
@@ -45,12 +47,22 @@ class LoginViewController: BaseViewController {
             let login = loginView.loginTextField.text?.trim,
             let password = loginView.passwordTextField.text?.trim
             else { return }
+        loginView.activityIndicator.startAnimating()
+        authService.login(
+            username: login,
+            password: password,
+            success: { [weak self] _ in self?.coordinator?.login() },
+            failure: { [weak self] error in
+                switch error {
+                case .invalidCredentials:
+                    self?.loginView.errorLabel.text = L10n.invalidCredentialsError
+                default:
+                    self?.loginView.errorLabel.text = L10n.loginFailedError
+                }
+                self?.loginView.activityIndicator.stopAnimating()
+            }
+        )
         
-        if login != "user" && password != "123456" {
-            loginView.errorLabel.text = L10n.invalidCredentialsError
-        } else {
-            coordinator?.login()
-        }
     }
     
 }

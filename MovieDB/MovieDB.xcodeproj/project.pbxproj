@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,11 @@
 		148EB60124162F1A00AE511D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB60024162F1A00AE511D /* String+Extension.swift */; };
 		148EB6052416431500AE511D /* FilmSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB6042416431500AE511D /* FilmSearchView.swift */; };
 		148EB608241648F500AE511D /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB607241648F500AE511D /* FavoriteView.swift */; };
+		148FE9CA241650840079111E /* MovieDBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9C9241650840079111E /* MovieDBApi.swift */; };
+		148FE9CD24165C9A0079111E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9CC24165C9A0079111E /* AuthService.swift */; };
+		148FE9D0241662B60079111E /* GetNewTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9CF241662B60079111E /* GetNewTokenDTO.swift */; };
+		148FE9D2241664D90079111E /* GetNewSessionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9D1241664D90079111E /* GetNewSessionDTO.swift */; };
+		148FE9D4241665300079111E /* GetAccountDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9D3241665300079111E /* GetAccountDTO.swift */; };
 		14A2943D2414FB6800E846D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14A2943F2414FB6800E846D6 /* Localizable.strings */; };
 		14A294472415070700E846D6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A294462415070700E846D6 /* MainTabBarController.swift */; };
 		14A2944A2415077100E846D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A294492415077100E846D6 /* Coordinator.swift */; };
@@ -48,6 +53,11 @@
 		148EB60024162F1A00AE511D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		148EB6042416431500AE511D /* FilmSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchView.swift; sourceTree = "<group>"; };
 		148EB607241648F500AE511D /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		148FE9C9241650840079111E /* MovieDBApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBApi.swift; sourceTree = "<group>"; };
+		148FE9CC24165C9A0079111E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		148FE9CF241662B60079111E /* GetNewTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewTokenDTO.swift; sourceTree = "<group>"; };
+		148FE9D1241664D90079111E /* GetNewSessionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewSessionDTO.swift; sourceTree = "<group>"; };
+		148FE9D3241665300079111E /* GetAccountDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountDTO.swift; sourceTree = "<group>"; };
 		14A294402414FB7700E846D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A294412414FC7400E846D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A294462415070700E846D6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -141,6 +151,32 @@
 				148EB607241648F500AE511D /* FavoriteView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		148FE9C8241650650079111E /* MovieDBApi */ = {
+			isa = PBXGroup;
+			children = (
+				148FE9C9241650840079111E /* MovieDBApi.swift */,
+			);
+			path = MovieDBApi;
+			sourceTree = "<group>";
+		};
+		148FE9CB24165C820079111E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				148FE9CC24165C9A0079111E /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		148FE9CE241662290079111E /* Decodable */ = {
+			isa = PBXGroup;
+			children = (
+				148FE9CF241662B60079111E /* GetNewTokenDTO.swift */,
+				148FE9D1241664D90079111E /* GetNewSessionDTO.swift */,
+				148FE9D3241665300079111E /* GetAccountDTO.swift */,
+			);
+			path = Decodable;
 			sourceTree = "<group>";
 		};
 		14A29444241506D000E846D6 /* View */ = {
@@ -303,6 +339,7 @@
 		14C18A352413E05700332C65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				148FE9CE241662290079111E /* Decodable */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +347,7 @@
 		14C18A362413E05E00332C65 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				148FE9CB24165C820079111E /* Service */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -324,6 +362,7 @@
 		14C18A382413E07800332C65 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				148FE9C8241650650079111E /* MovieDBApi */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -369,6 +408,7 @@
 				14C18A0F2413B7BA00332C65 /* Frameworks */,
 				14C18A102413B7BA00332C65 /* Resources */,
 				14C18A2D2413D24B00332C65 /* ShellScript */,
+				443CF8841EB0719F659CBB9E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -469,6 +509,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		443CF8841EB0719F659CBB9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -478,14 +535,19 @@
 			files = (
 				14F2366624150BF50094444E /* BaseViewController.swift in Sources */,
 				14C18A1A2413B7BA00332C65 /* LoginViewController.swift in Sources */,
+				148FE9D4241665300079111E /* GetAccountDTO.swift in Sources */,
+				148FE9D2241664D90079111E /* GetNewSessionDTO.swift in Sources */,
 				14AE8EB12414EFF9006D9D3C /* Images.swift in Sources */,
+				148FE9D0241662B60079111E /* GetNewTokenDTO.swift in Sources */,
 				14A294472415070700E846D6 /* MainTabBarController.swift in Sources */,
 				14A2944E241508B900E846D6 /* FilmsTabCoordinator.swift in Sources */,
 				14C18A422413EC2500332C65 /* Colors.swift in Sources */,
 				14F2366424150B310094444E /* FilmSearchViewController.swift in Sources */,
+				148FE9CA241650840079111E /* MovieDBApi.swift in Sources */,
 				14F9272F24152F6900215707 /* HeaderLabel.swift in Sources */,
 				148EB60124162F1A00AE511D /* String+Extension.swift in Sources */,
 				14F927312415348A00215707 /* MDBLabel.swift in Sources */,
+				148FE9CD24165C9A0079111E /* AuthService.swift in Sources */,
 				14E28087241541D3004167EB /* PasswordTextField.swift in Sources */,
 				14F927272415158400215707 /* Strings.swift in Sources */,
 				14F927332415367900215707 /* SubtitleLabel.swift in Sources */,

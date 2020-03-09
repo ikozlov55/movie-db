@@ -8,5 +8,6 @@ target 'MovieDB' do
   # Pods for MovieDB
   pod 'SwiftLint', '0.39.1'
   pod 'SwiftGen', '6.0'
+  pod 'Moya', '14.0'
 
 end

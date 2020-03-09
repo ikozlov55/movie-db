@@ -51,6 +51,8 @@ class LoginTextField: UITextField {
         layer.borderColor = ColorName.darkBlue.color.cgColor
         layer.cornerRadius = 8
         font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        autocapitalizationType = .none
+        autocorrectionType = .no
     }
 
 }

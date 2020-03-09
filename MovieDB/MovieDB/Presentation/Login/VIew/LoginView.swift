@@ -19,6 +19,12 @@ class LoginView: UIView {
     let errorLabel = ErrorLabel()
     let loginButton = LoginButton()
     lazy var textFields = [loginTextField, passwordTextField]
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.style = .whiteLarge
+        return indicator
+    }()
     
     // MARK: - Init
     
@@ -41,6 +47,7 @@ class LoginView: UIView {
         addSubview(passwordTextField)
         addSubview(errorLabel)
         addSubview(loginButton)
+        addSubview(activityIndicator)
         loginButton.isEnabled = false
         
         let safeArea = safeAreaLayoutGuide
@@ -69,7 +76,10 @@ class LoginView: UIView {
             
             loginButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
             loginButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -inset),
-            loginButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -27)
+            loginButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -27),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor)
         ])
     }
     

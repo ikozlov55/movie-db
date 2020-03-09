@@ -1,20 +1,30 @@
 PODS:
+  - Alamofire (5.0.2)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - SwiftGen (6.0.0)
   - SwiftLint (0.39.1)
 
 DEPENDENCIES:
+  - Moya (= 14.0)
   - SwiftGen (= 6.0)
   - SwiftLint (= 0.39.1)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Moya
     - SwiftGen
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   SwiftGen: cd0bb0c9838c3fc90b78d35b19f492711b19eb55
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 73b54bd246caa5f93174ccf5440842e31b8e178e
+PODFILE CHECKSUM: 12cb319eb7db57bf17578228a7c3a9e0a20da407
 
 COCOAPODS: 1.9.0
