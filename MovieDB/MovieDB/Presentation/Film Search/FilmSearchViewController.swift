@@ -14,7 +14,13 @@ class FilmSearchViewController: BaseViewController {
     
     var coordinator: FilmsTabCoordinator?
 
+    private var filmSearchView = FilmSearchView()
+    
     // MARK: - Lifecycle
+    
+    override func loadView() {
+        view = filmSearchView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,13 +13,13 @@ class MainTabBarController: UITabBarController {
     // MARK: - Properties
     
     let filmsTabCoordinator = FilmsTabCoordinator(
-        BaseNavigationController()
+        MDBNavigationController()
     )
     let favoriteTabCoordinator = FavoriteTabCoordinator(
-        BaseNavigationController()
+        MDBNavigationController()
     )
     let profileTabCoordinator = ProfileTabCoordinator(
-        BaseNavigationController()
+        MDBNavigationController()
     )
     
     // MARK: - Lifecycle
@@ -30,11 +30,11 @@ class MainTabBarController: UITabBarController {
         setupTabBarItems()
     }
     
-    // MARK: - UI Setup
+    // MARK: - Configure UI
     
     private func setupTabBar() {
         tabBar.barTintColor = ColorName.tabBarBlue.color
-        tabBar.tintColor = ColorName.red.color
+        tabBar.tintColor = ColorName.orange.color
         tabBar.unselectedItemTintColor = ColorName.lightBlue.color
         tabBar.itemWidth = 100
     }

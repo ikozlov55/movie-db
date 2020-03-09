@@ -12,11 +12,11 @@ class FilmsTabCoordinator: Coordinator {
     
     // MARK: - Properties
     
-    var nc: BaseNavigationController
+    var nc: MDBNavigationController
     
     // MARK: - Init
     
-    init(_ nc: BaseNavigationController) {
+    init(_ nc: MDBNavigationController) {
         self.nc = nc
     }
     

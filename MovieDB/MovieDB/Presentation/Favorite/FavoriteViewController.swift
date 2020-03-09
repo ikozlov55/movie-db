@@ -14,7 +14,13 @@ class FavoriteViewController: BaseViewController {
     
     var coordinator: FavoriteTabCoordinator?
     
+    private var favoriteView = FavoriteView()
+    
     // MARK: - Lifecycle
+    
+    override func loadView() {
+        view = favoriteView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

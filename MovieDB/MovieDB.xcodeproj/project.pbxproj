@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		148EB5FE24162D2C00AE511D /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB5FD24162D2C00AE511D /* ErrorLabel.swift */; };
+		148EB60124162F1A00AE511D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB60024162F1A00AE511D /* String+Extension.swift */; };
+		148EB6052416431500AE511D /* FilmSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB6042416431500AE511D /* FilmSearchView.swift */; };
+		148EB608241648F500AE511D /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB607241648F500AE511D /* FavoriteView.swift */; };
 		14A2943D2414FB6800E846D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14A2943F2414FB6800E846D6 /* Localizable.strings */; };
 		14A294472415070700E846D6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A294462415070700E846D6 /* MainTabBarController.swift */; };
 		14A2944A2415077100E846D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A294492415077100E846D6 /* Coordinator.swift */; };
@@ -22,17 +26,28 @@
 		14C18A222413B7BE00332C65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C18A202413B7BE00332C65 /* LaunchScreen.storyboard */; };
 		14C18A3E2413E4B600332C65 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C18A3D2413E4B600332C65 /* colors.json */; };
 		14C18A422413EC2500332C65 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C18A412413EC2500332C65 /* Colors.swift */; };
+		14E2808524153E1E004167EB /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2808424153E1E004167EB /* LoginTextField.swift */; };
+		14E28087241541D3004167EB /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E28086241541D3004167EB /* PasswordTextField.swift */; };
 		14F2366424150B310094444E /* FilmSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366324150B310094444E /* FilmSearchViewController.swift */; };
 		14F2366624150BF50094444E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366524150BF50094444E /* BaseViewController.swift */; };
 		14F2366824150D6E0094444E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366724150D6E0094444E /* FavoriteViewController.swift */; };
 		14F2366A24150D890094444E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366924150D890094444E /* ProfileViewController.swift */; };
 		14F2366C24150E040094444E /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14F2366B24150E040094444E /* swiftlint.yml */; };
 		14F927272415158400215707 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927262415158300215707 /* Strings.swift */; };
-		14F9272924151C2D00215707 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9272824151C2D00215707 /* BaseNavigationController.swift */; };
+		14F9272924151C2D00215707 /* MDBNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9272824151C2D00215707 /* MDBNavigationController.swift */; };
+		14F9272D24152D2400215707 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9272C24152D2400215707 /* LoginView.swift */; };
+		14F9272F24152F6900215707 /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9272E24152F6900215707 /* HeaderLabel.swift */; };
+		14F927312415348A00215707 /* MDBLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927302415348A00215707 /* MDBLabel.swift */; };
+		14F927332415367900215707 /* SubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927322415367900215707 /* SubtitleLabel.swift */; };
+		14F927352415381000215707 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927342415381000215707 /* LoginButton.swift */; };
 		418176E06C822247172A99A9 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA7B705128673D5417522C0 /* Pods_MovieDB.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		148EB5FD24162D2C00AE511D /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
+		148EB60024162F1A00AE511D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		148EB6042416431500AE511D /* FilmSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchView.swift; sourceTree = "<group>"; };
+		148EB607241648F500AE511D /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		14A294402414FB7700E846D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A294412414FC7400E846D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A294462415070700E846D6 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -51,13 +66,20 @@
 		14C18A232413B7BE00332C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14C18A3D2413E4B600332C65 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		14C18A412413EC2500332C65 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		14E2808424153E1E004167EB /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		14E28086241541D3004167EB /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		14F2366324150B310094444E /* FilmSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchViewController.swift; sourceTree = "<group>"; };
 		14F2366524150BF50094444E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		14F2366724150D6E0094444E /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		14F2366924150D890094444E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		14F2366B24150E040094444E /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		14F927262415158300215707 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		14F9272824151C2D00215707 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		14F9272824151C2D00215707 /* MDBNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBNavigationController.swift; sourceTree = "<group>"; };
+		14F9272C24152D2400215707 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		14F9272E24152F6900215707 /* HeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
+		14F927302415348A00215707 /* MDBLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBLabel.swift; sourceTree = "<group>"; };
+		14F927322415367900215707 /* SubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleLabel.swift; sourceTree = "<group>"; };
+		14F927342415381000215707 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		1FA7B705128673D5417522C0 /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDD8F5B5DB723AC3E5C5166 /* Pods-MovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.debug.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.debug.xcconfig"; sourceTree = "<group>"; };
 		D508415F5227372EC3DB5884 /* Pods-MovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.release.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,9 +97,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		148EB5FC24162D0900AE511D /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				14F927302415348A00215707 /* MDBLabel.swift */,
+				14F9272E24152F6900215707 /* HeaderLabel.swift */,
+				14F927322415367900215707 /* SubtitleLabel.swift */,
+				148EB5FD24162D2C00AE511D /* ErrorLabel.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		148EB5FF24162E6800AE511D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				148EB60024162F1A00AE511D /* String+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		148EB60224163C8900AE511D /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				14F9272C24152D2400215707 /* LoginView.swift */,
+				14F927342415381000215707 /* LoginButton.swift */,
+				14E2808424153E1E004167EB /* LoginTextField.swift */,
+				14E28086241541D3004167EB /* PasswordTextField.swift */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		148EB603241642FC00AE511D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				148EB6042416431500AE511D /* FilmSearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		148EB606241648DE00AE511D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				148EB607241648F500AE511D /* FavoriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		14A29444241506D000E846D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				148EB5FC24162D0900AE511D /* UILabel */,
 				14A294462415070700E846D6 /* MainTabBarController.swift */,
 			);
 			path = View;
@@ -93,7 +162,7 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
-		14A294482415074F00E846D6 /* Navigation */ = {
+		14A294482415074F00E846D6 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
 				14A294492415077100E846D6 /* Coordinator.swift */,
@@ -102,7 +171,7 @@
 				14A294512415094600E846D6 /* FavoriteTabCoordinator.swift */,
 				14A2944F2415090100E846D6 /* ProfileTabCoordinator.swift */,
 			);
-			path = Navigation;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		14C18A092413B7BA00332C65 = {
@@ -161,6 +230,7 @@
 				14C18A332413DD0100332C65 /* Favorite */,
 				14C18A342413DD0900332C65 /* Profile */,
 				14C18A3F2413E5CE00332C65 /* Common */,
+				14A294482415074F00E846D6 /* Coordinators */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -178,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				14C18A192413B7BA00332C65 /* LoginViewController.swift */,
+				148EB60224163C8900AE511D /* VIew */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -193,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				14F2366324150B310094444E /* FilmSearchViewController.swift */,
+				148EB603241642FC00AE511D /* View */,
 			);
 			path = "Film Search";
 			sourceTree = "<group>";
@@ -215,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				14F2366724150D6E0094444E /* FavoriteViewController.swift */,
+				148EB606241648DE00AE511D /* View */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -258,11 +331,11 @@
 		14C18A3F2413E5CE00332C65 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				14A294482415074F00E846D6 /* Navigation */,
+				148EB5FF24162E6800AE511D /* Extension */,
 				14A29445241506DB00E846D6 /* Style */,
 				14A29444241506D000E846D6 /* View */,
 				14F2366524150BF50094444E /* BaseViewController.swift */,
-				14F9272824151C2D00215707 /* BaseNavigationController.swift */,
+				14F9272824151C2D00215707 /* MDBNavigationController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -410,12 +483,23 @@
 				14A2944E241508B900E846D6 /* FilmsTabCoordinator.swift in Sources */,
 				14C18A422413EC2500332C65 /* Colors.swift in Sources */,
 				14F2366424150B310094444E /* FilmSearchViewController.swift in Sources */,
+				14F9272F24152F6900215707 /* HeaderLabel.swift in Sources */,
+				148EB60124162F1A00AE511D /* String+Extension.swift in Sources */,
+				14F927312415348A00215707 /* MDBLabel.swift in Sources */,
+				14E28087241541D3004167EB /* PasswordTextField.swift in Sources */,
 				14F927272415158400215707 /* Strings.swift in Sources */,
-				14F9272924151C2D00215707 /* BaseNavigationController.swift in Sources */,
+				14F927332415367900215707 /* SubtitleLabel.swift in Sources */,
+				14F9272924151C2D00215707 /* MDBNavigationController.swift in Sources */,
+				148EB5FE24162D2C00AE511D /* ErrorLabel.swift in Sources */,
 				14C18A162413B7BA00332C65 /* AppDelegate.swift in Sources */,
+				148EB608241648F500AE511D /* FavoriteView.swift in Sources */,
+				14F9272D24152D2400215707 /* LoginView.swift in Sources */,
 				14A294522415094600E846D6 /* FavoriteTabCoordinator.swift in Sources */,
 				14F2366824150D6E0094444E /* FavoriteViewController.swift in Sources */,
+				14F927352415381000215707 /* LoginButton.swift in Sources */,
+				14E2808524153E1E004167EB /* LoginTextField.swift in Sources */,
 				14A2944C241507D700E846D6 /* LoginCoordinator.swift in Sources */,
+				148EB6052416431500AE511D /* FilmSearchView.swift in Sources */,
 				14F2366A24150D890094444E /* ProfileViewController.swift in Sources */,
 				14A294502415090100E846D6 /* ProfileTabCoordinator.swift in Sources */,
 				14A2944A2415077100E846D6 /* Coordinator.swift in Sources */,

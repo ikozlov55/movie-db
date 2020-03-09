@@ -1,5 +1,5 @@
 //
-//  FavoriteTabCoordinator.swift
+//  ProfileTabCoordinator.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 08.03.2020.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-class FavoriteTabCoordinator: Coordinator {
+class ProfileTabCoordinator: Coordinator {
     
     // MARK: - Properties
     
-    var nc: BaseNavigationController
+    var nc: MDBNavigationController
     
     // MARK: - Init
     
-    init(_ nc: BaseNavigationController) {
+    init(_ nc: MDBNavigationController) {
         self.nc = nc
     }
     
     // MARK: - Navigation methods
     
     func start() {
-        let vc = FavoriteViewController()
+        let vc = ProfileViewController()
         vc.coordinator = self
         let tabBarItem = UITabBarItem(
-            title: L10n.favoriteTitle,
-            image: Asset.tabBarFavorite.image,
-            tag: 1
+            title: L10n.profileTabTitle,
+            image: Asset.tabBarProfile.image,
+            tag: 2
         )
         vc.tabBarItem = tabBarItem
         nc.pushViewController(vc, animated: false)
