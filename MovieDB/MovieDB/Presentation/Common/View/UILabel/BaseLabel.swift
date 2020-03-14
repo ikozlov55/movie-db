@@ -1,5 +1,5 @@
 //
-//  MDBLabel.swift
+//  BaseLabel.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 08.03.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MDBLabel: UILabel {
+class BaseLabel: UILabel {
 
     // MARK: - Init
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteViewController: BaseViewController {
+final class FavoriteViewController: BaseViewController {
 
     // MARK: - Properties
     

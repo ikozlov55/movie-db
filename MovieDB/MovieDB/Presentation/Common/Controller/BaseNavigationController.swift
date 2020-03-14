@@ -1,5 +1,5 @@
 //
-//  MDBNavigationController.swift
+//  BaseNavigationController.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 08.03.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MDBNavigationController: UINavigationController {
+class BaseNavigationController: UINavigationController {
 
     // MARK: - Lifecycle
     

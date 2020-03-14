@@ -8,18 +8,18 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
     
     // MARK: - Properties
     
     let filmsTabCoordinator = FilmsTabCoordinator(
-        MDBNavigationController()
+        BaseNavigationController()
     )
     let favoriteTabCoordinator = FavoriteTabCoordinator(
-        MDBNavigationController()
+        BaseNavigationController()
     )
     let profileTabCoordinator = ProfileTabCoordinator(
-        MDBNavigationController()
+        BaseNavigationController()
     )
     
     // MARK: - Lifecycle
@@ -45,9 +45,9 @@ class MainTabBarController: UITabBarController {
         profileTabCoordinator.start()
         
         viewControllers = [
-            filmsTabCoordinator.nc,
-            favoriteTabCoordinator.nc,
-            profileTabCoordinator.nc
+            filmsTabCoordinator.navigationController,
+            favoriteTabCoordinator.navigationController,
+            profileTabCoordinator.navigationController
         ]
     }
     

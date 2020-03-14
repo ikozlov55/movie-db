@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: BaseViewController {
+final class ProfileViewController: BaseViewController {
     
     // MARK: - Properties
     

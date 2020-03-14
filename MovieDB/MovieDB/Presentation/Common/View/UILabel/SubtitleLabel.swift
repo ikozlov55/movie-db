@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubtitleLabel: MDBLabel {
+final class SubtitleLabel: BaseLabel {
 
     // MARK: - Init
     

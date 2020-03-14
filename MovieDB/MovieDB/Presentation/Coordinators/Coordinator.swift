@@ -9,6 +9,6 @@
 import UIKit
 
 protocol Coordinator {
-    var nc: MDBNavigationController { get }
+    var navigationController: BaseNavigationController { get }
     func start()
 }

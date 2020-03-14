@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ProfileTabCoordinator: Coordinator {
+final class ProfileTabCoordinator: Coordinator {
     
     // MARK: - Properties
     
-    var nc: MDBNavigationController
+    var navigationController: BaseNavigationController
     
     // MARK: - Init
     
-    init(_ nc: MDBNavigationController) {
-        self.nc = nc
+    init(_ nc: BaseNavigationController) {
+        self.navigationController = nc
     }
     
     // MARK: - Navigation methods
@@ -31,11 +31,11 @@ class ProfileTabCoordinator: Coordinator {
             tag: 2
         )
         vc.tabBarItem = tabBarItem
-        nc.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: false)
     }
     
     func logout() {
-        let nc = MDBNavigationController()
+        let nc = BaseNavigationController()
         let coordinator = LoginCoordinator(nc)
         UIApplication.shared.windows.first?.rootViewController = nc
         coordinator.start()

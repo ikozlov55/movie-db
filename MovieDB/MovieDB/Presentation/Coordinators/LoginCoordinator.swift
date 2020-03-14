@@ -8,17 +8,17 @@
 
 import UIKit
 
-class LoginCoordinator: Coordinator {
+final class LoginCoordinator: Coordinator {
     
     // MARK: - Properties
     
-    var nc: MDBNavigationController
+    var navigationController: BaseNavigationController
     
     // MARK: - Init
     
-    init(_ nc: MDBNavigationController) {
-        self.nc = nc
-        self.nc.isNavigationBarHidden = true
+    init(_ nc: BaseNavigationController) {
+        self.navigationController = nc
+        self.navigationController.isNavigationBarHidden = true
     }
     
     // MARK: - Navigation methods
@@ -26,12 +26,12 @@ class LoginCoordinator: Coordinator {
     func start() {
         let vc = LoginViewController()
         vc.coordinator = self
-        nc.pushViewController(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func login() {
         let tabBar = MainTabBarController()
         tabBar.modalPresentationStyle = .fullScreen
-        nc.present(tabBar, animated: true)
+        navigationController.present(tabBar, animated: true)
     }
 }

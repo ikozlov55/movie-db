@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilmSearchView: UIView {
+final class FilmSearchView: UIView {
 
     // MARK: - Subviews
 

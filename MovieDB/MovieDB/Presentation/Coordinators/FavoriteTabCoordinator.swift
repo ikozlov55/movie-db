@@ -8,16 +8,16 @@
 
 import UIKit
 
-class FavoriteTabCoordinator: Coordinator {
+final class FavoriteTabCoordinator: Coordinator {
     
     // MARK: - Properties
     
-    var nc: MDBNavigationController
+    var navigationController: BaseNavigationController
     
     // MARK: - Init
     
-    init(_ nc: MDBNavigationController) {
-        self.nc = nc
+    init(_ nc: BaseNavigationController) {
+        self.navigationController = nc
     }
     
     // MARK: - Navigation methods
@@ -31,7 +31,7 @@ class FavoriteTabCoordinator: Coordinator {
             tag: 1
         )
         vc.tabBarItem = tabBarItem
-        nc.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: false)
     }
 
 }

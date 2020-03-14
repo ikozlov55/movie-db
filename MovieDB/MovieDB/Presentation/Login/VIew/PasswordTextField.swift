@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PasswordTextField: LoginTextField {
+final class PasswordTextField: LoginTextField {
     
     // MARK: - Public Properties
     
@@ -37,7 +37,7 @@ class PasswordTextField: LoginTextField {
         let padding = UIEdgeInsets(top: 10, left: leftPadding, bottom: 10, right: rightPadding)
         return bounds.inset(by: padding)
     }
-    
+     
     // MARK: - Setup View
     
     override func setupView() {

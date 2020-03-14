@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LogoutButton: UIButton {
+final class LogoutButton: UIButton {
     
     // MARK: - Properties
     

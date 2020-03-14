@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaderLabel: MDBLabel {
+final class HeaderLabel: BaseLabel {
 
     // MARK: - Init
     

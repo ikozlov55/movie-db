@@ -18,7 +18,7 @@ protocol AuthServiceProtocol {
     )
 }
 
-class AuthService: AuthServiceProtocol {
+final class AuthService: AuthServiceProtocol {
     enum Error {
         case invalidToken
         case invalidCredentials

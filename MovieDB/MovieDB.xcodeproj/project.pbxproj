@@ -33,6 +33,7 @@
 		14C18A222413B7BE00332C65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C18A202413B7BE00332C65 /* LaunchScreen.storyboard */; };
 		14C18A3E2413E4B600332C65 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C18A3D2413E4B600332C65 /* colors.json */; };
 		14C18A422413EC2500332C65 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C18A412413EC2500332C65 /* Colors.swift */; };
+		14DC572B241CC92C00FC58D8 /* LoadingIndicatorVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */; };
 		14E2808524153E1E004167EB /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2808424153E1E004167EB /* LoginTextField.swift */; };
 		14E28087241541D3004167EB /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E28086241541D3004167EB /* PasswordTextField.swift */; };
 		14F2366424150B310094444E /* FilmSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366324150B310094444E /* FilmSearchViewController.swift */; };
@@ -41,10 +42,10 @@
 		14F2366A24150D890094444E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366924150D890094444E /* ProfileViewController.swift */; };
 		14F2366C24150E040094444E /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14F2366B24150E040094444E /* swiftlint.yml */; };
 		14F927272415158400215707 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927262415158300215707 /* Strings.swift */; };
-		14F9272924151C2D00215707 /* MDBNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9272824151C2D00215707 /* MDBNavigationController.swift */; };
+		14F9272924151C2D00215707 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9272824151C2D00215707 /* BaseNavigationController.swift */; };
 		14F9272D24152D2400215707 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9272C24152D2400215707 /* LoginView.swift */; };
 		14F9272F24152F6900215707 /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9272E24152F6900215707 /* HeaderLabel.swift */; };
-		14F927312415348A00215707 /* MDBLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927302415348A00215707 /* MDBLabel.swift */; };
+		14F927312415348A00215707 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927302415348A00215707 /* BaseLabel.swift */; };
 		14F927332415367900215707 /* SubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927322415367900215707 /* SubtitleLabel.swift */; };
 		14F927352415381000215707 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927342415381000215707 /* LoginButton.swift */; };
 		418176E06C822247172A99A9 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA7B705128673D5417522C0 /* Pods_MovieDB.framework */; };
@@ -80,6 +81,7 @@
 		14C18A232413B7BE00332C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14C18A3D2413E4B600332C65 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		14C18A412413EC2500332C65 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorVIew.swift; sourceTree = "<group>"; };
 		14E2808424153E1E004167EB /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		14E28086241541D3004167EB /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		14F2366324150B310094444E /* FilmSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchViewController.swift; sourceTree = "<group>"; };
@@ -88,10 +90,10 @@
 		14F2366924150D890094444E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		14F2366B24150E040094444E /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		14F927262415158300215707 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		14F9272824151C2D00215707 /* MDBNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBNavigationController.swift; sourceTree = "<group>"; };
+		14F9272824151C2D00215707 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		14F9272C24152D2400215707 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		14F9272E24152F6900215707 /* HeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
-		14F927302415348A00215707 /* MDBLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBLabel.swift; sourceTree = "<group>"; };
+		14F927302415348A00215707 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		14F927322415367900215707 /* SubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleLabel.swift; sourceTree = "<group>"; };
 		14F927342415381000215707 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		1FA7B705128673D5417522C0 /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,10 +113,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1410803F241CD60800E35468 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14F2366524150BF50094444E /* BaseViewController.swift */,
+				14F9272824151C2D00215707 /* BaseNavigationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		148EB5FC24162D0900AE511D /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
-				14F927302415348A00215707 /* MDBLabel.swift */,
+				14F927302415348A00215707 /* BaseLabel.swift */,
 				14F9272E24152F6900215707 /* HeaderLabel.swift */,
 				14F927322415367900215707 /* SubtitleLabel.swift */,
 				148EB5FD24162D2C00AE511D /* ErrorLabel.swift */,
@@ -197,6 +208,7 @@
 			children = (
 				148EB5FC24162D0900AE511D /* UILabel */,
 				14A294462415070700E846D6 /* MainTabBarController.swift */,
+				14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,11 +396,10 @@
 		14C18A3F2413E5CE00332C65 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1410803F241CD60800E35468 /* Controller */,
 				148EB5FF24162E6800AE511D /* Extension */,
 				14A29445241506DB00E846D6 /* Style */,
 				14A29444241506D000E846D6 /* View */,
-				14F2366524150BF50094444E /* BaseViewController.swift */,
-				14F9272824151C2D00215707 /* MDBNavigationController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -560,18 +571,19 @@
 				148FE9CA241650840079111E /* MovieDBApi.swift in Sources */,
 				14F9272F24152F6900215707 /* HeaderLabel.swift in Sources */,
 				148EB60124162F1A00AE511D /* String+Extension.swift in Sources */,
-				14F927312415348A00215707 /* MDBLabel.swift in Sources */,
+				14F927312415348A00215707 /* BaseLabel.swift in Sources */,
 				148FE9CD24165C9A0079111E /* AuthService.swift in Sources */,
 				14E28087241541D3004167EB /* PasswordTextField.swift in Sources */,
 				14F927272415158400215707 /* Strings.swift in Sources */,
 				148FE9D9241686E10079111E /* LogoutButton.swift in Sources */,
 				14F927332415367900215707 /* SubtitleLabel.swift in Sources */,
-				14F9272924151C2D00215707 /* MDBNavigationController.swift in Sources */,
+				14F9272924151C2D00215707 /* BaseNavigationController.swift in Sources */,
 				148EB5FE24162D2C00AE511D /* ErrorLabel.swift in Sources */,
 				14C18A162413B7BA00332C65 /* AppDelegate.swift in Sources */,
 				148EB608241648F500AE511D /* FavoriteView.swift in Sources */,
 				14F9272D24152D2400215707 /* LoginView.swift in Sources */,
 				14A294522415094600E846D6 /* FavoriteTabCoordinator.swift in Sources */,
+				14DC572B241CC92C00FC58D8 /* LoadingIndicatorVIew.swift in Sources */,
 				14F2366824150D6E0094444E /* FavoriteViewController.swift in Sources */,
 				14F927352415381000215707 /* LoginButton.swift in Sources */,
 				14E2808524153E1E004167EB /* LoginTextField.swift in Sources */,

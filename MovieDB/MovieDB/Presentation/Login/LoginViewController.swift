@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController {
+final class LoginViewController: BaseViewController {
     
     // MARK: - Properties
     
@@ -47,7 +47,7 @@ class LoginViewController: BaseViewController {
             let login = loginView.loginTextField.text?.trim,
             let password = loginView.passwordTextField.text?.trim
             else { return }
-        loginView.activityIndicator.startAnimating()
+        loginView.startLoadingIndicator()
         authService.login(
             username: login,
             password: password,
@@ -59,7 +59,7 @@ class LoginViewController: BaseViewController {
                 default:
                     self?.loginView.errorLabel.text = L10n.loginFailedError
                 }
-                self?.loginView.activityIndicator.stopAnimating()
+                self?.loginView.stopLoadingIndicator()
             }
         )
         
@@ -73,7 +73,7 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let input = loginView.textFields.compactMap { $0.text }.filter { !$0.trim.isEmpty }
-        loginView.loginButton.isEnabled = input.count == loginView.textFields.count ? true : false
+        loginView.loginButton.isEnabled = input.count == loginView.textFields.count
     }
     
 }

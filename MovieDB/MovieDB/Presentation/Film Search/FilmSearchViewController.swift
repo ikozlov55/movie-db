@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilmSearchViewController: BaseViewController {
+final class FilmSearchViewController: BaseViewController {
     
     // MARK: - Properties
     

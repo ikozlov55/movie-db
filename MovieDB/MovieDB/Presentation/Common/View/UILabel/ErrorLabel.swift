@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ErrorLabel: MDBLabel {
+final class ErrorLabel: BaseLabel {
 
     // MARK: - Init
     
