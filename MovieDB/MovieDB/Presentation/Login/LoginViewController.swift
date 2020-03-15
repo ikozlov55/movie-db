@@ -6,6 +6,7 @@
 //  Copyright © 2020 Илья Козлов. All rights reserved.
 //
 
+import MovieDBAPI
 import UIKit
 
 final class LoginViewController: BaseViewController {
@@ -15,8 +16,7 @@ final class LoginViewController: BaseViewController {
     var coordinator: LoginCoordinator?
     
     private var loginView = LoginView()
-    
-    private let authService: AuthServiceProtocol = AuthService.shared
+    private let authService = AuthService()
     
     // MARK: - Lifecycle
     
@@ -48,21 +48,25 @@ final class LoginViewController: BaseViewController {
             let password = loginView.passwordTextField.text?.trim
             else { return }
         loginView.startLoadingIndicator()
-        authService.login(
-            username: login,
-            password: password,
-            success: { [weak self] _ in self?.coordinator?.login() },
-            failure: { [weak self] error in
-                switch error {
-                case .invalidCredentials:
-                    self?.loginView.errorLabel.text = L10n.invalidCredentialsError
-                default:
-                    self?.loginView.errorLabel.text = L10n.loginFailedError
-                }
+        authService.login(username: login, password: password) { [weak self] result in
+            switch result {
+            case .success(let sessionId):
+                print(sessionId)
+                self?.coordinator?.login()
+            case .failure(let error):
+                self?.show(error: error)
                 self?.loginView.stopLoadingIndicator()
             }
-        )
-        
+        }
+    }
+    
+    private func show(error: MovieDBAPI.Error) {
+        switch error {
+        case .invalidCredentials:
+            loginView.errorLabel.text = L10n.invalidCredentialsError
+        default:
+            loginView.errorLabel.text = L10n.loginFailedError
+        }
     }
     
 }

@@ -2,12 +2,17 @@
 platform :ios, '12.0'
 
 target 'MovieDB' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for MovieDB
   pod 'SwiftLint', '0.39.1'
   pod 'SwiftGen', '6.0'
-  pod 'Moya', '14.0'
+
+end
+
+target 'MovieDBAPI' do
+  use_frameworks!
+
+  # Pods for MovieDBAPI
 
 end
