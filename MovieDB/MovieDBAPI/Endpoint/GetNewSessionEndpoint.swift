@@ -8,11 +8,10 @@
 
 import Foundation
 
-public class GetNewSessionEndpoint: JSONRequestEndpoint, JSONResponseEndpoint {
+final public class GetNewSessionEndpoint: JSONRequestEndpoint, JSONResponseEndpoint {
     public typealias Content = GetNewSessionDTO
     
     internal let coder: Coder = MovieDBCoder()
-    
     internal let body: GetNewSessionRequestDTO
     
     public init(requestToken: String) {

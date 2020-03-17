@@ -19,11 +19,8 @@ protocol AuthServiceProtocol {
 
 final class AuthService: AuthServiceProtocol {
     
-    static let shared = AuthService()
-    
     // MARK: - Private Properties
     
-    private let decoder = JSONDecoder()
     private let baseUrl = URL(string: "https://api.themoviedb.org/3")!
     private let apiKey = "078d0533a0b06401c117b0818a7b1e99"
     private let apiClient: MovieDBClient

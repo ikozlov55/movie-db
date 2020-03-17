@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class MovieDBClient: APIClient {
+final public class MovieDBClient: APIClient {
     
     // MARK: - Public Properties
     

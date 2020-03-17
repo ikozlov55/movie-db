@@ -8,10 +8,9 @@
 
 import Foundation
 
-public class CloseSessionEndpoint: JSONRequestEndpoint, VoidResponseEndpoint {
+final public class CloseSessionEndpoint: JSONRequestEndpoint, VoidResponseEndpoint {
     internal let coder: Coder = MovieDBCoder()
-    
-    var body: CloseSessionRequestDTO
+    internal let body: CloseSessionRequestDTO
     
     init(sessionId: String) {
         body = CloseSessionRequestDTO(sessionId: sessionId)

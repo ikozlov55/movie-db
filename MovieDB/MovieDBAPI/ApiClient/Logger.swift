@@ -15,7 +15,7 @@ protocol Logger {
     func log(_ responseData: Data)
 }
 
-class PrintLogger: Logger {
+final class PrintLogger: Logger {
     
     var isActive: Bool
     

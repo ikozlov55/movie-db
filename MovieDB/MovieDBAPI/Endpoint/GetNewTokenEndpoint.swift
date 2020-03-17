@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class GetNewTokenEndpoint: JSONResponseEndpoint {
+final public class GetNewTokenEndpoint: JSONResponseEndpoint {
     public typealias Content = GetNewTokenDTO
     
     internal let coder: Coder = MovieDBCoder()

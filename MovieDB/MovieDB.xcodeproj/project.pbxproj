@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -54,6 +54,11 @@
 		14C18A222413B7BE00332C65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C18A202413B7BE00332C65 /* LaunchScreen.storyboard */; };
 		14C18A3E2413E4B600332C65 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 14C18A3D2413E4B600332C65 /* colors.json */; };
 		14C18A422413EC2500332C65 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C18A412413EC2500332C65 /* Colors.swift */; };
+		14C9653B24212604000D0960 /* SearchMovieEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9653A24212604000D0960 /* SearchMovieEndpoint.swift */; };
+		14C9653D24212633000D0960 /* MoviesListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9653C24212633000D0960 /* MoviesListDTO.swift */; };
+		14C9653F24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9653E24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift */; };
+		14C9654124212BF1000D0960 /* AddFavoriteMovieEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */; };
+		14C9654324212C07000D0960 /* AddFavoriteMovieRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9654224212C07000D0960 /* AddFavoriteMovieRequestDTO.swift */; };
 		14DC572B241CC92C00FC58D8 /* LoadingIndicatorVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */; };
 		14E2808524153E1E004167EB /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2808424153E1E004167EB /* LoginTextField.swift */; };
 		14E28087241541D3004167EB /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E28086241541D3004167EB /* PasswordTextField.swift */; };
@@ -148,6 +153,11 @@
 		14C18A232413B7BE00332C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14C18A3D2413E4B600332C65 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		14C18A412413EC2500332C65 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		14C9653A24212604000D0960 /* SearchMovieEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieEndpoint.swift; sourceTree = "<group>"; };
+		14C9653C24212633000D0960 /* MoviesListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListDTO.swift; sourceTree = "<group>"; };
+		14C9653E24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoriteMoviesEndpoint.swift; sourceTree = "<group>"; };
+		14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteMovieEndpoint.swift; sourceTree = "<group>"; };
+		14C9654224212C07000D0960 /* AddFavoriteMovieRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteMovieRequestDTO.swift; sourceTree = "<group>"; };
 		14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorVIew.swift; sourceTree = "<group>"; };
 		14E2808424153E1E004167EB /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		14E28086241541D3004167EB /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
@@ -238,11 +248,13 @@
 			isa = PBXGroup;
 			children = (
 				1432D2FA241CE2B600F8E6A6 /* GetNewTokenDTO.swift */,
+				14C9653C24212633000D0960 /* MoviesListDTO.swift */,
 				1432D2FC241CE2D400F8E6A6 /* GetNewSessionDTO.swift */,
 				1432D2FE241CE2DF00F8E6A6 /* GetAccountDTO.swift */,
 				14038A41241E41F7006040EA /* ValidateTokenRequestDTO.swift */,
 				14038A48241E5200006040EA /* GetNewSessionRequestDTO.swift */,
 				14038A4F241E59F3006040EA /* CloseSessionRequestDTO.swift */,
+				14C9654224212C07000D0960 /* AddFavoriteMovieRequestDTO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +268,9 @@
 				14038A4A241E522D006040EA /* GetNewSessionEndpoint.swift */,
 				14038A51241E5A23006040EA /* CloseSessionEndpoint.swift */,
 				14127AF3241E6F89000780CC /* GetAccountEndpoint.swift */,
+				14C9653A24212604000D0960 /* SearchMovieEndpoint.swift */,
+				14C9653E24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift */,
+				14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -737,9 +752,11 @@
 				14127AF2241E6EEF000780CC /* PathEnum.swift in Sources */,
 				1432D2FD241CE2D400F8E6A6 /* GetNewSessionDTO.swift in Sources */,
 				1432D2FF241CE2DF00F8E6A6 /* GetAccountDTO.swift in Sources */,
+				14C9653D24212633000D0960 /* MoviesListDTO.swift in Sources */,
 				14038A52241E5A23006040EA /* CloseSessionEndpoint.swift in Sources */,
 				14127AF4241E6F89000780CC /* GetAccountEndpoint.swift in Sources */,
 				14B9A2C7241E31C300EC07B3 /* Enum.swift in Sources */,
+				14C9653F24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift in Sources */,
 				1432D303241D04FE00F8E6A6 /* Endpoint.swift in Sources */,
 				14B9A2C9241E3B6D00EC07B3 /* Logger.swift in Sources */,
 				14038A54241E5A57006040EA /* VoidResponseEndpoint.swift in Sources */,
@@ -750,9 +767,12 @@
 				14038A47241E476E006040EA /* Coder.swift in Sources */,
 				14038A49241E5200006040EA /* GetNewSessionRequestDTO.swift in Sources */,
 				1432D30A241D118000F8E6A6 /* MovieDBClient.swift in Sources */,
+				14C9654124212BF1000D0960 /* AddFavoriteMovieEndpoint.swift in Sources */,
 				14038A4B241E522D006040EA /* GetNewSessionEndpoint.swift in Sources */,
 				14038A42241E41F7006040EA /* ValidateTokenRequestDTO.swift in Sources */,
 				14127AF0241E66AB000780CC /* JSONResponseEndpoint.swift in Sources */,
+				14C9653B24212604000D0960 /* SearchMovieEndpoint.swift in Sources */,
+				14C9654324212C07000D0960 /* AddFavoriteMovieRequestDTO.swift in Sources */,
 				1432D2FB241CE2B600F8E6A6 /* GetNewTokenDTO.swift in Sources */,
 				14038A50241E59F3006040EA /* CloseSessionRequestDTO.swift in Sources */,
 			);
