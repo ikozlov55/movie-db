@@ -26,6 +26,7 @@ public enum Error: Swift.Error {
     case server
     case invalidRequest
     case invalidCredentials
+    case invalidUrl
     case tokenExpired
     case decoding
     case unknown

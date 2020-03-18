@@ -75,6 +75,8 @@
 		14F927332415367900215707 /* SubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927322415367900215707 /* SubtitleLabel.swift */; };
 		14F927352415381000215707 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F927342415381000215707 /* LoginButton.swift */; };
 		418176E06C822247172A99A9 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA7B705128673D5417522C0 /* Pods_MovieDB.framework */; };
+		68669C3B2421E92B00972114 /* GetImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68669C3A2421E92B00972114 /* GetImageEndpoint.swift */; };
+		68669C3F2421F12900972114 /* ImagesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68669C3E2421F12900972114 /* ImagesClient.swift */; };
 		F4C41DA9B94DD16D14E865DD /* Pods_MovieDBAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4401A7C365C1B2B8B7AE6A03 /* Pods_MovieDBAPI.framework */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +180,8 @@
 		38B50DF9BCDE208B49315527 /* Pods-MovieDBAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBAPI.debug.xcconfig"; path = "Target Support Files/Pods-MovieDBAPI/Pods-MovieDBAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		4401A7C365C1B2B8B7AE6A03 /* Pods_MovieDBAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDBAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDD8F5B5DB723AC3E5C5166 /* Pods-MovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.debug.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.debug.xcconfig"; sourceTree = "<group>"; };
+		68669C3A2421E92B00972114 /* GetImageEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageEndpoint.swift; sourceTree = "<group>"; };
+		68669C3E2421F12900972114 /* ImagesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesClient.swift; sourceTree = "<group>"; };
 		D508415F5227372EC3DB5884 /* Pods-MovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.release.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,14 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				14038A55241E5F0A006040EA /* Base */,
-				1432D307241D0F2A00F8E6A6 /* GetNewTokenEndpoint.swift */,
-				14B9A2CA241E3EA100EC07B3 /* ValidateTokenEndpoint.swift */,
-				14038A4A241E522D006040EA /* GetNewSessionEndpoint.swift */,
-				14038A51241E5A23006040EA /* CloseSessionEndpoint.swift */,
-				14127AF3241E6F89000780CC /* GetAccountEndpoint.swift */,
-				14C9653A24212604000D0960 /* SearchMovieEndpoint.swift */,
-				14C9653E24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift */,
-				14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */,
+				68669C392421E90D00972114 /* MovieDB */,
+				68669C3A2421E92B00972114 /* GetImageEndpoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -282,6 +280,7 @@
 				14127AF1241E6EEF000780CC /* PathEnum.swift */,
 				1432D304241D052600F8E6A6 /* APIClient.swift */,
 				1432D309241D118000F8E6A6 /* MovieDBClient.swift */,
+				68669C3E2421F12900972114 /* ImagesClient.swift */,
 				14B9A2C8241E3B6D00EC07B3 /* Logger.swift */,
 			);
 			path = ApiClient;
@@ -552,6 +551,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		68669C392421E90D00972114 /* MovieDB */ = {
+			isa = PBXGroup;
+			children = (
+				1432D307241D0F2A00F8E6A6 /* GetNewTokenEndpoint.swift */,
+				14B9A2CA241E3EA100EC07B3 /* ValidateTokenEndpoint.swift */,
+				14038A4A241E522D006040EA /* GetNewSessionEndpoint.swift */,
+				14038A51241E5A23006040EA /* CloseSessionEndpoint.swift */,
+				14127AF3241E6F89000780CC /* GetAccountEndpoint.swift */,
+				14C9653A24212604000D0960 /* SearchMovieEndpoint.swift */,
+				14C9653E24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift */,
+				14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */,
+			);
+			path = MovieDB;
+			sourceTree = "<group>";
+		};
 		A879AC493B3605FD4F9BBBB0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -752,7 +766,9 @@
 				14127AF2241E6EEF000780CC /* PathEnum.swift in Sources */,
 				1432D2FD241CE2D400F8E6A6 /* GetNewSessionDTO.swift in Sources */,
 				1432D2FF241CE2DF00F8E6A6 /* GetAccountDTO.swift in Sources */,
+				68669C3F2421F12900972114 /* ImagesClient.swift in Sources */,
 				14C9653D24212633000D0960 /* MoviesListDTO.swift in Sources */,
+				68669C3B2421E92B00972114 /* GetImageEndpoint.swift in Sources */,
 				14038A52241E5A23006040EA /* CloseSessionEndpoint.swift in Sources */,
 				14127AF4241E6F89000780CC /* GetAccountEndpoint.swift in Sources */,
 				14B9A2C7241E31C300EC07B3 /* Enum.swift in Sources */,
