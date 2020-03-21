@@ -12,8 +12,8 @@ final class AddFavoriteMovieEndpoint: JSONRequestEndpoint, JSONResponseEndpoint 
     typealias Content = MoviesListDTO
     
     let coder: Coder = MovieDBCoder()
-    internal let body: AddFavoriteMovieRequestDTO
-    internal let accountId: Int
+    let body: AddFavoriteMovieRequestDTO
+    let accountId: Int
     
     public init(accountId: Int, mediaType: String, mediaId: String, favorite: Bool) {
         self.accountId = accountId

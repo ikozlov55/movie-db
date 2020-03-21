@@ -11,7 +11,7 @@ import Foundation
 final public class GetFavoriteMoviesEndpoint: JSONResponseEndpoint {
     public typealias Content = MoviesListDTO
     
-    internal let coder: Coder = MovieDBCoder()
+    let coder: Coder = MovieDBCoder()
     private let accountId: Int
     
     public init(accountId: Int) {

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` где ответ пустой или не важен
 protocol VoidResponseEndpoint: Endpoint where Content == Void {}
 
 extension VoidResponseEndpoint {

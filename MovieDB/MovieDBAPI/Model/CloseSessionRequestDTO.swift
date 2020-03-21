@@ -8,10 +8,14 @@
 
 import Foundation
 
+/// Объект тела запроса на завершение сессии
 public struct CloseSessionRequestDTO: Encodable {
+    
+    /// Id сессии
     public let sessionId: String
     
     public init(sessionId: String) {
         self.sessionId = sessionId
     }
+
 }

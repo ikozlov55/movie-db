@@ -8,14 +8,16 @@
 
 import Foundation
 
+/// Объект ответа на запрос получения request token
 public struct GetNewTokenDTO: Decodable {
-    public let success: Bool
-    public let expiresAt: Date
-    public let requestToken: String
     
-    public init(success: Bool, expiresAt: Date, requestToken: String) {
-        self.success = success
-        self.expiresAt = expiresAt
-        self.requestToken = requestToken
-    }
+    /// Результат запроса
+    public let success: Bool
+    
+    /// Дата истечения действия токена вида 2020-03-21 08:12:09 UTC
+    public let expiresAt: Date
+    
+    /// Токен
+    public let requestToken: String
+
 }

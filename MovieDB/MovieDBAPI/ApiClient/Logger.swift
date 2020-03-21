@@ -8,13 +8,26 @@
 
 import Foundation
 
+/// Тип, ответсвенность которого, логировать HTTP взаимодествие в `APIClient`
 protocol Logger {
+    
+    /// Признак активности логгера а данный момент
     var isActive: Bool { get set }
+    
+    /// Логирование HTTP запроса
+    /// - Parameter request: запрос
     func log(_ request: URLRequest)
+    
+    /// Логирование ответа `HTTPURLResponse`
+    /// - Parameter response: ответ
     func log(_ response: HTTPURLResponse)
-    func log(_ responseData: Data)
+    
+    /// Логирование бинарных данных тела ответа или запроса
+    /// - Parameter data: данные
+    func log(_ data: Data)
 }
 
+/// `Logger` который выводит лог в терминал с помощью простых вызовов функции `print`
 final class PrintLogger: Logger {
     
     var isActive: Bool
@@ -25,8 +38,7 @@ final class PrintLogger: Logger {
     
     func log(_ request: URLRequest) {
         guard isActive else { return }
-        guard
-            let method = request.httpMethod,
+        guard let method = request.httpMethod,
             let url = request.url
             else {
                 print("\n invalid request \n")

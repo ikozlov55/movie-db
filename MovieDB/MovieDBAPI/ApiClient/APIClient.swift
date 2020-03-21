@@ -8,12 +8,17 @@
 
 import Foundation
 
+/// Тип, отвечающий за HTTP взаимодействие с api
 protocol APIClient: AnyObject {
     
+    /// Получение и отправка HTTP запроса, полученного из endpoint
+    /// - Parameters:
+    ///   - endpoint: Вызываемый эндпоинт api
+    ///   - completion: Замыкание, вызываемое для обработки результатов запрос
     @discardableResult
     func request<T>(
         _ endpoint: T,
-        completion: @escaping (Result<T.Content, Error>) -> Void
+        completion: @escaping (Result<T.Content, APIError>) -> Void
     ) -> Progress where T: Endpoint
     
 }

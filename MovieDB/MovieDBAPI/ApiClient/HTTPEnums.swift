@@ -1,5 +1,5 @@
 //
-//  Enum.swift
+//  HTTPEnums.swift
 //  MovieDBAPI
 //
 //  Created by Илья Козлов on 15.03.2020.
@@ -21,7 +21,7 @@ public enum HTTPStatus: Int {
     case serverError = 500
 }
 
-public enum Error: Swift.Error {
+public enum APIError: Swift.Error {
     case network
     case server
     case invalidRequest

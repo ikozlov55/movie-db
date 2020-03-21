@@ -33,10 +33,9 @@ final public class MovieDBClient: APIClient {
     
     public func request<T>(
         _ endpoint: T,
-        completion: @escaping (Result<T.Content, Error>) -> Void
+        completion: @escaping (Result<T.Content, APIError>) -> Void
     ) -> Progress where T: Endpoint {
-        guard
-            let request = makeFullRequest(endpoint)
+        guard let request = makeFullRequest(endpoint)
             else {
                 completion(.failure(.unknown))
                 return Progress()
@@ -48,8 +47,7 @@ final public class MovieDBClient: APIClient {
                 return
             }
             
-            guard
-                let response = response as? HTTPURLResponse,
+            guard let response = response as? HTTPURLResponse,
                 let statusCode = HTTPStatus(rawValue: response.statusCode),
                 let data = data
                 else {
@@ -64,8 +62,7 @@ final public class MovieDBClient: APIClient {
                 return
             }
             
-            guard
-                let content = try? endpoint.content(from: data, response: response)
+            guard let content = try? endpoint.content(from: data, response: response)
                 else {
                     completion(.failure(.decoding))
                     return
@@ -80,8 +77,7 @@ final public class MovieDBClient: APIClient {
     // MARK: - Private Methods
     
     private func makeFullRequest<T>(_ endpoint: T) -> URLRequest? where T: Endpoint {
-        guard
-            var request = try? endpoint.makeRequest(),
+        guard var request = try? endpoint.makeRequest(),
             let requestPath = request.url?.path,
             var components = URLComponents(
                 url: baseUrl.appendingPathComponent(requestPath),
@@ -101,7 +97,7 @@ final public class MovieDBClient: APIClient {
         return request
     }
     
-    private func handleStatusCode(_ statusCode: HTTPStatus) -> Error? {
+    private func handleStatusCode(_ statusCode: HTTPStatus) -> APIError? {
         switch statusCode {
         case .ok:
             return nil

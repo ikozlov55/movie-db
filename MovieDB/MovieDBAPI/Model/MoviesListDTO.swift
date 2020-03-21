@@ -8,53 +8,49 @@
 
 import Foundation
 
+/// Объект с информацие о фильме или сериале
 public struct MovieDTO: Decodable {
-    public let id: Int
-    public let popularity: Double
-    public let voteCount: Int
-    public let voteAverage: Double
-    public let posterPath: String
-    public let backdropPath: String
-    public let originalTitle: String
-    public let genreIds: [Int]
-    public let title: String
-    public let overview: String
     
-    public init(
-        id: Int,
-        popularity: Double,
-        voteCount: Int,
-        voteAverage: Double,
-        posterPath: String,
-        backdropPath: String,
-        originalTitle: String,
-        genreIds: [Int],
-        title: String,
-        overview: String
-    ) {
-        self.id = id
-        self.popularity = popularity
-        self.voteCount = voteCount
-        self.voteAverage = voteAverage
-        self.posterPath = posterPath
-        self.backdropPath = backdropPath
-        self.originalTitle = originalTitle
-        self.genreIds = genreIds
-        self.title = title
-        self.overview = overview
-    }
+    /// Id сущности
+    public let id: Int
+    
+    /// Количество голосов/лайков
+    public let voteCount: Int
+    
+    /// Рейтинг фильма от 0 до 10
+    public let voteAverage: Double
+    
+    /// Название файла с постером
+    public let posterPath: String
+    
+    /// Название файла с задником
+    public let backdropPath: String
+    
+    /// Оригинальное название
+    public let originalTitle: String
+    
+    /// Список id жанров
+    public let genreIds: [Int]
+    
+    /// Локализованное название
+    public let title: String
+    
+    /// Описание
+    public let overview: String
 }
 
+/// Объект страницы списка фильмов - результат поиска или список избранного
 public struct MoviesListDTO: Decodable {
-    public let page: Int
-    public let totalResults: Int
-    public let totalPages: Int
-    public let results: [MovieDTO]
     
-    public init(page: Int, totalResults: Int, totalPages: Int, results: [MovieDTO]) {
-        self.page = page
-        self.totalResults = totalResults
-        self.totalPages = totalPages
-        self.results = results
-    }
+    /// Номер страницы
+    public let page: Int
+    
+    /// Общее количество элементов  во всех страницах списка
+    public let totalResults: Int
+    
+    /// Общее количество страниц
+    public let totalPages: Int
+    
+    /// Элементы текущей страницы
+    public let results: [MovieDTO]
 }

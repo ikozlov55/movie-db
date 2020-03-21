@@ -8,9 +8,16 @@
 
 import Foundation
 
+/// Объект тела запроса на добавление или удаление фильма или сериала в избранное
 public struct AddFavoriteMovieRequestDTO: Encodable {
+    
+    /// Тип добавляемой сущности: movie или tv
     public let mediaType: String
+    
+    /// Id добавляемой сущности
     public let mediaId: String
+    
+    /// Признак - добавить или удалить сущность
     public let favorite: Bool
     
     public init(mediaType: String, mediaId: String, favorite: Bool) {
@@ -18,4 +25,5 @@ public struct AddFavoriteMovieRequestDTO: Encodable {
         self.mediaId = mediaId
         self.favorite = favorite
     }
+
 }

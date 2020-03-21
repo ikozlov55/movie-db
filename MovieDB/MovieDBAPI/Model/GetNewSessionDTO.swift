@@ -8,12 +8,13 @@
 
 import Foundation
 
+/// Объект ответа на запроса получения session ID
 public struct GetNewSessionDTO: Decodable {
+    
+    /// Результат запроса
     public let success: Bool
+    
+    /// Session ID
     public let sessionId: String
     
-    public init(success: Bool, sessionId: String) {
-        self.success = success
-        self.sessionId = sessionId
-    }
 }

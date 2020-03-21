@@ -11,7 +11,7 @@ import Foundation
 final public class SearchMovieEndpoint: JSONResponseEndpoint {
     public typealias Content = MoviesListDTO
     
-    internal let coder: Coder = MovieDBCoder()
+    let coder: Coder = MovieDBCoder()
     
     public init() {}
     

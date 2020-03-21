@@ -8,9 +8,16 @@
 
 import Foundation
 
+/// `Endpoint` с JSON телом в запросе
 protocol JSONRequestEndpoint: Endpoint {
+    
+    /// `Encodable` тип тела запроса
     associatedtype Body: Encodable
+    
+    /// `Coder` для кодирование тела запроса
     var coder: Coder { get }
+    
+    /// Тело запроса
     var body: Body { get }
 }
 

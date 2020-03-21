@@ -8,7 +8,10 @@
 
 import Foundation
 
+/// `Endpoint` с JSON телом в ответе
 protocol JSONResponseEndpoint: Endpoint where Content: Decodable {
+    
+    /// `Coder` для декодирования тела ответа
     var coder: Coder { get }
 }
 

@@ -43,15 +43,13 @@ final class LoginViewController: BaseViewController {
     }
     
     @objc private func login() {
-        guard
-            let login = loginView.loginTextField.text?.trim,
+        guard let login = loginView.loginTextField.text?.trim,
             let password = loginView.passwordTextField.text?.trim
             else { return }
         loginView.startLoadingIndicator()
         authService.login(username: login, password: password) { [weak self] result in
             switch result {
-            case .success(let sessionId):
-                print(sessionId)
+            case .success:
                 self?.coordinator?.login()
             case .failure(let error):
                 self?.show(error: error)
@@ -60,7 +58,7 @@ final class LoginViewController: BaseViewController {
         }
     }
     
-    private func show(error: MovieDBAPI.Error) {
+    private func show(error: MovieDBAPI.APIError) {
         switch error {
         case .invalidCredentials:
             loginView.errorLabel.text = L10n.invalidCredentialsError

@@ -8,9 +8,16 @@
 
 import Foundation
 
+/// Объект тела запроса на валидацию request token
 public struct ValidateTokenRequestDTO: Encodable {
+    
+    /// Имя пользоваетеля
     public let username: String
+    
+    /// Пароль
     public let password: String
+    
+    /// Временный request token
     public let requestToken: String
     
     public init(username: String, password: String, requestToken: String) {
@@ -18,4 +25,5 @@ public struct ValidateTokenRequestDTO: Encodable {
         self.password = password
         self.requestToken = requestToken
     }
+
 }

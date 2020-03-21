@@ -11,7 +11,7 @@ import Foundation
 final public class GetAccountEndpoint: JSONResponseEndpoint {
     public typealias Content = GetAccountDTO
     
-    internal let coder: Coder = MovieDBCoder()
+    let coder: Coder = MovieDBCoder()
 
     public init() {}
     

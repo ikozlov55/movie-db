@@ -8,11 +8,17 @@
 
 import Foundation
 
+/// Тип, который содержит атрибуты для кодирования и декодирования JSON тел HTTP запросов и ответов
 protocol Coder {
+    
+    /// Декодер JSON тела HTTP ответа в модель
     var decoder: JSONDecoder { get }
+    
+    /// Кодер модели в JSON тело HTTP запроса
     var encoder: JSONEncoder { get }
 }
 
+/// `Coder` для запросов и ответо API themoviedb.org
 struct MovieDBCoder: Coder {
     let decoder: JSONDecoder = {
         let decoder = JSONDecoder()

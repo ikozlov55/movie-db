@@ -11,8 +11,8 @@ import Foundation
 final public class ValidateTokenEndpoint: JSONRequestEndpoint, JSONResponseEndpoint {
     public typealias Content = GetNewTokenDTO
     
-    internal let coder: Coder = MovieDBCoder()
-    internal let body: ValidateTokenRequestDTO
+    let coder: Coder = MovieDBCoder()
+    let body: ValidateTokenRequestDTO
     
     public init(username: String, password: String, requestToken: String) {
         body = ValidateTokenRequestDTO(

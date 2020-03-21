@@ -22,10 +22,9 @@ public final class ImagesClient: APIClient {
 
     public func request<T>(
         _ endpoint: T,
-        completion: @escaping (Result<T.Content, Error>) -> Void
+        completion: @escaping (Result<T.Content, APIError>) -> Void
     ) -> Progress where T: Endpoint {
-        guard
-            let request = try? endpoint.makeRequest()
+        guard let request = try? endpoint.makeRequest()
             else {
                 completion(.failure(.invalidUrl))
                 return Progress()
@@ -35,8 +34,7 @@ public final class ImagesClient: APIClient {
             if error != nil {
                 completion(.failure(.network))
             }
-            guard
-                let data = data,
+            guard let data = data,
                 let image = try? endpoint.content(from: data, response: response)
                 else {
                     completion(.failure(.unknown))

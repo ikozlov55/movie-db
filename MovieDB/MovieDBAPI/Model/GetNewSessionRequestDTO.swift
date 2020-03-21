@@ -8,10 +8,14 @@
 
 import Foundation
 
+/// Объект тела запроса на получение Id сессии
 public struct GetNewSessionRequestDTO: Encodable {
+    
+    /// Временный request token
     public let requestToken: String
     
     public init(requestToken: String) {
         self.requestToken = requestToken
     }
+
 }

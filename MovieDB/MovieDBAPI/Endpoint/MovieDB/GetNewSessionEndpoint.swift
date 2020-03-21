@@ -11,8 +11,8 @@ import Foundation
 final public class GetNewSessionEndpoint: JSONRequestEndpoint, JSONResponseEndpoint {
     public typealias Content = GetNewSessionDTO
     
-    internal let coder: Coder = MovieDBCoder()
-    internal let body: GetNewSessionRequestDTO
+    let coder: Coder = MovieDBCoder()
+    let body: GetNewSessionRequestDTO
     
     public init(requestToken: String) {
         body = GetNewSessionRequestDTO(requestToken: requestToken)

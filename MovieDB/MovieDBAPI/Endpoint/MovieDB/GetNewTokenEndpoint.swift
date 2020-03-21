@@ -11,7 +11,7 @@ import Foundation
 final public class GetNewTokenEndpoint: JSONResponseEndpoint {
     public typealias Content = GetNewTokenDTO
     
-    internal let coder: Coder = MovieDBCoder()
+    let coder: Coder = MovieDBCoder()
     
     public init() {}
     

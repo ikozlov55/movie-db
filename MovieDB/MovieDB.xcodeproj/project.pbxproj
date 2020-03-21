@@ -45,7 +45,7 @@
 		14A294522415094600E846D6 /* FavoriteTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A294512415094600E846D6 /* FavoriteTabCoordinator.swift */; };
 		14AE8EAF2414EF59006D9D3C /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14AE8EAE2414EF59006D9D3C /* swiftgen.yml */; };
 		14AE8EB12414EFF9006D9D3C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE8EB02414EFF9006D9D3C /* Images.swift */; };
-		14B9A2C7241E31C300EC07B3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B9A2C6241E31C300EC07B3 /* Enum.swift */; };
+		14B9A2C7241E31C300EC07B3 /* HTTPEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B9A2C6241E31C300EC07B3 /* HTTPEnums.swift */; };
 		14B9A2C9241E3B6D00EC07B3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B9A2C8241E3B6D00EC07B3 /* Logger.swift */; };
 		14B9A2CB241E3EA100EC07B3 /* ValidateTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B9A2CA241E3EA100EC07B3 /* ValidateTokenEndpoint.swift */; };
 		14C18A162413B7BA00332C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C18A152413B7BA00332C65 /* AppDelegate.swift */; };
@@ -144,7 +144,7 @@
 		14A294512415094600E846D6 /* FavoriteTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTabCoordinator.swift; sourceTree = "<group>"; };
 		14AE8EAE2414EF59006D9D3C /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		14AE8EB02414EFF9006D9D3C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		14B9A2C6241E31C300EC07B3 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		14B9A2C6241E31C300EC07B3 /* HTTPEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEnums.swift; sourceTree = "<group>"; };
 		14B9A2C8241E3B6D00EC07B3 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		14B9A2CA241E3EA100EC07B3 /* ValidateTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTokenEndpoint.swift; sourceTree = "<group>"; };
 		14C18A122413B7BA00332C65 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,7 +276,7 @@
 		1432D301241CE30E00F8E6A6 /* ApiClient */ = {
 			isa = PBXGroup;
 			children = (
-				14B9A2C6241E31C300EC07B3 /* Enum.swift */,
+				14B9A2C6241E31C300EC07B3 /* HTTPEnums.swift */,
 				14127AF1241E6EEF000780CC /* PathEnum.swift */,
 				1432D304241D052600F8E6A6 /* APIClient.swift */,
 				1432D309241D118000F8E6A6 /* MovieDBClient.swift */,
@@ -771,7 +771,7 @@
 				68669C3B2421E92B00972114 /* GetImageEndpoint.swift in Sources */,
 				14038A52241E5A23006040EA /* CloseSessionEndpoint.swift in Sources */,
 				14127AF4241E6F89000780CC /* GetAccountEndpoint.swift in Sources */,
-				14B9A2C7241E31C300EC07B3 /* Enum.swift in Sources */,
+				14B9A2C7241E31C300EC07B3 /* HTTPEnums.swift in Sources */,
 				14C9653F24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift in Sources */,
 				1432D303241D04FE00F8E6A6 /* Endpoint.swift in Sources */,
 				14B9A2C9241E3B6D00EC07B3 /* Logger.swift in Sources */,

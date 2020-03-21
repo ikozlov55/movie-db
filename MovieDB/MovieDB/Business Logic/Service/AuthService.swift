@@ -13,7 +13,7 @@ protocol AuthServiceProtocol {
     func login(
         username: String,
         password: String,
-        completion: @escaping ((Result<String, Error>) -> Void)
+        completion: @escaping ((Result<String, APIError>) -> Void)
     )
 }
 
@@ -41,7 +41,7 @@ final class AuthService: AuthServiceProtocol {
     func login(
         username: String,
         password: String,
-        completion: @escaping ((Result<String, Error>) -> Void)) {
+        completion: @escaping ((Result<String, APIError>) -> Void)) {
         apiClient.request(GetNewTokenEndpoint()) { [weak self] result in
             switch result {
             case .success(let response):
