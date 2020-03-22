@@ -20,10 +20,10 @@ final public class MovieDBClient: APIClient {
     
     /// - Parameters:
     ///   - configuration: Конфигурация `URLSession`  клиена, по умолчанию `.ephemeral`
-    ///   - logger: `Logger` HTTP взаимодействия, по умолчанию PrintLogger
+    ///   - logger: `Logger` HTTP взаимодействия
     public init(
         configuration: URLSessionConfiguration = .ephemeral,
-        logger: Logger = PrintLogger()
+        logger: Logger? = nil
     ) {
         session = URLSession(configuration: configuration)
         self.logger = logger

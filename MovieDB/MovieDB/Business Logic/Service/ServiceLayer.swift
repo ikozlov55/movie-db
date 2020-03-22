@@ -9,6 +9,11 @@
 import Foundation
 import MovieDBAPI
 
+enum StatusCode: Int {
+    case authenticationFailed = 3
+    case invalidApiKey = 7
+    case invalidCredentials = 30
+}
 
 /// Статический класс, содержащий все данные и сервисы для работы с API themoviedb.org
 class ServiceLayer {
@@ -20,9 +25,9 @@ class ServiceLayer {
     static private let apiKey = "078d0533a0b06401c117b0818a7b1e99"
     
     /// `APIClient` для работы с API themoviedb.org
-    static private let apiClient: APIClient = MovieDBClient()
+    static private let apiClient: APIClient = MovieDBClient(logger: PrintLogger())
     
-    /// Сервси авторизации
+    /// Сервис авторизации
     static let authService: AuthServiceProtocol = {
         AuthService(baseUrl: baseUrl, apiKey: apiKey, apiClient: apiClient)
     }()

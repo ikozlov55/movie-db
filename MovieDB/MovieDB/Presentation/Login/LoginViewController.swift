@@ -52,18 +52,19 @@ final class LoginViewController: BaseViewController {
             case .success:
                 self?.coordinator?.login()
             case .failure(let error):
-                self?.handle(error)
+                self?.loginView.errorLabel.text = self?.message(for: error)
                 self?.loginView.stopLoadingIndicator()
             }
         }
     }
     
-    private func handle(_ error: Error) {
+    private func message(for error: Error) -> String {
         if let errorDTO = error as? ErrorDTO,
-            errorDTO.statusCode == 30 {
-            loginView.errorLabel.text = L10n.invalidCredentialsError
+            let statusCode = StatusCode(rawValue: errorDTO.statusCode),
+            statusCode == .invalidCredentials {
+            return L10n.invalidCredentialsError
         } else {
-            loginView.errorLabel.text = L10n.loginFailedError
+            return L10n.loginFailedError
         }
     }
     

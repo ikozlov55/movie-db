@@ -28,12 +28,7 @@ enum ContentType: String {
 }
 
 public enum APIError: Error {
-    case network
     case server
-    case invalidRequest
-    case invalidCredentials
     case invalidUrl
-    case tokenExpired
-    case decoding
     case unknown
 }
