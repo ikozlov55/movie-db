@@ -6,6 +6,7 @@
 //  Copyright © 2020 Илья Козлов. All rights reserved.
 //
 
+import MovieDBAPI
 import UIKit
 
 final class LoginViewController: BaseViewController {
@@ -15,8 +16,7 @@ final class LoginViewController: BaseViewController {
     var coordinator: LoginCoordinator?
     
     private var loginView = LoginView()
-    
-    private let authService: AuthServiceProtocol = AuthService.shared
+    private let authService = ServiceLayer.authService
     
     // MARK: - Lifecycle
     
@@ -43,26 +43,29 @@ final class LoginViewController: BaseViewController {
     }
     
     @objc private func login() {
-        guard
-            let login = loginView.loginTextField.text?.trim,
+        guard let login = loginView.loginTextField.text?.trim,
             let password = loginView.passwordTextField.text?.trim
             else { return }
         loginView.startLoadingIndicator()
-        authService.login(
-            username: login,
-            password: password,
-            success: { [weak self] _ in self?.coordinator?.login() },
-            failure: { [weak self] error in
-                switch error {
-                case .invalidCredentials:
-                    self?.loginView.errorLabel.text = L10n.invalidCredentialsError
-                default:
-                    self?.loginView.errorLabel.text = L10n.loginFailedError
-                }
+        authService.login(username: login, password: password) { [weak self] result in
+            switch result {
+            case .success:
+                self?.coordinator?.login()
+            case .failure(let error):
+                self?.loginView.errorLabel.text = self?.message(for: error)
                 self?.loginView.stopLoadingIndicator()
             }
-        )
-        
+        }
+    }
+    
+    private func message(for error: Error) -> String {
+        if let errorDTO = error as? ErrorDTO,
+            let statusCode = StatusCode(rawValue: errorDTO.statusCode),
+            statusCode == .invalidCredentials {
+            return L10n.invalidCredentialsError
+        } else {
+            return L10n.loginFailedError
+        }
     }
     
 }
