@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Объект с информацие о фильме или сериале
+/// Структура с информацией о фильме или сериале
 public struct MovieDTO: Decodable {
     
     /// Id сущности
@@ -39,7 +39,7 @@ public struct MovieDTO: Decodable {
     public let overview: String
 }
 
-/// Объект страницы списка фильмов - результат поиска или список избранного
+/// Структура страницы списка фильмов или сериалов - результат поиска или список избранного
 public struct MoviesListDTO: Decodable {
     
     /// Номер страницы

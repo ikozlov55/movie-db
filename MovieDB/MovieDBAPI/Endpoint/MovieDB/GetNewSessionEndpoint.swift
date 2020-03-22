@@ -8,21 +8,27 @@
 
 import Foundation
 
-final public class GetNewSessionEndpoint: JSONRequestEndpoint, JSONResponseEndpoint {
+final public class GetNewSessionEndpoint: JSONEndpoint {
     public typealias Content = GetNewSessionDTO
     
-    let coder: Coder = MovieDBCoder()
-    let body: GetNewSessionRequestDTO
+    private let baseUrl: URL
+    private let apiKey: String
+    private let body: GetNewSessionRequestDTO
     
-    public init(requestToken: String) {
-        body = GetNewSessionRequestDTO(requestToken: requestToken)
+    public init(baseUrl: URL, apiKey: String, body: GetNewSessionRequestDTO) {
+        self.baseUrl = baseUrl
+        self.apiKey = apiKey
+        self.body = body
     }
     
     public func makeRequest() throws -> URLRequest {
-        var request = URLRequest(url: Authentication.sessionNew.url)
-        request.setHttpMethod(.POST)
-        request.httpBody = try encoder.encode(body)
-        request.addContentType(.json)
-        return request
+        try URLRequest.jsonBodyRequest(
+            .POST,
+            baseUrl,
+            path: "/authentication/session/new",
+            parameters: ["api_key": apiKey],
+            body: body
+        )
     }
+    
 }

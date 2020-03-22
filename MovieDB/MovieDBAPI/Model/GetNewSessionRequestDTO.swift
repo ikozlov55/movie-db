@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Объект тела запроса на получение Id сессии
+/// Структура тела запроса на получение Id сессии
 public struct GetNewSessionRequestDTO: Encodable {
     
     /// Временный request token

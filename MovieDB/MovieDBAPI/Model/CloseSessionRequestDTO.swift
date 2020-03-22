@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Объект тела запроса на завершение сессии
+/// Структура тела запроса на завершение сессии
 public struct CloseSessionRequestDTO: Encodable {
     
     /// Id сессии

@@ -9,7 +9,7 @@
 import Foundation
 
 /// Тип, отвечающий за HTTP взаимодействие с api
-protocol APIClient: AnyObject {
+public protocol APIClient: AnyObject {
     
     /// Получение и отправка HTTP запроса, полученного из endpoint
     /// - Parameters:
@@ -18,7 +18,7 @@ protocol APIClient: AnyObject {
     @discardableResult
     func request<T>(
         _ endpoint: T,
-        completion: @escaping (Result<T.Content, APIError>) -> Void
+        completion: @escaping (Result<T.Content, Error>) -> Void
     ) -> Progress where T: Endpoint
     
 }

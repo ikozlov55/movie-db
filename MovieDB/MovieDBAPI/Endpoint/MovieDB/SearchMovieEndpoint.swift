@@ -8,14 +8,24 @@
 
 import Foundation
 
-final public class SearchMovieEndpoint: JSONResponseEndpoint {
+final public class SearchMovieEndpoint: JSONEndpoint {
     public typealias Content = MoviesListDTO
     
-    let coder: Coder = MovieDBCoder()
+    private let baseUrl: URL
+    private let apiKey: String
+    private let language: String?
     
-    public init() {}
+    public init(baseUrl: URL, apiKey: String, query: String, language: String? = nil) {
+        self.baseUrl = baseUrl
+        self.apiKey = apiKey
+        self.language = language
+    }
     
     public func makeRequest() throws -> URLRequest {
-        URLRequest(url: Search.movie.url)
+        try URLRequest.plainRequest(
+            baseUrl,
+            path: "/search/movie",
+            parameters: ["api_key": apiKey, "language": language ?? ""]
+        )
     }
 }

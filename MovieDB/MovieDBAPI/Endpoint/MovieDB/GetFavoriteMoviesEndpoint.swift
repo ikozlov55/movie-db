@@ -8,17 +8,26 @@
 
 import Foundation
 
-final public class GetFavoriteMoviesEndpoint: JSONResponseEndpoint {
+final public class GetFavoriteMoviesEndpoint: JSONEndpoint {
     public typealias Content = MoviesListDTO
     
-    let coder: Coder = MovieDBCoder()
+    private let baseUrl: URL
+    private let apiKey: String
+    private let sessionId: String
     private let accountId: Int
     
-    public init(accountId: Int) {
+    public init(baseUrl: URL, apiKey: String, sessionId: String, accountId: Int) {
+        self.baseUrl = baseUrl
+        self.apiKey = apiKey
+        self.sessionId = sessionId
         self.accountId = accountId
     }
     
     public func makeRequest() throws -> URLRequest {
-        URLRequest(url: Account.getFavoriteMovies.accountId(accountId))
+        try URLRequest.plainRequest(
+            baseUrl,
+            path: "account/\(accountId)/favorite/movies",
+            parameters: ["api_key": apiKey, "session_id": sessionId]
+        )
     }
 }

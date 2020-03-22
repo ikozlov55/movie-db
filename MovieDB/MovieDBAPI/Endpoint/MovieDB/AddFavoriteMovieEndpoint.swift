@@ -8,28 +8,36 @@
 
 import Foundation
 
-final class AddFavoriteMovieEndpoint: JSONRequestEndpoint, JSONResponseEndpoint {
+final class AddFavoriteMovieEndpoint: JSONEndpoint {
     typealias Content = MoviesListDTO
     
-    let coder: Coder = MovieDBCoder()
-    let body: AddFavoriteMovieRequestDTO
-    let accountId: Int
+    private let baseUrl: URL
+    private let apiKey: String
+    private let sessionId: String
+    private let accountId: Int
+    private let body: AddFavoriteMovieRequestDTO
     
-    public init(accountId: Int, mediaType: String, mediaId: String, favorite: Bool) {
+    public init(
+        baseUrl: URL,
+        apiKey: String,
+        sessionId: String,
+        accountId: Int,
+        body: AddFavoriteMovieRequestDTO
+    ) {
+        self.baseUrl = baseUrl
+        self.apiKey = apiKey
+        self.sessionId = sessionId
         self.accountId = accountId
-        body = AddFavoriteMovieRequestDTO(
-            mediaType: mediaType,
-            mediaId: mediaId,
-            favorite: favorite
-        )
+        self.body = body
     }
     
     func makeRequest() throws -> URLRequest {
-        var request = URLRequest(url: Account.addFavorite.accountId(accountId))
-        request.setHttpMethod(.POST)
-        request.httpBody = try encoder.encode(body)
-        request.addContentType(.json)
-        return request
+        try URLRequest.jsonBodyRequest(
+            .POST,
+            baseUrl,
+            path: "account/\(accountId)/favorite",
+            parameters: ["api_key": apiKey, "session_id": sessionId],
+            body: body
+        )
     }
-    
 }

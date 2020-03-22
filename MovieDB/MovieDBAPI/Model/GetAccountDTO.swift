@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Объект с данными пользователя в сервисе gravatar
+/// Структура с данными пользователя в сервисе gravatar
 public struct Gravatar: Decodable {
     
     /// Хэш аватара пользователя
@@ -16,7 +16,7 @@ public struct Gravatar: Decodable {
     
 }
 
-/// Объект с данными аватара пользователя
+/// Структура с данными аватара пользователя
 public struct Avatatar: Decodable {
     
     /// Данными пользователя в сервисе gravatar
@@ -24,7 +24,7 @@ public struct Avatatar: Decodable {
     
 }
 
-/// Объект ответа на запрос получения информации об аккаунте
+/// Структура ответа на запрос получения информации об аккаунте
 public struct GetAccountDTO: Decodable {
     
     /// Аватара пользователя

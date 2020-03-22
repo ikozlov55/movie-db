@@ -8,19 +8,11 @@
 
 import Foundation
 
-/// Тип, который содержит атрибуты для кодирования и декодирования JSON тел HTTP запросов и ответов
-protocol Coder {
+/// Структура со статическими атрибутами для кодирование и декодирования ответов API themoviedb.org
+struct MovieDBCoder {
     
-    /// Декодер JSON тела HTTP ответа в модель
-    var decoder: JSONDecoder { get }
-    
-    /// Кодер модели в JSON тело HTTP запроса
-    var encoder: JSONEncoder { get }
-}
-
-/// `Coder` для запросов и ответо API themoviedb.org
-struct MovieDBCoder: Coder {
-    let decoder: JSONDecoder = {
+    /// Стандартный `JSONDecoder` ответов API themoviedb.org
+    static let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
@@ -31,9 +23,11 @@ struct MovieDBCoder: Coder {
         return decoder
     }()
     
-    let encoder: JSONEncoder = {
+    /// Стандартный `JSONEncoder` запросов к API themoviedb.org
+    static let encoder: JSONEncoder = {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
         return encoder
     }()
+
 }

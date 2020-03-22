@@ -16,7 +16,7 @@ final class LoginViewController: BaseViewController {
     var coordinator: LoginCoordinator?
     
     private var loginView = LoginView()
-    private let authService = AuthService()
+    private let authService = ServiceLayer.authService
     
     // MARK: - Lifecycle
     
@@ -52,17 +52,17 @@ final class LoginViewController: BaseViewController {
             case .success:
                 self?.coordinator?.login()
             case .failure(let error):
-                self?.show(error: error)
+                self?.handle(error)
                 self?.loginView.stopLoadingIndicator()
             }
         }
     }
     
-    private func show(error: MovieDBAPI.APIError) {
-        switch error {
-        case .invalidCredentials:
+    private func handle(_ error: Error) {
+        if let errorDTO = error as? ErrorDTO,
+            errorDTO.statusCode == 30 {
             loginView.errorLabel.text = L10n.invalidCredentialsError
-        default:
+        } else {
             loginView.errorLabel.text = L10n.loginFailedError
         }
     }

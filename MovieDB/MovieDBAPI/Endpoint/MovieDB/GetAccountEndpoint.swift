@@ -8,15 +8,23 @@
 
 import Foundation
 
-final public class GetAccountEndpoint: JSONResponseEndpoint {
+final public class GetAccountEndpoint: JSONEndpoint {
     public typealias Content = GetAccountDTO
     
-    let coder: Coder = MovieDBCoder()
-
-    public init() {}
+    private let baseUrl: URL
+    private let apiKey: String
+    
+    public init(baseUrl: URL, apiKey: String) {
+        self.baseUrl = baseUrl
+        self.apiKey = apiKey
+    }
     
     public func makeRequest() throws -> URLRequest {
-        URLRequest(url: Account.account.url)
+        try URLRequest.plainRequest(
+            baseUrl,
+            path: "/account",
+            parameters: ["api_key": apiKey]
+        )
     }
     
 }

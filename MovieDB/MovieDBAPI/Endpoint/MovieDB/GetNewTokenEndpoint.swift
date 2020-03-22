@@ -8,15 +8,22 @@
 
 import Foundation
 
-final public class GetNewTokenEndpoint: JSONResponseEndpoint {
+final public class GetNewTokenEndpoint: JSONEndpoint {
     public typealias Content = GetNewTokenDTO
     
-    let coder: Coder = MovieDBCoder()
+    private let baseUrl: URL
+    private let apiKey: String
     
-    public init() {}
-    
-    public func makeRequest() throws -> URLRequest {
-        URLRequest(url: Authentication.tokenNew.url)
+    public init(baseUrl: URL, apiKey: String) {
+        self.baseUrl = baseUrl
+        self.apiKey = apiKey
     }
     
+    public func makeRequest() throws -> URLRequest {
+        try URLRequest.plainRequest(
+            baseUrl,
+            path: "/authentication/token/new",
+            parameters: ["api_key": apiKey]
+        )
+    }
 }

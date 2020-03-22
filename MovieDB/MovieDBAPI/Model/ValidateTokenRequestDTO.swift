@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Объект тела запроса на валидацию request token
+/// Структура тела запроса на валидацию request token
 public struct ValidateTokenRequestDTO: Encodable {
     
     /// Имя пользоваетеля

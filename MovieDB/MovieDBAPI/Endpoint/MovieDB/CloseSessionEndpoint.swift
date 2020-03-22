@@ -8,18 +8,25 @@
 
 import Foundation
 
-final public class CloseSessionEndpoint: JSONRequestEndpoint, VoidResponseEndpoint {
-    let coder: Coder = MovieDBCoder()
-    let body: CloseSessionRequestDTO
+final public class CloseSessionEndpoint: VoidResponseEndpoint {
+    private let baseUrl: URL
+    private let apiKey: String
+    private let body: CloseSessionRequestDTO
     
-    init(sessionId: String) {
-        body = CloseSessionRequestDTO(sessionId: sessionId)
+    public init(baseUrl: URL, apiKey: String, body: CloseSessionRequestDTO) {
+        self.baseUrl = baseUrl
+        self.apiKey = apiKey
+        self.body = body
     }
     
     public func makeRequest() throws -> URLRequest {
-        var request = URLRequest(url: Authentication.closeSession.url)
-        request.setHttpMethod(.DELETE)
-        return request
+        try URLRequest.jsonBodyRequest(
+            .DELETE,
+            baseUrl,
+            path: "/authentication/session",
+            parameters: ["api_key": apiKey],
+            body: body
+        )
     }
     
 }

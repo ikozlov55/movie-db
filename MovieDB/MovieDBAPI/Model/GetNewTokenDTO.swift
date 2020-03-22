@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Объект ответа на запрос получения request token
+/// Структура ответа на запрос получения request token
 public struct GetNewTokenDTO: Decodable {
     
     /// Результат запроса

@@ -9,7 +9,7 @@
 import Foundation
 
 /// Тип, ответсвенность которого, логировать HTTP взаимодествие в `APIClient`
-protocol Logger {
+public protocol Logger {
     
     /// Признак активности логгера а данный момент
     var isActive: Bool { get set }
@@ -18,9 +18,9 @@ protocol Logger {
     /// - Parameter request: запрос
     func log(_ request: URLRequest)
     
-    /// Логирование ответа `HTTPURLResponse`
+    /// Логирование ответа `URLResponse`
     /// - Parameter response: ответ
-    func log(_ response: HTTPURLResponse)
+    func log(_ response: URLResponse)
     
     /// Логирование бинарных данных тела ответа или запроса
     /// - Parameter data: данные
@@ -28,15 +28,15 @@ protocol Logger {
 }
 
 /// `Logger` который выводит лог в терминал с помощью простых вызовов функции `print`
-final class PrintLogger: Logger {
+public final class PrintLogger: Logger {
     
-    var isActive: Bool
+    public var isActive: Bool
     
-    init(isActive: Bool) {
+    public init(isActive: Bool = true) {
         self.isActive = isActive
     }
     
-    func log(_ request: URLRequest) {
+    public func log(_ request: URLRequest) {
         guard isActive else { return }
         guard let method = request.httpMethod,
             let url = request.url
@@ -50,14 +50,16 @@ final class PrintLogger: Logger {
         }
     }
     
-    func log(_ response: HTTPURLResponse) {
-        guard isActive else { return }
+    public func log(_ response: URLResponse) {
+        guard isActive,
+            let response = response as? HTTPURLResponse
+            else { return }
         let code = response.statusCode
         let description = HTTPURLResponse.localizedString(forStatusCode: code)
         print("\(code) - \(description.capitalized)\n")
     }
     
-    func log(_ data: Data) {
+    public func log(_ data: Data) {
         guard isActive else { return }
         if let dataString = String(data: data, encoding: .utf8) {
             print("\(dataString)\n")

@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Объект ответа на запроса получения session ID
+/// Структура ответа на запроса получения session ID
 public struct GetNewSessionDTO: Decodable {
     
     /// Результат запроса

@@ -8,25 +8,26 @@
 
 import Foundation
 
-final public class ValidateTokenEndpoint: JSONRequestEndpoint, JSONResponseEndpoint {
+final public class ValidateTokenEndpoint: JSONEndpoint {
     public typealias Content = GetNewTokenDTO
     
-    let coder: Coder = MovieDBCoder()
-    let body: ValidateTokenRequestDTO
+    private let baseUrl: URL
+    private let apiKey: String
+    private let body: ValidateTokenRequestDTO
     
-    public init(username: String, password: String, requestToken: String) {
-        body = ValidateTokenRequestDTO(
-            username: username,
-            password: password,
-            requestToken: requestToken
-        )
+    public init(baseUrl: URL, apiKey: String, body: ValidateTokenRequestDTO) {
+        self.baseUrl = baseUrl
+        self.apiKey = apiKey
+        self.body = body
     }
     
     public func makeRequest() throws -> URLRequest {
-        var request = URLRequest(url: Authentication.tokenValidateWithLogin.url)
-        request.setHttpMethod(.POST)
-        request.httpBody = try encoder.encode(body)
-        request.addContentType(.json)
-        return request
+        try URLRequest.jsonBodyRequest(
+            .POST,
+            baseUrl,
+            path: "/authentication/token/validate_with_login",
+            parameters: ["api_key": apiKey],
+            body: body
+        )
     }
 }
