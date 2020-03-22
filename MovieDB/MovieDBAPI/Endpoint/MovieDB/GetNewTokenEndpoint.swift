@@ -11,19 +11,13 @@ import Foundation
 final public class GetNewTokenEndpoint: JSONEndpoint {
     public typealias Content = GetNewTokenDTO
     
-    private let baseUrl: URL
-    private let apiKey: String
-    
-    public init(baseUrl: URL, apiKey: String) {
-        self.baseUrl = baseUrl
-        self.apiKey = apiKey
-    }
+    public init() {}
     
     public func makeRequest() throws -> URLRequest {
         try URLRequest.plainRequest(
-            baseUrl,
+            Config.baseUrl,
             path: "/authentication/token/new",
-            parameters: ["api_key": apiKey]
+            parameters: Config.sessionParameters
         )
     }
 }

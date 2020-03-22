@@ -9,22 +9,18 @@
 import Foundation
 
 final public class CloseSessionEndpoint: VoidResponseEndpoint {
-    private let baseUrl: URL
-    private let apiKey: String
     private let body: CloseSessionRequestDTO
     
-    public init(baseUrl: URL, apiKey: String, body: CloseSessionRequestDTO) {
-        self.baseUrl = baseUrl
-        self.apiKey = apiKey
+    public init(body: CloseSessionRequestDTO) {
         self.body = body
     }
     
     public func makeRequest() throws -> URLRequest {
         try URLRequest.jsonBodyRequest(
             .DELETE,
-            baseUrl,
+            Config.baseUrl,
             path: "/authentication/session",
-            parameters: ["api_key": apiKey],
+            parameters: Config.sessionParameters,
             body: body
         )
     }

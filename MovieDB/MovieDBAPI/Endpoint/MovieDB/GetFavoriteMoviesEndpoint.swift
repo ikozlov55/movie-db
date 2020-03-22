@@ -11,23 +11,17 @@ import Foundation
 final public class GetFavoriteMoviesEndpoint: JSONEndpoint {
     public typealias Content = MoviesListDTO
     
-    private let baseUrl: URL
-    private let apiKey: String
-    private let sessionId: String
     private let accountId: Int
     
-    public init(baseUrl: URL, apiKey: String, sessionId: String, accountId: Int) {
-        self.baseUrl = baseUrl
-        self.apiKey = apiKey
-        self.sessionId = sessionId
+    public init(accountId: Int) {
         self.accountId = accountId
     }
     
     public func makeRequest() throws -> URLRequest {
         try URLRequest.plainRequest(
-            baseUrl,
+            Config.baseUrl,
             path: "account/\(accountId)/favorite/movies",
-            parameters: ["api_key": apiKey, "session_id": sessionId]
+            parameters: Config.sessionParameters
         )
     }
 }

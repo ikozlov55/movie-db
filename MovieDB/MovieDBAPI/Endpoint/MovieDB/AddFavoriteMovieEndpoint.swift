@@ -11,22 +11,10 @@ import Foundation
 final class AddFavoriteMovieEndpoint: JSONEndpoint {
     typealias Content = MoviesListDTO
     
-    private let baseUrl: URL
-    private let apiKey: String
-    private let sessionId: String
     private let accountId: Int
     private let body: AddFavoriteMovieRequestDTO
     
-    public init(
-        baseUrl: URL,
-        apiKey: String,
-        sessionId: String,
-        accountId: Int,
-        body: AddFavoriteMovieRequestDTO
-    ) {
-        self.baseUrl = baseUrl
-        self.apiKey = apiKey
-        self.sessionId = sessionId
+    public init(accountId: Int, body: AddFavoriteMovieRequestDTO) {
         self.accountId = accountId
         self.body = body
     }
@@ -34,9 +22,9 @@ final class AddFavoriteMovieEndpoint: JSONEndpoint {
     func makeRequest() throws -> URLRequest {
         try URLRequest.jsonBodyRequest(
             .POST,
-            baseUrl,
+            Config.baseUrl,
             path: "account/\(accountId)/favorite",
-            parameters: ["api_key": apiKey, "session_id": sessionId],
+            parameters: Config.sessionParameters,
             body: body
         )
     }

@@ -59,6 +59,7 @@
 		14C9653F24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9653E24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift */; };
 		14C9654124212BF1000D0960 /* AddFavoriteMovieEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */; };
 		14C9654324212C07000D0960 /* AddFavoriteMovieRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9654224212C07000D0960 /* AddFavoriteMovieRequestDTO.swift */; };
+		14D4429A2427907600EC0326 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D442992427907600EC0326 /* Config.swift */; };
 		14DC572B241CC92C00FC58D8 /* LoadingIndicatorVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */; };
 		14E2808524153E1E004167EB /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2808424153E1E004167EB /* LoginTextField.swift */; };
 		14E28087241541D3004167EB /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E28086241541D3004167EB /* PasswordTextField.swift */; };
@@ -160,6 +161,7 @@
 		14C9653E24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoriteMoviesEndpoint.swift; sourceTree = "<group>"; };
 		14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteMovieEndpoint.swift; sourceTree = "<group>"; };
 		14C9654224212C07000D0960 /* AddFavoriteMovieRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteMovieRequestDTO.swift; sourceTree = "<group>"; };
+		14D442992427907600EC0326 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorVIew.swift; sourceTree = "<group>"; };
 		14E2808424153E1E004167EB /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		14E28086241541D3004167EB /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		1432D2ED241CE26C00F8E6A6 /* MovieDBAPI */ = {
 			isa = PBXGroup;
 			children = (
+				14D442992427907600EC0326 /* Config.swift */,
 				14038A4C241E533E006040EA /* Extension */,
 				1432D2F9241CE27D00F8E6A6 /* Model */,
 				1432D300241CE30500F8E6A6 /* Endpoint */,
@@ -777,6 +780,7 @@
 				14B9A2C9241E3B6D00EC07B3 /* Logger.swift in Sources */,
 				14038A54241E5A57006040EA /* VoidResponseEndpoint.swift in Sources */,
 				1432D305241D052600F8E6A6 /* APIClient.swift in Sources */,
+				14D4429A2427907600EC0326 /* Config.swift in Sources */,
 				14B9A2CB241E3EA100EC07B3 /* ValidateTokenEndpoint.swift in Sources */,
 				1432D308241D0F2A00F8E6A6 /* GetNewTokenEndpoint.swift in Sources */,
 				14038A4E241E5350006040EA /* URLRequest+Extension.swift in Sources */,

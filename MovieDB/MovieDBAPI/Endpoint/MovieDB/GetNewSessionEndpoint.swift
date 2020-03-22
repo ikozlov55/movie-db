@@ -11,22 +11,18 @@ import Foundation
 final public class GetNewSessionEndpoint: JSONEndpoint {
     public typealias Content = GetNewSessionDTO
     
-    private let baseUrl: URL
-    private let apiKey: String
     private let body: GetNewSessionRequestDTO
     
-    public init(baseUrl: URL, apiKey: String, body: GetNewSessionRequestDTO) {
-        self.baseUrl = baseUrl
-        self.apiKey = apiKey
+    public init(body: GetNewSessionRequestDTO) {
         self.body = body
     }
     
     public func makeRequest() throws -> URLRequest {
         try URLRequest.jsonBodyRequest(
             .POST,
-            baseUrl,
+            Config.baseUrl,
             path: "/authentication/session/new",
-            parameters: ["api_key": apiKey],
+            parameters: Config.sessionParameters,
             body: body
         )
     }

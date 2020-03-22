@@ -11,21 +11,19 @@ import Foundation
 final public class SearchMovieEndpoint: JSONEndpoint {
     public typealias Content = MoviesListDTO
     
-    private let baseUrl: URL
-    private let apiKey: String
+    private let query: String
     private let language: String?
     
-    public init(baseUrl: URL, apiKey: String, query: String, language: String? = nil) {
-        self.baseUrl = baseUrl
-        self.apiKey = apiKey
+    public init(query: String, language: String? = nil) {
+        self.query = query
         self.language = language
     }
     
     public func makeRequest() throws -> URLRequest {
         try URLRequest.plainRequest(
-            baseUrl,
+            Config.baseUrl,
             path: "/search/movie",
-            parameters: ["api_key": apiKey, "language": language ?? ""]
+            parameters: Config.sessionParameters(and: ["query": query, "language": language ?? ""])
         )
     }
 }

@@ -13,7 +13,7 @@ protocol AuthServiceProtocol {
     func login(
         username: String,
         password: String,
-        completion: @escaping ((Result<String, Error>) -> Void)
+        completion: @escaping ((Result<Bool, Error>) -> Void)
     )
 }
 
@@ -21,15 +21,11 @@ final class AuthService: AuthServiceProtocol {
     
     // MARK: - Private Properties
     
-    private let baseUrl: URL
-    private let apiKey: String
     private let apiClient: APIClient
     
     // MARK: - Init
     
-    init(baseUrl: URL, apiKey: String, apiClient: APIClient) {
-        self.baseUrl = baseUrl
-        self.apiKey = apiKey
+    init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
     
@@ -43,46 +39,40 @@ final class AuthService: AuthServiceProtocol {
     func login(
         username: String,
         password: String,
-        completion: @escaping ((Result<String, Error>) -> Void)) {
-        let getToken = GetNewTokenEndpoint(baseUrl: baseUrl, apiKey: apiKey)
-        apiClient.request(getToken) { [weak self] result in
-            guard let self = self else { return }
+        completion: @escaping ((Result<Bool, Error>) -> Void)) {
+        apiClient.request(GetNewTokenEndpoint()) { [weak self] result in
             switch result {
             case .success(let response):
                 let validateToken = ValidateTokenEndpoint(
-                    baseUrl: self.baseUrl,
-                    apiKey: self.apiKey,
                     body: ValidateTokenRequestDTO(
                         username: username,
                         password: password,
                         requestToken: response.requestToken
                     )
                 )
-                self.apiClient.request(validateToken) { result in
+                self?.apiClient.request(validateToken) { result in
                     switch result {
                     case .success(let response):
                         let getSessionId = GetNewSessionEndpoint(
-                            baseUrl: self.baseUrl,
-                            apiKey: self.apiKey,
                             body: GetNewSessionRequestDTO(requestToken: response.requestToken)
                         )
-                        self.apiClient.request(getSessionId) { result in
+                        self?.apiClient.request(getSessionId) { result in
                             DispatchQueue.main.async {
                                 switch result {
                                 case .success(let response):
-                                    let sessionId = response.sessionId
-                                    completion(.success(sessionId))
+                                    Config.sessionId = response.sessionId
+                                    completion(.success(true))
                                 case .failure(let error):
                                     completion(.failure(error))
                                 }
                             }
                         }
                     case .failure(let error):
-                        self.finish(with: error, handler: completion)
+                        self?.finish(with: error, handler: completion)
                     }
                 }
             case .failure(let error):
-                self.finish(with: error, handler: completion)
+                self?.finish(with: error, handler: completion)
             }
         }
     }
@@ -91,7 +81,7 @@ final class AuthService: AuthServiceProtocol {
     
     private func finish(
         with error: Error,
-        handler: @escaping ((Result<String, Error>) -> Void)
+        handler: @escaping ((Result<Bool, Error>) -> Void)
     ) {
         DispatchQueue.main.async {
             handler(.failure(error))
