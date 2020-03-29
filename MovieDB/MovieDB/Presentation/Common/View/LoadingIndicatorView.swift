@@ -1,5 +1,5 @@
 //
-//  LoadingIndicatorVIew.swift
+//  LoadingIndicatorView.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 14.03.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LoadingIndicatorVIew: UIView {
+final class LoadingIndicatorView: UIView {
     
     // MARK: - Subviews
     

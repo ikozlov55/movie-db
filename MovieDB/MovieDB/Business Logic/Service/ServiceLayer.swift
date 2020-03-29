@@ -27,4 +27,8 @@ class ServiceLayer {
         AuthService(apiClient: apiClient)
     }()
     
+    /// Сервис поиска фильмов
+    static let searchService: FilmSearchServiceProtocol = {
+       FilmSearchService(apiClient: apiClient)
+    }()
 }

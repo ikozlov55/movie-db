@@ -19,7 +19,7 @@ final class LoginView: UIView {
     let errorLabel = ErrorLabel()
     let loginButton = LoginButton()
     lazy var textFields = [loginTextField, passwordTextField]
-    var loadingIndicator: LoadingIndicatorVIew?
+    var loadingIndicator: LoadingIndicatorView?
     
     // MARK: - Init
     
@@ -77,7 +77,7 @@ final class LoginView: UIView {
     // MARK: - Public methods
     
     func startLoadingIndicator() {
-        loadingIndicator = LoadingIndicatorVIew(frame: frame)
+        loadingIndicator = LoadingIndicatorView(frame: frame)
         guard let indicator = loadingIndicator else { return }
         addSubview(indicator)
         indicator.startAnimating()

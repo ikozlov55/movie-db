@@ -26,10 +26,15 @@
 		1432D305241D052600F8E6A6 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D304241D052600F8E6A6 /* APIClient.swift */; };
 		1432D308241D0F2A00F8E6A6 /* GetNewTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D307241D0F2A00F8E6A6 /* GetNewTokenEndpoint.swift */; };
 		1432D30A241D118000F8E6A6 /* MovieDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D309241D118000F8E6A6 /* MovieDBClient.swift */; };
+		14551D07242F5698008F5D25 /* FilmSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14551D06242F5698008F5D25 /* FilmSearchBar.swift */; };
+		14551D0B242F6DB4008F5D25 /* FilmSearchCordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14551D0A242F6DB4008F5D25 /* FilmSearchCordinatingController.swift */; };
+		14551D10242F7510008F5D25 /* FilmSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14551D0E242F7510008F5D25 /* FilmSearchViewController.swift */; };
+		14551D15242F7FDD008F5D25 /* FilmSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14551D14242F7FDD008F5D25 /* FilmSearchView.swift */; };
+		14551D17242F9A3F008F5D25 /* FilmSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14551D16242F9A3F008F5D25 /* FilmSearchService.swift */; };
 		148C5DD4242768A200C38742 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148C5DD3242768A200C38742 /* ServiceLayer.swift */; };
 		148EB5FE24162D2C00AE511D /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB5FD24162D2C00AE511D /* ErrorLabel.swift */; };
 		148EB60124162F1A00AE511D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB60024162F1A00AE511D /* String+Extension.swift */; };
-		148EB6052416431500AE511D /* FilmSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB6042416431500AE511D /* FilmSearchView.swift */; };
+		148EB6052416431500AE511D /* FilmSearchWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB6042416431500AE511D /* FilmSearchWelcomeView.swift */; };
 		148EB608241648F500AE511D /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB607241648F500AE511D /* FavoriteView.swift */; };
 		148FE9CD24165C9A0079111E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9CC24165C9A0079111E /* AuthService.swift */; };
 		148FE9D7241686580079111E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148FE9D6241686580079111E /* ProfileView.swift */; };
@@ -60,10 +65,10 @@
 		14C9654124212BF1000D0960 /* AddFavoriteMovieEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */; };
 		14C9654324212C07000D0960 /* AddFavoriteMovieRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9654224212C07000D0960 /* AddFavoriteMovieRequestDTO.swift */; };
 		14D4429A2427907600EC0326 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D442992427907600EC0326 /* Config.swift */; };
-		14DC572B241CC92C00FC58D8 /* LoadingIndicatorVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */; };
+		14DC572B241CC92C00FC58D8 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DC572A241CC92C00FC58D8 /* LoadingIndicatorView.swift */; };
 		14E2808524153E1E004167EB /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2808424153E1E004167EB /* LoginTextField.swift */; };
 		14E28087241541D3004167EB /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E28086241541D3004167EB /* PasswordTextField.swift */; };
-		14F2366424150B310094444E /* FilmSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366324150B310094444E /* FilmSearchViewController.swift */; };
+		14F2366424150B310094444E /* FilmSearchWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366324150B310094444E /* FilmSearchWelcomeViewController.swift */; };
 		14F2366624150BF50094444E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366524150BF50094444E /* BaseViewController.swift */; };
 		14F2366824150D6E0094444E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366724150D6E0094444E /* FavoriteViewController.swift */; };
 		14F2366A24150D890094444E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2366924150D890094444E /* ProfileViewController.swift */; };
@@ -125,10 +130,15 @@
 		1432D304241D052600F8E6A6 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1432D307241D0F2A00F8E6A6 /* GetNewTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewTokenEndpoint.swift; sourceTree = "<group>"; };
 		1432D309241D118000F8E6A6 /* MovieDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBClient.swift; sourceTree = "<group>"; };
+		14551D06242F5698008F5D25 /* FilmSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchBar.swift; sourceTree = "<group>"; };
+		14551D0A242F6DB4008F5D25 /* FilmSearchCordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchCordinatingController.swift; sourceTree = "<group>"; };
+		14551D0E242F7510008F5D25 /* FilmSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchViewController.swift; sourceTree = "<group>"; };
+		14551D14242F7FDD008F5D25 /* FilmSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchView.swift; sourceTree = "<group>"; };
+		14551D16242F9A3F008F5D25 /* FilmSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchService.swift; sourceTree = "<group>"; };
 		148C5DD3242768A200C38742 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		148EB5FD24162D2C00AE511D /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		148EB60024162F1A00AE511D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		148EB6042416431500AE511D /* FilmSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchView.swift; sourceTree = "<group>"; };
+		148EB6042416431500AE511D /* FilmSearchWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchWelcomeView.swift; sourceTree = "<group>"; };
 		148EB607241648F500AE511D /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		148FE9CC24165C9A0079111E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		148FE9D6241686580079111E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -162,10 +172,10 @@
 		14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteMovieEndpoint.swift; sourceTree = "<group>"; };
 		14C9654224212C07000D0960 /* AddFavoriteMovieRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteMovieRequestDTO.swift; sourceTree = "<group>"; };
 		14D442992427907600EC0326 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorVIew.swift; sourceTree = "<group>"; };
+		14DC572A241CC92C00FC58D8 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		14E2808424153E1E004167EB /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		14E28086241541D3004167EB /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
-		14F2366324150B310094444E /* FilmSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchViewController.swift; sourceTree = "<group>"; };
+		14F2366324150B310094444E /* FilmSearchWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchWelcomeViewController.swift; sourceTree = "<group>"; };
 		14F2366524150BF50094444E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		14F2366724150D6E0094444E /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		14F2366924150D890094444E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -321,7 +331,9 @@
 		148EB603241642FC00AE511D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				148EB6042416431500AE511D /* FilmSearchView.swift */,
+				148EB6042416431500AE511D /* FilmSearchWelcomeView.swift */,
+				14551D14242F7FDD008F5D25 /* FilmSearchView.swift */,
+				14551D06242F5698008F5D25 /* FilmSearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,6 +351,7 @@
 			children = (
 				148C5DD3242768A200C38742 /* ServiceLayer.swift */,
 				148FE9CC24165C9A0079111E /* AuthService.swift */,
+				14551D16242F9A3F008F5D25 /* FilmSearchService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -357,7 +370,7 @@
 			children = (
 				148EB5FC24162D0900AE511D /* UILabel */,
 				14A294462415070700E846D6 /* MainTabBarController.swift */,
-				14DC572A241CC92C00FC58D8 /* LoadingIndicatorVIew.swift */,
+				14DC572A241CC92C00FC58D8 /* LoadingIndicatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -474,7 +487,9 @@
 		14C18A302413DBE800332C65 /* Film Search */ = {
 			isa = PBXGroup;
 			children = (
-				14F2366324150B310094444E /* FilmSearchViewController.swift */,
+				14551D0A242F6DB4008F5D25 /* FilmSearchCordinatingController.swift */,
+				14F2366324150B310094444E /* FilmSearchWelcomeViewController.swift */,
+				14551D0E242F7510008F5D25 /* FilmSearchViewController.swift */,
 				148EB603241642FC00AE511D /* View */,
 			);
 			path = "Film Search";
@@ -807,10 +822,11 @@
 				14A294472415070700E846D6 /* MainTabBarController.swift in Sources */,
 				14A2944E241508B900E846D6 /* FilmsTabCoordinator.swift in Sources */,
 				14C18A422413EC2500332C65 /* Colors.swift in Sources */,
-				14F2366424150B310094444E /* FilmSearchViewController.swift in Sources */,
+				14F2366424150B310094444E /* FilmSearchWelcomeViewController.swift in Sources */,
 				14F9272F24152F6900215707 /* HeaderLabel.swift in Sources */,
 				148EB60124162F1A00AE511D /* String+Extension.swift in Sources */,
 				14F927312415348A00215707 /* BaseLabel.swift in Sources */,
+				14551D07242F5698008F5D25 /* FilmSearchBar.swift in Sources */,
 				148FE9CD24165C9A0079111E /* AuthService.swift in Sources */,
 				14E28087241541D3004167EB /* PasswordTextField.swift in Sources */,
 				14F927272415158400215707 /* Strings.swift in Sources */,
@@ -822,16 +838,20 @@
 				148EB608241648F500AE511D /* FavoriteView.swift in Sources */,
 				14F9272D24152D2400215707 /* LoginView.swift in Sources */,
 				14A294522415094600E846D6 /* FavoriteTabCoordinator.swift in Sources */,
-				14DC572B241CC92C00FC58D8 /* LoadingIndicatorVIew.swift in Sources */,
+				14DC572B241CC92C00FC58D8 /* LoadingIndicatorView.swift in Sources */,
 				14F2366824150D6E0094444E /* FavoriteViewController.swift in Sources */,
 				14F927352415381000215707 /* LoginButton.swift in Sources */,
 				14E2808524153E1E004167EB /* LoginTextField.swift in Sources */,
+				14551D0B242F6DB4008F5D25 /* FilmSearchCordinatingController.swift in Sources */,
 				14A2944C241507D700E846D6 /* LoginCoordinator.swift in Sources */,
-				148EB6052416431500AE511D /* FilmSearchView.swift in Sources */,
+				148EB6052416431500AE511D /* FilmSearchWelcomeView.swift in Sources */,
 				148C5DD4242768A200C38742 /* ServiceLayer.swift in Sources */,
 				14F2366A24150D890094444E /* ProfileViewController.swift in Sources */,
+				14551D10242F7510008F5D25 /* FilmSearchViewController.swift in Sources */,
+				14551D15242F7FDD008F5D25 /* FilmSearchView.swift in Sources */,
 				14A294502415090100E846D6 /* ProfileTabCoordinator.swift in Sources */,
 				148FE9D7241686580079111E /* ProfileView.swift in Sources */,
+				14551D17242F9A3F008F5D25 /* FilmSearchService.swift in Sources */,
 				14A2944A2415077100E846D6 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

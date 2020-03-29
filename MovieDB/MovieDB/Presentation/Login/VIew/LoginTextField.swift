@@ -43,7 +43,6 @@ class LoginTextField: UITextField {
     // MARK: - Setup View
     
     func setupView() {
-        delegate = self
         translatesAutoresizingMaskIntoConstraints = false
         placeholder = L10n.loginFieldPlaceholder
         textColor = ColorName.lightBlue.color
@@ -53,20 +52,6 @@ class LoginTextField: UITextField {
         font = UIFont.systemFont(ofSize: 16, weight: .regular)
         autocapitalizationType = .none
         autocorrectionType = .no
-    }
-
-}
-
-// MARK: - UITextFieldDelegate
-
-extension LoginTextField: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        layer.borderColor = ColorName.purpure.color.cgColor
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        layer.borderColor = ColorName.darkBlue.color.cgColor
     }
 
 }

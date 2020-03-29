@@ -34,8 +34,8 @@ final class LoginViewController: BaseViewController {
     private func setupInteractions() {
         let hideKeyboardOnTap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         loginView.addGestureRecognizer(hideKeyboardOnTap)
-        loginView.textFields.forEach { $0.delegate = self }
         loginView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        loginView.textFields.forEach { $0.delegate = self }
     }
     
     @objc private func hideKeyboard() {
@@ -77,6 +77,14 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let input = loginView.textFields.compactMap { $0.text }.filter { !$0.trim.isEmpty }
         loginView.loginButton.isEnabled = input.count == loginView.textFields.count
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = ColorName.purpure.color.cgColor
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        textField.layer.borderColor = ColorName.darkBlue.color.cgColor
     }
     
 }

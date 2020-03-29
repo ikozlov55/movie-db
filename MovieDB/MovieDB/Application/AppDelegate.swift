@@ -16,16 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let nc = BaseNavigationController()
-        let coordinator = LoginCoordinator(nc)
-        window = UIWindow()
-        window?.rootViewController = nc
-        window?.makeKeyAndVisible()
-        coordinator.start()
-        
+//        let nc = BaseNavigationController()
+//        let coordinator = LoginCoordinator(nc)
 //        window = UIWindow()
-//        window?.rootViewController = MainTabBarController()
+//        window?.rootViewController = nc
 //        window?.makeKeyAndVisible()
+//        coordinator.start()
+        
+        window = UIWindow()
+        window?.rootViewController = MainTabBarController()
+        window?.makeKeyAndVisible()
         
         return true
     }

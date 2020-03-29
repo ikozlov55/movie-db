@@ -2,22 +2,20 @@
 //  FilmSearchView.swift
 //  MovieDB
 //
-//  Created by Илья Козлов on 09.03.2020.
+//  Created by Илья Козлов on 28.03.2020.
 //  Copyright © 2020 Илья Козлов. All rights reserved.
 //
 
 import UIKit
 
 final class FilmSearchView: UIView {
-
+    
     // MARK: - Subviews
-
-    let header = HeaderLabel(L10n.filmSearchTitle)
-    let backgroundImageView: UIImageView = {
+    let searchBar = FilmSearchBar()
+    let layoutSwitch: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = Asset.mainBackground.image
-        view.contentMode = .scaleAspectFit
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -36,20 +34,20 @@ final class FilmSearchView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(backgroundImageView)
-        addSubview(header)
+        addSubview(searchBar)
+        addSubview(layoutSwitch)
         
-        let safeArea = safeAreaLayoutGuide
         let inset: CGFloat = 24
         
         NSLayoutConstraint.activate([
-            backgroundImageView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            searchBar.topAnchor.constraint(equalTo: topAnchor),
+            searchBar.bottomAnchor.constraint(equalTo: bottomAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: inset),
             
-            header.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 91),
-            header.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
-            header.trailingAnchor.constraint(lessThanOrEqualTo: safeArea.trailingAnchor, constant: -inset)
+            layoutSwitch.centerYAnchor.constraint(equalTo: centerYAnchor),
+            layoutSwitch.leadingAnchor.constraint(equalTo: searchBar.trailingAnchor, constant: inset),
+            layoutSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -inset)
         ])
     }
-
+    
 }

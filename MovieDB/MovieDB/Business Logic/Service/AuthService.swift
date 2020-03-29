@@ -17,6 +17,7 @@ protocol AuthServiceProtocol {
     )
 }
 
+/// Сервис авторизации в themoviedb.org API
 final class AuthService: AuthServiceProtocol {
     
     // MARK: - Private Properties
