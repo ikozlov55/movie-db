@@ -23,7 +23,7 @@ final class FilmsTabCoordinator: Coordinator {
     // MARK: - Navigation methods
     
     func start() {
-        let vc = FilmSearchCordinatingController()
+        let vc = MovieSearchCordinatingController()
         //vc.coordinator = self
         let tabBarItem = UITabBarItem(
             title: L10n.filmsTabTitle,

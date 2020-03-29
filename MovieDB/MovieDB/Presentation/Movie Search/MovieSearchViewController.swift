@@ -15,29 +15,29 @@ enum SearchResultsLayout {
 }
 
 /// Тип, который обрабатывает результаты поиск фильмов
-protocol FilmSearchViewControllerDelegate: class {
+protocol MovieSearchViewControllerDelegate: class {
     
     /// Обработка изменения типа расположения результатов поиска
     /// - Parameter layout: Тип расположения
     func resultsLayoutChanged(to layout: SearchResultsLayout)
 }
 
-final class FilmSearchViewController: BaseViewController {
+final class MovieSearchViewController: BaseViewController {
     
     // MARK: - Public Properties
     
     var layout: SearchResultsLayout!
-    weak var delegate: FilmSearchViewControllerDelegate?
+    weak var delegate: MovieSearchViewControllerDelegate?
     
     // MARK: - Private Properties
     
-    private var filmSearchView = FilmSearchView()
+    private var movieSearchView = MovieSearchView()
     private let searchService = ServiceLayer.searchService
     
     // MARK: - Lifecycle
     
     override func loadView() {
-        view = filmSearchView
+        view = movieSearchView
     }
     
     override func viewDidLoad() {
@@ -50,24 +50,24 @@ final class FilmSearchViewController: BaseViewController {
     
     private func setupView() {
         layout = .list
-        filmSearchView.layoutSwitch.image = Asset.collectionLayoutList.image
+        movieSearchView.layoutSwitch.image = Asset.collectionLayoutList.image
     }
     
     private func setupInteractions() {
-        filmSearchView.searchBar.delegate = self
-        filmSearchView.searchBar.becomeFirstResponder()
+        movieSearchView.searchBar.delegate = self
+        movieSearchView.searchBar.becomeFirstResponder()
         let layoutSwitchTap = UITapGestureRecognizer(target: self, action: #selector(layoutSwitchTapped))
-        filmSearchView.layoutSwitch.addGestureRecognizer(layoutSwitchTap)
+        movieSearchView.layoutSwitch.addGestureRecognizer(layoutSwitchTap)
     }
     
     @objc private func layoutSwitchTapped() {
         if layout == .list {
             layout = .widgets
-            filmSearchView.layoutSwitch.image = Asset.collectionLayoutWidgets.image
+            movieSearchView.layoutSwitch.image = Asset.collectionLayoutWidgets.image
             delegate?.resultsLayoutChanged(to: .widgets)
         } else {
             layout = .list
-            filmSearchView.layoutSwitch.image = Asset.collectionLayoutList.image
+            movieSearchView.layoutSwitch.image = Asset.collectionLayoutList.image
             delegate?.resultsLayoutChanged(to: .list)
         }
         
@@ -75,13 +75,13 @@ final class FilmSearchViewController: BaseViewController {
     
 }
 
-extension FilmSearchViewController: UISearchBarDelegate {
+extension MovieSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard searchText.trim.count > 3 else { return }
         searchService.search(query: searchText) { result in
             switch result {
             case .success(let movies):
-                print(movies)
+                movies.results.map { print("\n\n \($0) \n\n") }
             case .failure(let error):
                 print(error)
             }

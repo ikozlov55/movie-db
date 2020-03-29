@@ -8,10 +8,10 @@
 
 import UIKit
 
-final class FilmSearchView: UIView {
+final class MovieSearchView: UIView {
     
     // MARK: - Subviews
-    let searchBar = FilmSearchBar()
+    let searchBar = MovieSearchBar()
     let layoutSwitch: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false

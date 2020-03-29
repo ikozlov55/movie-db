@@ -9,7 +9,14 @@
 import Foundation
 import MovieDBAPI
 
+/// Тип, отвечающий за авторизацию в themoviedb.org API
 protocol AuthServiceProtocol {
+    
+    /// Авторизация в сервисе по имени пользователя и паролю
+    /// - Parameters:
+    ///   - username: Имя пользователя
+    ///   - password: Пароль пользователя
+    ///   - completion: Замыкание, на вход получает Result c sessionId или ошибкой
     func login(
         username: String,
         password: String,
@@ -17,7 +24,6 @@ protocol AuthServiceProtocol {
     )
 }
 
-/// Сервис авторизации в themoviedb.org API
 final class AuthService: AuthServiceProtocol {
     
     // MARK: - Private Properties
@@ -32,11 +38,6 @@ final class AuthService: AuthServiceProtocol {
     
     // MARK: - Public methods
     
-    /// Авторизация в сервисе по имени пользователя и паролю
-    /// - Parameters:
-    ///   - username: Имя пользователя
-    ///   - password: Пароль пользователя
-    ///   - completion: Замыкание, на вход получает Result c sessionId или ошибкой
     func login(
         username: String,
         password: String,

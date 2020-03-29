@@ -1,5 +1,5 @@
 //
-//  FilmSearchWelcomeView.swift
+//  MovieSearchStartView.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 09.03.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class FilmSearchWelcomeView: UIView {
+final class MovieSearchStartView: UIView {
 
     // MARK: - Subviews
 
@@ -20,7 +20,7 @@ final class FilmSearchWelcomeView: UIView {
         view.contentMode = .scaleAspectFit
         return view
     }()
-    let searchBar = FilmSearchBar()
+    let searchBar = MovieSearchBar()
     
     // MARK: - Init
     

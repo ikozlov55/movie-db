@@ -1,49 +1,47 @@
 //
-//  MoviesListDTO.swift
-//  MovieDBAPI
+//  MoviesList.swift
+//  MovieDB
 //
-//  Created by Илья Козлов on 17.03.2020.
+//  Created by Илья Козлов on 29.03.2020.
 //  Copyright © 2020 Илья Козлов. All rights reserved.
 //
 
 import Foundation
 
 /// Структура с информацией о фильме или сериале
-public struct MovieDTO: Decodable {
+struct Movie {
     
     /// Id сущности
-    public let id: Int
+    let id: Int
     
     /// Количество голосов/лайков
-    public let voteCount: Int
+    let voteCount: Int
     
     /// Рейтинг фильма от 0 до 10
-    public let voteAverage: Double
+    let voteAverage: Double
     
     /// Название файла с постером
-    public let posterPath: String?
-    
-    /// Название файла с задником
-    public let backdropPath: String?
+    let posterUrl: URL?
     
     /// Оригинальное название
-    public let originalTitle: String
+    let originalTitle: String
     
-    /// Список id жанров
-    public let genreIds: [Int]
+    /// Жанры фильма в виде строки с разделителем в виде запятой
+    let genres: String
     
     /// Локализованное название
-    public let title: String
+    let title: String
     
     /// Описание
-    public let overview: String
+    let overview: String
     
-    /// Дата выхода
-    public let releaseDate: Date?
+    /// Год выхода
+    let releaseYear: Int?
+    
 }
 
 /// Структура страницы списка фильмов или сериалов - результат поиска или список избранного
-public struct MoviesListDTO: Decodable {
+struct MoviesList {
     
     /// Номер страницы
     public let page: Int
@@ -55,5 +53,6 @@ public struct MoviesListDTO: Decodable {
     public let totalPages: Int
     
     /// Элементы текущей страницы
-    public let results: [MovieDTO]
+    public let results: [Movie]
+
 }

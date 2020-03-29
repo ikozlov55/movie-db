@@ -1,5 +1,5 @@
 //
-//  FilmSearchBar.swift
+//  MovieSearchBar.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 28.03.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class FilmSearchBar: UISearchBar {
+final class MovieSearchBar: UISearchBar {
 
     // MARK: - Init
     

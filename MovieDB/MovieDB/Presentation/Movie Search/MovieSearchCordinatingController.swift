@@ -1,5 +1,5 @@
 //
-//  FilmSearchCordinatingController.swift
+//  MovieSearchCordinatingController.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 28.03.2020.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class FilmSearchCordinatingController: BaseViewController {
+class MovieSearchCordinatingController: BaseViewController {
 
     // MARK: - Private Properties
     
-    private let welcomeController = FilmSearchWelcomeViewController()
-    private let filmSearchController = FilmSearchViewController()
+    private let welcomeController = MovieSearchStartViewController()
+    private let filmSearchController = MovieSearchViewController()
     
     // MARK: - Lifecycle
     
@@ -51,9 +51,9 @@ class FilmSearchCordinatingController: BaseViewController {
 
 }
 
-// MARK: - FilmSearchWelcomeViewControllerDelegate
+// MARK: - MovieSearchStartViewControllerDelegate
 
-extension FilmSearchCordinatingController: FilmSearchWelcomeViewControllerDelegate {
+extension MovieSearchCordinatingController: MovieSearchStartViewControllerDelegate {
     func searchDidStarted() {
         welcomeController.willMove(toParent: nil)
         welcomeController.view.removeFromSuperview()
@@ -64,7 +64,7 @@ extension FilmSearchCordinatingController: FilmSearchWelcomeViewControllerDelega
 
 // MARK: - FilmSearchViewControllerDelegate
 
-extension FilmSearchCordinatingController: FilmSearchViewControllerDelegate {
+extension MovieSearchCordinatingController: MovieSearchViewControllerDelegate {
     func resultsLayoutChanged(to layout: SearchResultsLayout) {
         print(layout)
     }

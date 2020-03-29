@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LoginView: UIView {
+final class LoginView: ViewWithLoadingIndicator {
     
     // MARK: - Subviews
     
@@ -19,7 +19,6 @@ final class LoginView: UIView {
     let errorLabel = ErrorLabel()
     let loginButton = LoginButton()
     lazy var textFields = [loginTextField, passwordTextField]
-    var loadingIndicator: LoadingIndicatorView?
     
     // MARK: - Init
     
@@ -72,20 +71,6 @@ final class LoginView: UIView {
             loginButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -inset),
             loginButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -27)
         ])
-    }
-    
-    // MARK: - Public methods
-    
-    func startLoadingIndicator() {
-        loadingIndicator = LoadingIndicatorView(frame: frame)
-        guard let indicator = loadingIndicator else { return }
-        addSubview(indicator)
-        indicator.startAnimating()
-    }
-    
-    func stopLoadingIndicator() {
-        loadingIndicator?.stopAnimating()
-        loadingIndicator?.removeFromSuperview()
     }
     
 }
