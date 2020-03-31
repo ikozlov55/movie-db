@@ -12,7 +12,6 @@ pod install
 ## Структура проекта
 ```
 .
-├── Client              # Низкоуровневое сетевое API
 ├── Persistency         # Слой данных
 ├── Business Logic      # Слой бизнесс логики, сервисы
 ├── Model               # Модели, DTO

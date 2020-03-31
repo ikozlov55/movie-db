@@ -18,6 +18,7 @@ protocol MovieSearchServiceProtocol {
     ///   - completion: Замыкание, на вход получает список `MovieDTO` или ошибку
     func search(
         query: String,
+        page: Int,
         completion: @escaping ((Result<MoviesList, Error>) -> Void)
     )
     
@@ -44,8 +45,9 @@ final class MovieSearchService: MovieSearchServiceProtocol {
     
     func search(
         query: String,
+        page: Int = 1,
         completion: @escaping ((Result<MoviesList, Error>) -> Void)) {
-        apiClient.request(SearchMovieEndpoint(query: query)) { result in
+        apiClient.request(SearchMovieEndpoint(query: query, page: page)) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let result):

@@ -13,15 +13,17 @@ class MovieSearchCordinatingController: BaseViewController {
     // MARK: - Private Properties
     
     private let welcomeController = MovieSearchStartViewController()
-    private let filmSearchController = MovieSearchViewController()
+    private var filmSearchController: MovieSearchViewControllerProtocol!
     private let emptySearchResultsController = EmptySearchResultsViewController()
     private let moviesListController = MoviesListViewController()
+    private let loader = LoadingViewController()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showWelcomeController()
+        filmSearchController = MovieSearchViewController()
         filmSearchController.delegate = self
         welcomeController.delegate = self
     }
@@ -73,12 +75,16 @@ extension MovieSearchCordinatingController: MovieSearchStartViewControllerDelega
 // MARK: - FilmSearchViewControllerDelegate
 
 extension MovieSearchCordinatingController: MovieSearchViewControllerDelegate {
-    func searchStarted() {}
+    func searchStarted() {
+        addChildToContentArea(loader)
+    }
     
     func searchFinished(with result: MoviesList) {
         if result.totalResults == 0 {
+            loader.remove()
             addChildToContentArea(emptySearchResultsController)
         } else {
+            loader.remove()
             let data = result.results.map { MovieVMTranformer.movieVM(from: $0) }
             addChildToContentArea(moviesListController)
             moviesListController.show(data)

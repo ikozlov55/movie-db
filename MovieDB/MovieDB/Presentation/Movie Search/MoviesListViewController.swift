@@ -12,7 +12,7 @@ class MoviesListViewController: BaseViewController {
 
     // MARK: - Private Properties
     
-    var moviesListView = MoviesListView()
+    private var moviesListView = MoviesListView()
     
     // MARK: - Lifecycle
     

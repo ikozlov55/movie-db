@@ -14,6 +14,17 @@ enum SearchResultsLayout {
     case widgets
 }
 
+/// `UIViewController` который выполняет поиск по базе themoviedb.org и оповещает свой делегат о результатах
+protocol MovieSearchViewControllerProtocol: UIViewController {
+    
+    /// `MovieSearchViewControllerDelegate` который оповещается о результатх поиска
+    var delegate: MovieSearchViewControllerDelegate? { get set }
+    
+    /// Поиск фильмов по базе themoviedb.org
+    /// - Parameter query: Поисковый запрос
+    func search(query: String, page: Int)
+}
+
 /// Тип, который обрабатывает результаты поиск фильмов
 protocol MovieSearchViewControllerDelegate: class {
     
@@ -29,7 +40,7 @@ protocol MovieSearchViewControllerDelegate: class {
     func searchFinished(with result: MoviesList)
 }
 
-final class MovieSearchViewController: BaseViewController {
+final class MovieSearchViewController: BaseViewController, MovieSearchViewControllerProtocol {
     
     // MARK: - Public Properties
     
@@ -51,6 +62,20 @@ final class MovieSearchViewController: BaseViewController {
         super.viewDidLoad()
         setupView()
         setupInteractions()
+    }
+    
+    // MARK: - Public methods
+    
+    func search(query: String, page: Int) {
+        delegate?.searchStarted()
+        searchService.search(query: query, page: page) { [weak self] result in
+            switch result {
+            case .success(let moviesList):
+                self?.delegate?.searchFinished(with: moviesList)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     // MARK: - Private Methods
@@ -86,14 +111,6 @@ extension MovieSearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard searchText.trim.count > 3 else { return }
-        delegate?.searchStarted()
-        searchService.search(query: searchText) { [weak self] result in
-            switch result {
-            case .success(let moviesList):
-                self?.delegate?.searchFinished(with: moviesList)
-            case .failure(let error):
-                print(error)
-            }
-        }
+        search(query: searchText, page: 1)
     }
 }
