@@ -9,13 +9,67 @@
 import UIKit
 
 class MoviesListView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    // MARK: - Public Properties
+    
+    var dataSource = MovieListDataSource()
+    
+    // MARK: - Private Properties
+    
+    private let layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        return layout
+    }()
+    
+    // MARK: - Subviews
+    
+    lazy var collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
+    // MARK: - Setup View
+    
+    private func setupView() {
+        addSubview(collectionView)
+        let margins = layoutMarginsGuide
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: margins.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+        ])
+        collectionView.register(
+            MovieListCell.self,
+            forCellWithReuseIdentifier: MovieListCell.identifier
+        )
+        collectionView.delegate = self
+        collectionView.dataSource = dataSource
+    }
 
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension MoviesListView: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.width, height: 120)
+    }
 }

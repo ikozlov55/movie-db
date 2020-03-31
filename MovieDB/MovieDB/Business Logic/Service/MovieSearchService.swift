@@ -46,11 +46,13 @@ final class MovieSearchService: MovieSearchServiceProtocol {
         query: String,
         completion: @escaping ((Result<MoviesList, Error>) -> Void)) {
         apiClient.request(SearchMovieEndpoint(query: query)) { result in
-            switch result {
-            case .success(let result):
-                completion(.success(MoviesTranformer.moviesList(from: result)))
-            case .failure(let error):
-                completion(.failure(error))
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let result):
+                    completion(.success(MoviesTranformer.moviesList(from: result)))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
         }
     }

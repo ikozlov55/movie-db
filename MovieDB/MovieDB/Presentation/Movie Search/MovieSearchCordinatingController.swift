@@ -9,11 +9,13 @@
 import UIKit
 
 class MovieSearchCordinatingController: BaseViewController {
-
+    
     // MARK: - Private Properties
     
     private let welcomeController = MovieSearchStartViewController()
     private let filmSearchController = MovieSearchViewController()
+    private let emptySearchResultsController = EmptySearchResultsViewController()
+    private let moviesListController = MoviesListViewController()
     
     // MARK: - Lifecycle
     
@@ -27,16 +29,12 @@ class MovieSearchCordinatingController: BaseViewController {
     // MARK: - Private Methods
     
     private func showWelcomeController() {
-        addChild(welcomeController)
-        view.addSubview(welcomeController.view)
+        add(child: welcomeController)
         welcomeController.view.frame = view.frame
-        welcomeController.didMove(toParent: self)
     }
     
     private func showSearchViewController() {
-        addChild(filmSearchController)
-        view.addSubview(filmSearchController.view)
-        
+        add(child: filmSearchController)
         let safeArea = view.safeAreaLayoutGuide
         let inset: CGFloat = 24
         filmSearchController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -46,9 +44,19 @@ class MovieSearchCordinatingController: BaseViewController {
             filmSearchController.view.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             filmSearchController.view.heightAnchor.constraint(equalToConstant: 48)
         ])
-        filmSearchController.didMove(toParent: self)
     }
-
+    
+    private func addChildToContentArea(_ viewController: UIViewController) {
+        add(child: viewController)
+        let safeArea = view.safeAreaLayoutGuide
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            viewController.view.topAnchor.constraint(equalTo: filmSearchController.view.bottomAnchor),
+            viewController.view.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            viewController.view.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            viewController.view.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+        ])
+    }
 }
 
 // MARK: - MovieSearchStartViewControllerDelegate
@@ -65,6 +73,18 @@ extension MovieSearchCordinatingController: MovieSearchStartViewControllerDelega
 // MARK: - FilmSearchViewControllerDelegate
 
 extension MovieSearchCordinatingController: MovieSearchViewControllerDelegate {
+    func searchStarted() {}
+    
+    func searchFinished(with result: MoviesList) {
+        if result.totalResults == 0 {
+            addChildToContentArea(emptySearchResultsController)
+        } else {
+            let data = result.results.map { MovieVMTranformer.movieVM(from: $0) }
+            addChildToContentArea(moviesListController)
+            moviesListController.show(data)
+        }
+    }
+    
     func resultsLayoutChanged(to layout: SearchResultsLayout) {
         print(layout)
     }

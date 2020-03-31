@@ -6,4 +6,17 @@
 //  Copyright © 2020 Илья Козлов. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+/// Тип, имеющий свой текстовый идентификатор
+protocol IdentifiableCell {
+    static var identifier: String { get }
+}
+
+extension IdentifiableCell {
+    static var identifier: String { String(describing: self) }
+}
+
+extension UICollectionViewCell: IdentifiableCell {}
+
+extension UITableViewCell: IdentifiableCell {}

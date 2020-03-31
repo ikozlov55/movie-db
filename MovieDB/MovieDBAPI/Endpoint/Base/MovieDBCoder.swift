@@ -14,7 +14,8 @@ struct MovieDBCoder {
     /// Возможные форматы дат ответов themoviedb.org API
     static let allowedDateFormats = [
         "yyyy-MM-dd HH:mm:ss zzz",
-        "yyyy-MM-dd"
+        "yyyy-MM-dd",
+        ""
     ]
     
     /// Стандартный `JSONDecoder` ответов API themoviedb.org

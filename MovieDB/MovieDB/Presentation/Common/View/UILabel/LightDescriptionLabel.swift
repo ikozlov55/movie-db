@@ -10,12 +10,16 @@ import UIKit
 
 class LightDescriptionLabel: BaseLabel {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    // MARK: - Init
+    
+    init(_ text: String = "") {
+        let color = ColorName.lightBlue.color
+        super.init(size: 12, weight: .medium, color: color, text: text)
+        self.text = text
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 
 }

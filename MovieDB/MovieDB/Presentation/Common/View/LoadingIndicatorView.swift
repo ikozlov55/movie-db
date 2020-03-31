@@ -33,7 +33,7 @@ final class LoadingIndicatorView: UIView {
     
     // MARK: - Setup View
     
-    private func setupView() {
+    func setupView() {
         isUserInteractionEnabled = false
         backgroundColor = ColorName.backgroundBlack.color
         alpha = 0.8

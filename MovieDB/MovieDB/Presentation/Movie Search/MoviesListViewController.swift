@@ -10,10 +10,21 @@ import UIKit
 
 class MoviesListViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    // MARK: - Private Properties
+    
+    var moviesListView = MoviesListView()
+    
+    // MARK: - Lifecycle
+    
+    override func loadView() {
+        view = moviesListView
+    }
+    
+    // MARK: - Public methods
+    
+    func show(_ movies: [MovieVM]) {
+        moviesListView.dataSource.data = movies
+        moviesListView.collectionView.reloadData()
     }
 
 }

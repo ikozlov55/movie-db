@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseLabel: UILabel {
-
+    
     // MARK: - Init
     
     init(size: CGFloat, weight: UIFont.Weight, color: UIColor, text: String) {
@@ -18,6 +18,11 @@ class BaseLabel: UILabel {
         textColor = color
         font = UIFont.systemFont(ofSize: size, weight: weight)
         self.text = text
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -31,5 +36,5 @@ class BaseLabel: UILabel {
         lineBreakMode = .byWordWrapping
         numberOfLines = 0
     }
-
+    
 }

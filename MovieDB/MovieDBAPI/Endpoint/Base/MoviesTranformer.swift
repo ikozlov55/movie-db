@@ -9,13 +9,10 @@
 import Foundation
 import MovieDBAPI
 
-/// Статический класс для преобразования моделей фильмов сетевого слоя в модели слоя представления
+/// Статический класс для преобразования моделей фильмов сетевого слоя в бизнес объекты
 final class MoviesTranformer {
     
-    // MARK: - Private Properties
-    static let calendar = Calendar.current
-    
-    // MARK: - Public Properties
+    // MARK: - Public methods
     
     /// Преобразование модели `MovieDTO` в `Movie`
     /// - Parameter dto: модель `MovieDTO` сетевого слоя
@@ -24,22 +21,17 @@ final class MoviesTranformer {
         if let posterPath = dto.posterPath {
             posterUrl = Config.imagesBaseUrl.appendingPathComponent(posterPath)
         }
-        var releaseYear: Int?
-        if let releaseDate = dto.releaseDate {
-            let components = calendar.dateComponents([.year], from: releaseDate)
-            releaseYear = components.year
-        }
-        let genres = GenresDict.stringFrom(dto.genreIds)
+
         return Movie(
             id: dto.id,
             voteCount: dto.voteCount,
             voteAverage: dto.voteAverage,
             posterUrl: posterUrl,
             originalTitle: dto.originalTitle,
-            genres: genres,
+            genres: dto.genreIds,
             title: dto.title,
             overview: dto.overview,
-            releaseYear: releaseYear
+            releaseDate: dto.releaseDate
         )
     }
     

@@ -20,14 +20,14 @@ struct Movie {
     /// Рейтинг фильма от 0 до 10
     let voteAverage: Double
     
-    /// Название файла с постером
+    /// Адрес файла с постером
     let posterUrl: URL?
     
     /// Оригинальное название
     let originalTitle: String
     
-    /// Жанры фильма в виде строки с разделителем в виде запятой
-    let genres: String
+    /// Id жанров фильма
+    let genres: [Int]
     
     /// Локализованное название
     let title: String
@@ -35,8 +35,8 @@ struct Movie {
     /// Описание
     let overview: String
     
-    /// Год выхода
-    let releaseYear: Int?
+    /// Дата выхода
+    let releaseDate: Date?
     
 }
 

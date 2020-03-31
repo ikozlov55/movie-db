@@ -11,18 +11,16 @@ import UIKit
 final public class GetImageEndpoint: Endpoint {
     public typealias Content = UIImage
     
-    private let address: String
+    private let url: URL
     
-    public init(address: String) {
-        self.address = address
+    public init(url: URL) {
+        self.url = url
     }
     
     public func makeRequest() throws -> URLRequest {
-        guard let url = URL(string: address)
-            else {
-                throw APIError.invalidUrl
-        }
-        return URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.cachePolicy = .returnCacheDataElseLoad
+        return request
     }
     
     public func content(from data: Data, response: URLResponse?) throws -> Content {

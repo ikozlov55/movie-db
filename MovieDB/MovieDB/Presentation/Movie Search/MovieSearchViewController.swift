@@ -20,6 +20,13 @@ protocol MovieSearchViewControllerDelegate: class {
     /// Обработка изменения типа расположения результатов поиска
     /// - Parameter layout: Тип расположения
     func resultsLayoutChanged(to layout: SearchResultsLayout)
+    
+    /// Обработка начала поиска
+    func searchStarted()
+    
+    /// Обработка результатов поиск
+    /// - Parameter result: Страница результатов поиска типа `MoviesList`
+    func searchFinished(with result: MoviesList)
 }
 
 final class MovieSearchViewController: BaseViewController {
@@ -76,12 +83,14 @@ final class MovieSearchViewController: BaseViewController {
 }
 
 extension MovieSearchViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard searchText.trim.count > 3 else { return }
-        searchService.search(query: searchText) { result in
+        delegate?.searchStarted()
+        searchService.search(query: searchText) { [weak self] result in
             switch result {
-            case .success(let movies):
-                movies.results.map { print("\n\n \($0) \n\n") }
+            case .success(let moviesList):
+                self?.delegate?.searchFinished(with: moviesList)
             case .failure(let error):
                 print(error)
             }
