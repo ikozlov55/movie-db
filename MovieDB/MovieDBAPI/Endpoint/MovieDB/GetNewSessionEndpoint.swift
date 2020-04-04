@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` начала пользовательской сессии и полечения её id 
 final public class GetNewSessionEndpoint: JSONEndpoint {
     public typealias Content = GetNewSessionDTO
     

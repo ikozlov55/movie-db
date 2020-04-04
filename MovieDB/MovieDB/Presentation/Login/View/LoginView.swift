@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Корневая `view` экрана авторизации
 final class LoginView: ViewWithLoadingIndicator {
     
     // MARK: - Subviews
@@ -42,6 +43,10 @@ final class LoginView: ViewWithLoadingIndicator {
         addSubview(errorLabel)
         addSubview(loginButton)
         loginButton.isEnabled = false
+        
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         
         let safeArea = safeAreaLayoutGuide
         let inset: CGFloat = 24

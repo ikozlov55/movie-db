@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Базовый `UINavigationController` приложения, выполняет общую первичную настройку
 class BaseNavigationController: UINavigationController {
 
     // MARK: - Lifecycle

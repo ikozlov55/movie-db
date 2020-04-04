@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `UIView` с полем поиска и переключателем типа  расположения результатов
 final class MovieSearchView: UIView {
     
     // MARK: - Subviews
@@ -36,9 +37,10 @@ final class MovieSearchView: UIView {
     private func setupView() {
         addSubview(searchBar)
         addSubview(layoutSwitch)
-        
+
         let inset: CGFloat = 24
-        
+
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: topAnchor),
             searchBar.bottomAnchor.constraint(equalTo: bottomAnchor),

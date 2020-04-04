@@ -1,5 +1,5 @@
 //
-//  MovieSearchStartViewController.swift
+//  MovieSearchWelcomeViewController.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 08.03.2020.
@@ -9,21 +9,21 @@
 import UIKit
 
 /// Тип, который обрабатывает старт пользовательского ввода на первом экране флоу поиска фильмов
-protocol MovieSearchStartViewControllerDelegate: class {
+protocol MovieSearchWelcomeViewControllerDelegate: class {
     
     /// Обработка начала пользовательского ввода
-    func searchDidStarted()
+    func searchBarTaped()
 }
 
-final class MovieSearchStartViewController: BaseViewController {
+final class MovieSearchWelcomeViewController: BaseViewController {
     
     // MARK: - Public Properties
     
-    weak var delegate: MovieSearchStartViewControllerDelegate?
+    weak var delegate: MovieSearchWelcomeViewControllerDelegate?
     
     // MARK: - Private Properties
     
-    private var movieSearchStartView = MovieSearchStartView()
+    private var movieSearchStartView = MovieSearchWelcomeView()
     private let searchService = ServiceLayer.searchService
     
     // MARK: - Lifecycle
@@ -35,33 +35,30 @@ final class MovieSearchStartViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         movieSearchStartView.searchBar.delegate = self
-        searchService.genres(completion: nil)
+        searchService.getGenres(completion: nil)
     }
     
 }
 
 // MARK: - UISearchBarDelegate
 
-extension MovieSearchStartViewController: UISearchBarDelegate {
+extension MovieSearchWelcomeViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        movieSearchStartView.header.removeFromSuperview()
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
             options: .curveEaseIn,
-            animations: { [weak self] in
-                guard let self = self else { return }
+            animations: {
                 self.movieSearchStartView.backgroundImageView.alpha = 0
-                self.movieSearchStartView.header.removeFromSuperview()
-                NSLayoutConstraint.activate([
-                    self.movieSearchStartView.searchBar.topAnchor.constraint(
-                        equalTo: self.view.safeAreaLayoutGuide.topAnchor,
-                        constant: 24)
-                ])
+                self.movieSearchStartView.searchBar.topAnchor.constraint(
+                    equalTo: self.view.safeAreaLayoutGuide.topAnchor,
+                    constant: 24).isActive = true
                 self.movieSearchStartView.layoutIfNeeded()
             },
-            completion: { [weak self] _ in
-                self?.movieSearchStartView.backgroundImageView.removeFromSuperview()
-                self?.delegate?.searchDidStarted()
+            completion: { _ in
+                self.movieSearchStartView.backgroundImageView.removeFromSuperview()
+                self.delegate?.searchBarTaped()
             })
     }
 }

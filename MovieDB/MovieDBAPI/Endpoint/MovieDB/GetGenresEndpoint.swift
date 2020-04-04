@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` получения словаря жанров 
 final public class GetGenresEndpoint: JSONEndpoint {
     public typealias Content = GenresListDTO
     

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class EmptySearchResultsViewController: BaseViewController {
+/// `ViewController` заглушка для отображения пустого результата поиска
+final class EmptySearchResultsViewController: BaseViewController {
 
     // MARK: - Private Properties
     

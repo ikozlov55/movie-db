@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Реализация `APIClient` для загрузки изображений из сети
 public final class ImagesClient: APIClient {
     
     // MARK: - Private Properties
@@ -28,13 +29,13 @@ public final class ImagesClient: APIClient {
     ) -> Progress where T: Endpoint {
         guard let request = try? endpoint.makeRequest()
             else {
-                completion(.failure(APIError.invalidUrl))
+                failOnMainThread(APIError.invalidUrl, completion)
                 return Progress()
         }
         
-        let task = session.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
-                completion(.failure(error))
+                self?.failOnMainThread(error, completion)
             }
             
             guard let response = response as? HTTPURLResponse,
@@ -42,15 +43,15 @@ public final class ImagesClient: APIClient {
                 statusCode == .ok,
                 let data = data
                 else {
-                    completion(.failure(APIError.unknown))
+                    self?.failOnMainThread(APIError.unknown, completion)
                     return
             }
             
             do {
                 let image = try endpoint.content(from: data, response: response)
-                completion(.success(image))
+                self?.succeedOnMainThread(image, completion)
             } catch {
-                completion(.failure(error))
+                self?.failOnMainThread(error, completion)
             }
         }
         task.resume()

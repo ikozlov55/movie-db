@@ -44,3 +44,7 @@
 
 //Profile
 "logout_button_text" = "Выйти";
+
+//Alert
+"alert_default_title" = "Ошибка!";
+"alert_default_message" = "Что-то пошло не так";

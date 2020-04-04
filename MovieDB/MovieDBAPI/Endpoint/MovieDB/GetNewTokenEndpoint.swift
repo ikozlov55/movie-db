@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` получения временного токена авторизации
 final public class GetNewTokenEndpoint: JSONEndpoint {
     public typealias Content = GetNewTokenDTO
     

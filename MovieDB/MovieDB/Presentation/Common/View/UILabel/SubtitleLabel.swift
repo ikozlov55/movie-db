@@ -8,13 +8,17 @@
 
 import UIKit
 
+/// Основной`UILabel` приложения: подзаголовки, текст полей ввода и т.д.
+/// Цвет: lightBlue
+/// Вес шрифта: regular
+/// Размер шрифта: 16
 final class SubtitleLabel: BaseLabel {
 
     // MARK: - Init
     
     init(_ text: String = "") {
         let color = ColorName.lightBlue.color
-        super.init(size: 16, weight: .regular, color: color, text: text)
+        super.init(fontSize: 16, weight: .regular, color: color, text: text)
         self.text = text
     }
     

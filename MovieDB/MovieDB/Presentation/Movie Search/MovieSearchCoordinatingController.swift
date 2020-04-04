@@ -1,5 +1,5 @@
 //
-//  MovieSearchCordinatingController.swift
+//  MovieSearchCoordinatingController.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 28.03.2020.
@@ -8,31 +8,64 @@
 
 import UIKit
 
-class MovieSearchCordinatingController: BaseViewController {
+/// `ViewController` контейнер для флоу авторизации
+final class MovieSearchCoordinatingController: BaseViewController {
     
     // MARK: - Private Properties
     
-    private let welcomeController = MovieSearchStartViewController()
-    private var filmSearchController: MovieSearchViewControllerProtocol!
-    private let emptySearchResultsController = EmptySearchResultsViewController()
-    private let moviesListController = MoviesListViewController()
-    private let loader = LoadingViewController()
+    private let welcomeController: MovieSearchWelcomeViewController
+    private var filmSearchController: MovieSearchViewControllerProtocol
+    private let emptySearchResultsController: EmptySearchResultsViewController
+    private let moviesListController: MoviesListViewController
+    private let loader: LoadingViewController
+    
+    // MARK: - Init
+    init() {
+        welcomeController = MovieSearchWelcomeViewController()
+        filmSearchController = MovieSearchViewController()
+        emptySearchResultsController = EmptySearchResultsViewController()
+        moviesListController = MoviesListViewController()
+        loader = LoadingViewController()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showWelcomeController()
-        filmSearchController = MovieSearchViewController()
         filmSearchController.delegate = self
         welcomeController.delegate = self
     }
     
     // MARK: - Private Methods
     
+    private func showLoader() {
+        addChildToContentArea(loader)
+    }
+    
+    private func hideLoader() {
+        loader.remove()
+    }
+    
+    private func showEmptySearchStub() {
+        addChildToContentArea(emptySearchResultsController)
+    }
+    
+    private func showSearchResults(_ moviesList: MoviesList) {
+        addChildToContentArea(moviesListController)
+        let movieViewModels = moviesList.results.map { MovieViewModelTransformer.viewModel(from: $0)
+        }
+        moviesListController.show(movieViewModels)
+    }
+    
     private func showWelcomeController() {
         add(child: welcomeController)
-        welcomeController.view.frame = view.frame
+        view.fill(with: welcomeController.view)
     }
     
     private func showSearchViewController() {
@@ -61,10 +94,10 @@ class MovieSearchCordinatingController: BaseViewController {
     }
 }
 
-// MARK: - MovieSearchStartViewControllerDelegate
+// MARK: - MovieSearchWelcomeViewControllerDelegate
 
-extension MovieSearchCordinatingController: MovieSearchStartViewControllerDelegate {
-    func searchDidStarted() {
+extension MovieSearchCoordinatingController: MovieSearchWelcomeViewControllerDelegate {
+    func searchBarTaped() {
         welcomeController.willMove(toParent: nil)
         welcomeController.view.removeFromSuperview()
         welcomeController.removeFromParent()
@@ -74,24 +107,15 @@ extension MovieSearchCordinatingController: MovieSearchStartViewControllerDelega
 
 // MARK: - FilmSearchViewControllerDelegate
 
-extension MovieSearchCordinatingController: MovieSearchViewControllerDelegate {
+extension MovieSearchCoordinatingController: MovieSearchViewControllerDelegate {
     func searchStarted() {
-        addChildToContentArea(loader)
+        showLoader()
     }
     
     func searchFinished(with result: MoviesList) {
-        if result.totalResults == 0 {
-            loader.remove()
-            addChildToContentArea(emptySearchResultsController)
-        } else {
-            loader.remove()
-            let data = result.results.map { MovieVMTranformer.movieVM(from: $0) }
-            addChildToContentArea(moviesListController)
-            moviesListController.show(data)
-        }
+        hideLoader()
+        result.totalResults > 0 ? showSearchResults(result) : showEmptySearchStub()
     }
     
-    func resultsLayoutChanged(to layout: SearchResultsLayout) {
-        print(layout)
-    }
+    func resultsLayoutChanged(to layout: SearchResultsLayout) {}
 }

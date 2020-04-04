@@ -8,17 +8,18 @@
 
 import UIKit
 
+/// `DataSource` для отображения результатов поиска фильмов
 final class MovieListDataSource: NSObject, UICollectionViewDataSource {
 
     // MARK: - Public Properties
     
-    var data = [MovieVM]()
+    var movieViewModels = [MovieViewModel]()
     let imagesService = ServiceLayer.imagesService
     
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        data.count
+        movieViewModels.count
     }
     
     func collectionView(
@@ -29,19 +30,19 @@ final class MovieListDataSource: NSObject, UICollectionViewDataSource {
             for: indexPath
             ) as? MovieListCell
             else { return UICollectionViewCell() }
-        let movieVM = data[indexPath.row]
+        let viewModel = movieViewModels[indexPath.row]
         cell.reset()
-        if let posterUtl = movieVM.posterUrl {
+        if let posterUtl = viewModel.posterUrl {
             cell.progress = imagesService.load(posterUtl) { result in
                 switch result {
                 case .success(let image):
-                    cell.posterView.image = image
+                    cell.setPoster(image)
                 case .failure:
                     return
                 }
             }
         }
-        cell.present(movieVM)
+        cell.present(viewModel)
         return cell
     }
 }

@@ -1,5 +1,5 @@
 //
-//  MovieSearchStartView.swift
+//  MovieSearchWelcomeView.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 09.03.2020.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class MovieSearchStartView: UIView {
+/// Корневая `view` первого экрана вкладки поиска фильмов
+final class MovieSearchWelcomeView: UIView {
 
     // MARK: - Subviews
 
@@ -44,6 +45,7 @@ final class MovieSearchStartView: UIView {
         let safeArea = safeAreaLayoutGuide
         let inset: CGFloat = 24
         
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             backgroundImageView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),

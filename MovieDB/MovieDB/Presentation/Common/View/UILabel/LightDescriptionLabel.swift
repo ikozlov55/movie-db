@@ -8,13 +8,17 @@
 
 import UIKit
 
-class LightDescriptionLabel: BaseLabel {
+/// Светлый `UILabel` для отображения деталей описания фильма
+/// Цвет: lightBlue
+/// Вес шрифта: medium
+/// Размер шрифта: 12
+final class LightDescriptionLabel: BaseLabel {
 
     // MARK: - Init
     
     init(_ text: String = "") {
         let color = ColorName.lightBlue.color
-        super.init(size: 12, weight: .medium, color: color, text: text)
+        super.init(fontSize: 12, weight: .medium, color: color, text: text)
         self.text = text
     }
     

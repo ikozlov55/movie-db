@@ -16,17 +16,17 @@ final class LoginCoordinator: Coordinator {
     
     // MARK: - Init
     
-    init(_ nc: BaseNavigationController) {
-        self.navigationController = nc
+    init(_ navigationController: BaseNavigationController) {
+        self.navigationController = navigationController
         self.navigationController.isNavigationBarHidden = true
     }
     
     // MARK: - Navigation methods
     
     func start() {
-        let vc = LoginViewController()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        let controller = LoginViewController()
+        controller.coordinator = self
+        navigationController.pushViewController(controller, animated: true)
     }
     
     func login() {

@@ -43,7 +43,6 @@ class LoginTextField: UITextField {
     // MARK: - Setup View
     
     func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
         placeholder = L10n.loginFieldPlaceholder
         textColor = ColorName.lightBlue.color
         layer.borderWidth = 2

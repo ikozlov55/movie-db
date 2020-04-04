@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let nc = BaseNavigationController()
-        let coordinator = LoginCoordinator(nc)
+        let navigationController = BaseNavigationController()
+        let coordinator = LoginCoordinator(navigationController)
         window = UIWindow()
-        window?.rootViewController = nc
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         coordinator.start()
 

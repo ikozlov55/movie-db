@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MoviesListViewController: BaseViewController {
-
+/// `ViewController` в котором в `UICollectionView` отображается список найденных фильмов
+final class MoviesListViewController: BaseViewController {
+    
     // MARK: - Private Properties
     
     private var moviesListView = MoviesListView()
@@ -22,9 +23,11 @@ class MoviesListViewController: BaseViewController {
     
     // MARK: - Public methods
     
-    func show(_ movies: [MovieVM]) {
-        moviesListView.dataSource.data = movies
+    /// Отображение фильмов в `UICollectionView`
+    /// - Parameter movies: Список `MovieViewModel` найденных фильмов
+    func show(_ movies: [MovieViewModel]) {
+        moviesListView.dataSource.movieViewModels = movies
         moviesListView.collectionView.reloadData()
     }
-
+    
 }

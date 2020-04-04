@@ -1,5 +1,5 @@
 //
-//  MovieVM.swift
+//  MovieViewModel.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 29.03.2020.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// Модель фильма для отображаения в ячейке
-struct MovieVM {
+struct MovieViewModel {
     
     /// Локализованное название
     let title: String

@@ -59,34 +59,21 @@ final class AuthService: AuthServiceProtocol {
                             body: GetNewSessionRequestDTO(requestToken: response.requestToken)
                         )
                         self?.apiClient.request(getSessionId) { result in
-                            DispatchQueue.main.async {
-                                switch result {
-                                case .success(let response):
-                                    Config.sessionId = response.sessionId
-                                    completion(.success(true))
-                                case .failure(let error):
-                                    completion(.failure(error))
-                                }
+                            switch result {
+                            case .success(let response):
+                                Config.sessionId = response.sessionId
+                                completion(.success(true))
+                            case .failure(let error):
+                                completion(.failure(error))
                             }
                         }
                     case .failure(let error):
-                        self?.finish(with: error, handler: completion)
+                        completion(.failure(error))
                     }
                 }
             case .failure(let error):
-                self?.finish(with: error, handler: completion)
+                completion(.failure(error))
             }
-        }
-    }
-    
-    // MARK: - Private Methods
-    
-    private func finish(
-        with error: Error,
-        handler: @escaping ((Result<Bool, Error>) -> Void)
-    ) {
-        DispatchQueue.main.async {
-            handler(.failure(error))
         }
     }
     

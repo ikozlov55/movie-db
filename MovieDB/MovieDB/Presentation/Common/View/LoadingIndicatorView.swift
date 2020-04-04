@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `UIView` с вложенным по центру `UIActivityIndicatorView` и методами для управления его анимацией
 final class LoadingIndicatorView: UIView {
     
     // MARK: - Subviews
@@ -33,7 +34,7 @@ final class LoadingIndicatorView: UIView {
     
     // MARK: - Setup View
     
-    func setupView() {
+    private func setupView() {
         isUserInteractionEnabled = false
         backgroundColor = ColorName.backgroundBlack.color
         alpha = 0.8
@@ -48,12 +49,14 @@ final class LoadingIndicatorView: UIView {
     
     // MARK: - Public methods
     
+    /// Старт анимации вложенного `UIActivityIndicatorView`
     func startAnimating() {
         activityIndicator.startAnimating()
     }
     
+    /// Остановка анимации вложенного `UIActivityIndicatorView`
     func stopAnimating() {
         activityIndicator.stopAnimating()
     }
-
+    
 }

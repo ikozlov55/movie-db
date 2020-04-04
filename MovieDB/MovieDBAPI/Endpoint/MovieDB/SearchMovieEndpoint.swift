@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` поиска фильмов по запросу
 final public class SearchMovieEndpoint: JSONEndpoint {
     public typealias Content = MoviesListDTO
     

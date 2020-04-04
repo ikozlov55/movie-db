@@ -8,8 +8,10 @@
 
 import UIKit
 
+/// `UIViewController` с вложенным индикатором загрузки, анимация стартует
+/// сразу при загрузке во `viewDidLoad`
 class LoadingViewController: BaseViewController {
-
+    
     // MARK: - Private Properties
     
     var indicatorView = LoadingIndicatorView()
@@ -24,5 +26,5 @@ class LoadingViewController: BaseViewController {
         super.viewDidLoad()
         indicatorView.startAnimating()
     }
-
+    
 }

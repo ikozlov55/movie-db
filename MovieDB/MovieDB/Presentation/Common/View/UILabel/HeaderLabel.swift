@@ -8,13 +8,17 @@
 
 import UIKit
 
+/// Крупный `UILabel` для заголовков экранов
+/// Цвет: lightBlue
+/// Вес шрифта: medium
+/// Размер шрифта: 32
 final class HeaderLabel: BaseLabel {
 
     // MARK: - Init
     
     init(_ text: String = "") {
         let color = ColorName.lightBlue.color
-        super.init(size: 32, weight: .medium, color: color, text: text)
+        super.init(fontSize: 32, weight: .medium, color: color, text: text)
         self.text = text
     }
     

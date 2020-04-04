@@ -1,5 +1,5 @@
 //
-//  MovieVMTranformer.swift
+//  MovieViewModelTranfsormer.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 29.03.2020.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// Статический класс для преобразования бизнес объектов фильмов в модели слоя представления
-final class MovieVMTranformer {
+final class MovieViewModelTransformer {
     
     // MARK: - Private Properties
     static let calendar = Calendar.current
@@ -22,16 +22,18 @@ final class MovieVMTranformer {
     
     // MARK: - Public methods
     
-    /// Преобразование модели объекта `Movie` в модель  представления `MovieVM`
+    /// Преобразование модели объекта `Movie` в модель  представления `MovieViewModel`
     /// - Parameter model: бизнес объект `Movie`
-    static func movieVM(from model: Movie) -> MovieVM {
+    static func viewModel(from model: Movie) -> MovieViewModel {
         var subtitle = model.originalTitle
         
         if let releaseDate = model.releaseDate {
             let components = calendar.dateComponents([.year], from: releaseDate)
-            subtitle += " \(String(describing: components.year))"
+            if let releaseYear = components.year {
+                subtitle += " (\(String(describing: releaseYear)))"
+            }
         }
-        return MovieVM(
+        return MovieViewModel(
             title: model.title,
             subtitle: subtitle,
             genres: GenresDict.stringFrom(model.genres),

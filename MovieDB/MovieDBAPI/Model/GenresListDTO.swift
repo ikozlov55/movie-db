@@ -19,7 +19,7 @@ public struct GenreDTO: Decodable {
     
 }
 
-/// Струткара тела ответа на запрос получения словаря жанров
+/// Структупа тела ответа на запрос получения словаря жанров
 public struct GenresListDTO: Decodable {
     public let genres: [GenreDTO]
 }

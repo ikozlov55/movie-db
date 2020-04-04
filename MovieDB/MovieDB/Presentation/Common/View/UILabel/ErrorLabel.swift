@@ -8,13 +8,17 @@
 
 import UIKit
 
+/// `UILabel` для отображения ошибок
+/// Цвет: red
+/// Вес шрифта: regular
+/// Размер шрифта: 16
 final class ErrorLabel: BaseLabel {
 
     // MARK: - Init
     
     init(_ text: String = "") {
         let color = ColorName.red.color
-        super.init(size: 16, weight: .regular, color: color, text: text)
+        super.init(fontSize: 16, weight: .regular, color: color, text: text)
         self.text = text
     }
     

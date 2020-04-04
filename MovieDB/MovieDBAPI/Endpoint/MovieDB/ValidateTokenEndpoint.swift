@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` валидации временного токена авторизации по имени пользователя и паролю
 final public class ValidateTokenEndpoint: JSONEndpoint {
     public typealias Content = GetNewTokenDTO
     

@@ -1,5 +1,5 @@
 //
-//  MoviesTranformer.swift
+//  MoviesTransformer.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 29.03.2020.
@@ -10,7 +10,7 @@ import Foundation
 import MovieDBAPI
 
 /// Статический класс для преобразования моделей фильмов сетевого слоя в бизнес объекты
-final class MoviesTranformer {
+final class MoviesTransformer {
     
     // MARK: - Public methods
     

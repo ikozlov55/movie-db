@@ -15,7 +15,7 @@ protocol ImagesServiceProtocol {
     /// Загрузка изображений по `URL`
     /// - Parameters:
     ///   - url: `URL` изображения
-    ///   - completion: Замыкание, на вход получает список `UIImage` или ошибку
+    ///   - completion: Замыкание, на вход получает  `UIImage` или ошибку
     func load(
         _ url: URL,
         completion: @escaping ((Result<UIImage, Error>) -> Void)) -> Progress
@@ -39,13 +39,11 @@ final class ImagesService: ImagesServiceProtocol {
         _ url: URL,
         completion: @escaping ((Result<UIImage, Error>) -> Void)) -> Progress {
         apiClient.request(GetImageEndpoint(url: url)) { result in
-            DispatchQueue.main.async {
                 switch result {
                 case .success(let image):
                     completion(.success(image))
                 case .failure(let error):
                     completion(.failure(error))
-                }
             }
         }
     }

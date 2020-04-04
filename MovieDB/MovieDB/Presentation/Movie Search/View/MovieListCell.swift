@@ -8,11 +8,12 @@
 
 import UIKit
 
+/// Сабкласс `UICollectionViewCell` для отображения моделей `MovieViewModel` в виде списка
 final class MovieListCell: UICollectionViewCell {
     
     // MARK: - Subviews
     
-    let posterView: UIImageView = {
+    private let posterView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 8
@@ -20,36 +21,44 @@ final class MovieListCell: UICollectionViewCell {
         view.backgroundColor = .gray
         return view
     }()
-    let runtimeIcon: UIImageView = {
+    
+    private let runtimeIcon: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.image = Asset.filmRuntime.image
         return view
     }()
-    let titleLabel: SubtitleLabel = {
+    
+    private let titleLabel: SubtitleLabel = {
         let label = SubtitleLabel()
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
         return label
     }()
-    let subtitleLabel: DarkDescriptionLabel = {
+    
+    private let subtitleLabel: DarkDescriptionLabel = {
         let label = DarkDescriptionLabel()
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
         return label
     }()
-    let genresLabel: LightDescriptionLabel = {
+    
+    private let genresLabel: LightDescriptionLabel = {
         let label = LightDescriptionLabel()
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
         return label
     }()
-    let ratingLabel = SubtitleLabel()
-    let votesCountLabel = DarkDescriptionLabel()
-    let runtimeLabel = LightDescriptionLabel()
+    
+    private let ratingLabel = SubtitleLabel()
+    
+    private let votesCountLabel = DarkDescriptionLabel()
+    
+    private let runtimeLabel = LightDescriptionLabel()
     
     // MARK: - Public Properties
     
+    /// Прогресс загрузки изображения с постером фильма
     var progress: Progress?
     
     // MARK: - Init
@@ -114,7 +123,15 @@ final class MovieListCell: UICollectionViewCell {
     
     // MARK: - Public methods
     
-    func present(_ movie: MovieVM) {
+    /// Отображение постера фильма по вложенном `UIImageView`
+    /// - Parameter image: `UIImage` постера
+    func setPoster(_ image: UIImage) {
+        posterView.image = image
+    }
+    
+    /// Отображение модели представления в ячейке
+    /// - Parameter movie: Модель фильма слоя представления
+    func present(_ movie: MovieViewModel) {
         titleLabel.text = movie.title
         subtitleLabel.text = movie.subtitle
         genresLabel.text = movie.genres
@@ -122,9 +139,15 @@ final class MovieListCell: UICollectionViewCell {
         votesCountLabel.text = movie.voteCount
     }
     
+    /// Очистка переиспользуемой ячейки
     func reset() {
         progress?.cancel()
         posterView.image = nil
+        titleLabel.text = nil
+        subtitleLabel.text = nil
+        genresLabel.text = nil
+        ratingLabel.text = nil
+        votesCountLabel.text = nil
     }
     
 }

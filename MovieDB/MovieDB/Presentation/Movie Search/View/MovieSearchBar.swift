@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Сабкласс `UISearchBar` для экрана поиска по фильмам и избранному
 final class MovieSearchBar: UISearchBar {
 
     // MARK: - Init
@@ -25,17 +26,24 @@ final class MovieSearchBar: UISearchBar {
     // MARK: - Setup View
     
     private func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
+        searchBarStyle = .minimal
+        tintColor = ColorName.lightBlue.color
+        setupTextField()
+        setupIcons()
+    }
+    
+    private func setupTextField() {
         searchTextField.backgroundColor = ColorName.tabBarBlue.color
         searchTextField.textColor = ColorName.lightBlue.color
         searchTextField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         searchTextField.layer.cornerRadius = 8
-        setImage(Asset.search.image, for: .search, state: .normal)
-        setImage(Asset.searchClear.image, for: .clear, state: .normal)
-        tintColor = ColorName.lightBlue.color
-        searchBarStyle = .minimal
         placeholder = L10n.filmSearchBarPlaceholder
         autocapitalizationType = .none
+    }
+    
+    private func setupIcons() {
+        setImage(Asset.search.image, for: .search, state: .normal)
+        setImage(Asset.searchClear.image, for: .clear, state: .normal)
     }
     
 }

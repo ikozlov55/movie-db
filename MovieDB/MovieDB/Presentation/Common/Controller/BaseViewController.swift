@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Базовый `UIViewController` приложения, выполняет общую первичную настройку
 class BaseViewController: UIViewController {
 
     // MARK: - Public Properties

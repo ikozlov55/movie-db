@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MoviesListView: UIView {
+/// Корневая `view` модуля отображения результата поиска фильмов
+final class MoviesListView: UIView {
     
     // MARK: - Public Properties
     
@@ -28,6 +29,7 @@ class MoviesListView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
+        view.indicatorStyle = UIScrollView.IndicatorStyle.white
         return view
     }()
     
@@ -46,6 +48,11 @@ class MoviesListView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
+        setupLayout()
+        setupCollectionView()
+    }
+    
+    private func setupLayout() {
         addSubview(collectionView)
         let margins = layoutMarginsGuide
         NSLayoutConstraint.activate([
@@ -54,6 +61,9 @@ class MoviesListView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
         ])
+    }
+    
+    private func setupCollectionView() {
         collectionView.register(
             MovieListCell.self,
             forCellWithReuseIdentifier: MovieListCell.identifier
@@ -61,7 +71,7 @@ class MoviesListView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = dataSource
     }
-
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

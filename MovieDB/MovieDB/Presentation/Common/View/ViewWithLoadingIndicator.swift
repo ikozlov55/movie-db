@@ -8,24 +8,25 @@
 
 import UIKit
 
+/// Базовый `UIView` с индикатором загрузки
 class ViewWithLoadingIndicator: UIView {
     
     // MARK: - Subviews
     
-    var loadingIndicator: LoadingIndicatorView?
+    private lazy var loadingIndicator = LoadingIndicatorView(frame: frame)
     
     // MARK: - Public methods
     
+    /// Старт анимации вложенного `UIActivityIndicatorView`
     func startLoadingIndicator() {
-        loadingIndicator = LoadingIndicatorView(frame: frame)
-        guard let indicator = loadingIndicator else { return }
-        addSubview(indicator)
-        indicator.startAnimating()
+        addSubview(loadingIndicator)
+        loadingIndicator.startAnimating()
     }
     
+    /// Остановка анимации вложенного `UIActivityIndicatorView`
     func stopLoadingIndicator() {
-        loadingIndicator?.stopAnimating()
-        loadingIndicator?.removeFromSuperview()
+        loadingIndicator.stopAnimating()
+        loadingIndicator.removeFromSuperview()
     }
     
 }

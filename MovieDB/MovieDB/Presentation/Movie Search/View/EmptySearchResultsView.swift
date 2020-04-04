@@ -8,11 +8,12 @@
 
 import UIKit
 
-class EmptySearchResultsView: UIView {
+/// Корневая `view` модуля заглушки для пустого результата поиска
+final class EmptySearchResultsView: UIView {
     // MARK: - Subviews
     
-    let header = SubtitleLabel(L10n.filmNotFoundTitle)
-    let backgroundImageView: UIImageView = {
+    private let header = SubtitleLabel(L10n.filmNotFoundTitle)
+    private lazy var backgroundImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.image = Asset.filmNotFoundBackground.image

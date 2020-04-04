@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Тип расположения результатов поиска фильмов: списоком или крупными виджетами
+/// Тип расположения результатов поиска фильмов: списком или крупными виджетами
 enum SearchResultsLayout {
     case list
     case widgets
@@ -44,11 +44,10 @@ final class MovieSearchViewController: BaseViewController, MovieSearchViewContro
     
     // MARK: - Public Properties
     
-    var layout: SearchResultsLayout!
     weak var delegate: MovieSearchViewControllerDelegate?
     
     // MARK: - Private Properties
-    
+    private var layout: SearchResultsLayout = .list
     private var movieSearchView = MovieSearchView()
     private let searchService = ServiceLayer.searchService
     
@@ -73,7 +72,7 @@ final class MovieSearchViewController: BaseViewController, MovieSearchViewContro
             case .success(let moviesList):
                 self?.delegate?.searchFinished(with: moviesList)
             case .failure(let error):
-                print(error)
+                self?.showAlert(message: error.localizedDescription)
             }
         }
     }
@@ -81,7 +80,6 @@ final class MovieSearchViewController: BaseViewController, MovieSearchViewContro
     // MARK: - Private Methods
     
     private func setupView() {
-        layout = .list
         movieSearchView.layoutSwitch.image = Asset.collectionLayoutList.image
     }
     
@@ -107,6 +105,7 @@ final class MovieSearchViewController: BaseViewController, MovieSearchViewContro
     
 }
 
+// MARK: - UISearchBarDelegate
 extension MovieSearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` завершения пользовательской сессии
 final public class CloseSessionEndpoint: VoidResponseEndpoint {
     private let body: CloseSessionRequestDTO
     

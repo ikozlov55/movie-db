@@ -16,22 +16,21 @@ final class FilmsTabCoordinator: Coordinator {
     
     // MARK: - Init
     
-    init(_ nc: BaseNavigationController) {
-        self.navigationController = nc
+    init(_ navigationController: BaseNavigationController) {
+        self.navigationController = navigationController
     }
     
     // MARK: - Navigation methods
     
     func start() {
-        let vc = MovieSearchCordinatingController()
-        //vc.coordinator = self
+        let controller = MovieSearchCoordinatingController()
         let tabBarItem = UITabBarItem(
             title: L10n.filmsTabTitle,
             image: Asset.tabBarMovies.image,
             tag: 0
         )
-        vc.tabBarItem = tabBarItem
-        navigationController.pushViewController(vc, animated: false)
+        controller.tabBarItem = tabBarItem
+        navigationController.pushViewController(controller, animated: false)
     }
 
 }

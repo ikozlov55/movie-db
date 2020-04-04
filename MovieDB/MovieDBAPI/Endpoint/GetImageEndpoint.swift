@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `Endpoint` получения `UIImage` из сети по `URL`
 final public class GetImageEndpoint: Endpoint {
     public typealias Content = UIImage
     
