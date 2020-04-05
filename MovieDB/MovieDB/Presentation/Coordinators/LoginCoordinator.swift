@@ -29,9 +29,11 @@ final class LoginCoordinator: Coordinator {
         navigationController.pushViewController(controller, animated: true)
     }
     
-    func login() {
+    func login(_ transitioningDelegate: UIViewControllerTransitioningDelegate?) {
         let tabBar = MainTabBarController()
-        tabBar.modalPresentationStyle = .fullScreen
+        tabBar.modalPresentationStyle = .custom
+        tabBar.transitioningDelegate = transitioningDelegate
+        navigationController.viewControllers.remove(at: 0)
         navigationController.present(tabBar, animated: true)
     }
 }

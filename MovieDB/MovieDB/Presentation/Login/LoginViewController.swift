@@ -50,7 +50,7 @@ final class LoginViewController: BaseViewController {
         authService.login(username: login, password: password) { [weak self] result in
             switch result {
             case .success:
-                self?.coordinator?.login()
+                self?.coordinator?.login(self)
             case .failure(let error):
                 self?.loginView.errorLabel.text = self?.message(for: error)
                 self?.loginView.stopLoadingIndicator()
@@ -88,4 +88,15 @@ extension LoginViewController: UITextFieldDelegate {
         textField.layer.borderColor = ColorName.darkBlue.color.cgColor
     }
     
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+
+extension LoginViewController: UIViewControllerTransitioningDelegate {
+    func animationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController,
+        source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        LoginAnimator()
+    }
 }
