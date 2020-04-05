@@ -54,6 +54,7 @@ final class LoginViewController: BaseViewController {
             case .failure(let error):
                 self?.loginView.errorLabel.text = self?.message(for: error)
                 self?.loginView.stopLoadingIndicator()
+                self?.loginView.textFields.forEach { if $0.isEditing { $0.dangle() } }
             }
         }
     }

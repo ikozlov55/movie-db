@@ -21,11 +21,16 @@ final class LoginButton: UIButton {
     override var isHighlighted: Bool {
         didSet {
             UIView.animate(
-                withDuration: 0.25,
+                withDuration: 0.15,
                 delay: 0,
-                options: [.beginFromCurrentState, .allowUserInteraction],
-                animations: { self.alpha = self.isHighlighted ? 0.5 : 1 },
-                completion: nil
+                options: [.autoreverse],
+                animations: {
+                    self.alpha = self.isHighlighted ? 0.5 : 1
+                    self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                },
+                completion: { _ in
+                    self.transform = .identity
+                }
             )
         }
     }
