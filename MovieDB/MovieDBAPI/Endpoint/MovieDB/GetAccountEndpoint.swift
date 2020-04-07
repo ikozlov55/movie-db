@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` получения данных аккаунта пользователя
 final public class GetAccountEndpoint: JSONEndpoint {
     public typealias Content = GetAccountDTO
     

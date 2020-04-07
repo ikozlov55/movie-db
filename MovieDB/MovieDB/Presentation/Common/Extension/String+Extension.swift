@@ -10,6 +10,7 @@ import Foundation
 
 extension String {
     
+    /// Строка без пробелов в начале и конце
     var trim: Self {
         self.trimmingCharacters(in: CharacterSet(charactersIn: " "))
     }

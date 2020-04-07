@@ -16,28 +16,28 @@ final class ProfileTabCoordinator: Coordinator {
     
     // MARK: - Init
     
-    init(_ nc: BaseNavigationController) {
-        self.navigationController = nc
+    init(_ navigationController: BaseNavigationController) {
+        self.navigationController = navigationController
     }
     
     // MARK: - Navigation methods
     
     func start() {
-        let vc = ProfileViewController()
-        vc.coordinator = self
+        let controller = ProfileViewController()
+        controller.coordinator = self
         let tabBarItem = UITabBarItem(
             title: L10n.profileTabTitle,
             image: Asset.tabBarProfile.image,
             tag: 2
         )
-        vc.tabBarItem = tabBarItem
-        navigationController.pushViewController(vc, animated: false)
+        controller.tabBarItem = tabBarItem
+        navigationController.pushViewController(controller, animated: false)
     }
     
     func logout() {
-        let nc = BaseNavigationController()
-        let coordinator = LoginCoordinator(nc)
-        UIApplication.shared.windows.first?.rootViewController = nc
+        let navigationController = BaseNavigationController()
+        let coordinator = LoginCoordinator(navigationController)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
         coordinator.start()
     }
 

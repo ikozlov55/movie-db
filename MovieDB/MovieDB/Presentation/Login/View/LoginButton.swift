@@ -45,7 +45,6 @@ final class LoginButton: UIButton {
     // MARK: - Setup View
     
     private func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
         contentEdgeInsets = UIEdgeInsets(top: 19, left: 0, bottom: 19, right: 0)
         layer.cornerRadius = 8
         setTitle(L10n.loginButtonText, for: .normal)

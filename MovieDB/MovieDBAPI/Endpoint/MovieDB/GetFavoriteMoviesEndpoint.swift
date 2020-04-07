@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` получения списка избранных фильмов пользователя
 final public class GetFavoriteMoviesEndpoint: JSONEndpoint {
     public typealias Content = MoviesListDTO
     

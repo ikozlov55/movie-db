@@ -21,10 +21,10 @@ public struct MovieDTO: Decodable {
     public let voteAverage: Double
     
     /// Название файла с постером
-    public let posterPath: String
+    public let posterPath: String?
     
     /// Название файла с задником
-    public let backdropPath: String
+    public let backdropPath: String?
     
     /// Оригинальное название
     public let originalTitle: String
@@ -37,6 +37,9 @@ public struct MovieDTO: Decodable {
     
     /// Описание
     public let overview: String
+    
+    /// Дата выхода
+    public let releaseDate: Date?
 }
 
 /// Структура страницы списка фильмов или сериалов - результат поиска или список избранного

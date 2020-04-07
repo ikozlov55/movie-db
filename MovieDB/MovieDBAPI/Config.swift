@@ -17,14 +17,30 @@ public class Config {
     /// API Key приложения
     static let apiKey = "078d0533a0b06401c117b0818a7b1e99"
     
+    /// Базовый `URL` для получения изображений из themoviedb.org API
+    public static var imagesBaseUrl = URL(string: "https://image.tmdb.org/t/p/w500")!
+    
     /// ID текущей сессии
     public static var sessionId: String?
+    
+    /// ISO 639-1 код текущего языка приложения
+    public static var language: String? {
+        guard let languageCode = Locale.current.languageCode,
+            let regionCode = Locale.current.regionCode
+            else {
+                return nil
+        }
+        return "\(languageCode)-\(regionCode)"
+    }
     
     /// Словарь параметров текущей сессии
     static var sessionParameters: [String: Any] {
         var parameters = ["api_key": apiKey]
         if let sessionId = sessionId {
             parameters["session_id"] = sessionId
+        }
+        if let language = language {
+            parameters["language"] = language
         }
         return parameters
     }

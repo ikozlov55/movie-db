@@ -8,22 +8,26 @@
 
 import Foundation
 
+/// `Endpoint` поиска фильмов по запросу
 final public class SearchMovieEndpoint: JSONEndpoint {
     public typealias Content = MoviesListDTO
     
     private let query: String
-    private let language: String?
+    private let page: Int
     
-    public init(query: String, language: String? = nil) {
+    public init(query: String, page: Int = 1) {
         self.query = query
-        self.language = language
+        self.page = page
     }
     
     public func makeRequest() throws -> URLRequest {
         try URLRequest.plainRequest(
             Config.baseUrl,
             path: "/search/movie",
-            parameters: Config.sessionParameters(and: ["query": query, "language": language ?? ""])
+            parameters: Config.sessionParameters(and: [
+                "query": query,
+                "page": page
+            ])
         )
     }
 }

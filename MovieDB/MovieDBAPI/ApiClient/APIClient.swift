@@ -22,3 +22,31 @@ public protocol APIClient: AnyObject {
     ) -> Progress where T: Endpoint
     
 }
+
+extension APIClient {
+    
+    /// Завершение работы метода `request` с ошибкой в главном потоке
+    /// - Parameters:
+    ///   - error: Ошибка, возникшая в ходе отправки или обработки запроса в методе `request`
+    ///   - completion: Замыкание, переданное на вход методу `request`
+    func failOnMainThread<Content>(
+        _ error: Error,
+        _ completion: @escaping (Result<Content, Error>) -> Void
+    ) {
+        DispatchQueue.main.async {
+            completion(.failure(error))
+        }
+    }
+    
+    /// Успешное завершение работы метода `request` в главном потоке
+    /// - Parameters:
+    ///   - result: Результат, полученный `Endpoint` в результате обработки ответа сервера
+    ///   - completion: Замыкание, переданное на вход методу `request`
+    func succeedOnMainThread<Content>(
+        _ result: Content,
+        _ completion: @escaping (Result<Content, Error>) -> Void) {
+        DispatchQueue.main.async {
+            completion(.success(result))
+        }
+    }
+}

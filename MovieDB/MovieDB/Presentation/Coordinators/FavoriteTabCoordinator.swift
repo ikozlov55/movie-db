@@ -16,22 +16,22 @@ final class FavoriteTabCoordinator: Coordinator {
     
     // MARK: - Init
     
-    init(_ nc: BaseNavigationController) {
-        self.navigationController = nc
+    init(_ navigationController: BaseNavigationController) {
+        self.navigationController = navigationController
     }
     
     // MARK: - Navigation methods
     
     func start() {
-        let vc = FavoriteViewController()
-        vc.coordinator = self
+        let controller = FavoriteViewController()
+        controller.coordinator = self
         let tabBarItem = UITabBarItem(
             title: L10n.favoriteTitle,
             image: Asset.tabBarFavorite.image,
             tag: 1
         )
-        vc.tabBarItem = tabBarItem
-        navigationController.pushViewController(vc, animated: false)
+        controller.tabBarItem = tabBarItem
+        navigationController.pushViewController(controller, animated: false)
     }
 
 }

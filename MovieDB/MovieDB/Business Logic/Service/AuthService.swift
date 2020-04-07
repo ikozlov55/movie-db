@@ -9,7 +9,14 @@
 import Foundation
 import MovieDBAPI
 
+/// Тип, отвечающий за авторизацию в themoviedb.org API
 protocol AuthServiceProtocol {
+    
+    /// Авторизация в сервисе по имени пользователя и паролю
+    /// - Parameters:
+    ///   - username: Имя пользователя
+    ///   - password: Пароль пользователя
+    ///   - completion: Замыкание, на вход получает Result c sessionId или ошибкой
     func login(
         username: String,
         password: String,
@@ -31,11 +38,6 @@ final class AuthService: AuthServiceProtocol {
     
     // MARK: - Public methods
     
-    /// Авторизация в сервисе по имени пользователя и паролю
-    /// - Parameters:
-    ///   - username: Имя пользователя
-    ///   - password: Пароль пользователя
-    ///   - completion: Замыкание, на вход получает Result c sessionId или ошибкой
     func login(
         username: String,
         password: String,
@@ -57,34 +59,21 @@ final class AuthService: AuthServiceProtocol {
                             body: GetNewSessionRequestDTO(requestToken: response.requestToken)
                         )
                         self?.apiClient.request(getSessionId) { result in
-                            DispatchQueue.main.async {
-                                switch result {
-                                case .success(let response):
-                                    Config.sessionId = response.sessionId
-                                    completion(.success(true))
-                                case .failure(let error):
-                                    completion(.failure(error))
-                                }
+                            switch result {
+                            case .success(let response):
+                                Config.sessionId = response.sessionId
+                                completion(.success(true))
+                            case .failure(let error):
+                                completion(.failure(error))
                             }
                         }
                     case .failure(let error):
-                        self?.finish(with: error, handler: completion)
+                        completion(.failure(error))
                     }
                 }
             case .failure(let error):
-                self?.finish(with: error, handler: completion)
+                completion(.failure(error))
             }
-        }
-    }
-    
-    // MARK: - Private Methods
-    
-    private func finish(
-        with error: Error,
-        handler: @escaping ((Result<Bool, Error>) -> Void)
-    ) {
-        DispatchQueue.main.async {
-            handler(.failure(error))
         }
     }
     

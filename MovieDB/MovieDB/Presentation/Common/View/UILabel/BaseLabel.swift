@@ -8,20 +8,33 @@
 
 import UIKit
 
+/// Базовый  класс для создания конкретных `UILabel`, в инициализаторе производит общую первичную настройку
 class BaseLabel: UILabel {
-
+    
     // MARK: - Init
     
-    init(size: CGFloat, weight: UIFont.Weight, color: UIColor, text: String) {
+    /// Базовый инициализатор
+    /// - Parameters:
+    ///   - fontSize: Размер шрифта
+    ///   - weight: Вес шрифта
+    ///   - color: Цвет текста
+    ///   - text: Текст
+    init(fontSize: CGFloat, weight: UIFont.Weight, color: UIColor, text: String) {
         super.init(frame: .zero)
         setupView()
         textColor = color
-        font = UIFont.systemFont(ofSize: size, weight: weight)
+        font = UIFont.systemFont(ofSize: fontSize, weight: weight)
         self.text = text
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupView()
     }
     
     // MARK: - Setup View
@@ -31,5 +44,5 @@ class BaseLabel: UILabel {
         lineBreakMode = .byWordWrapping
         numberOfLines = 0
     }
-
+    
 }

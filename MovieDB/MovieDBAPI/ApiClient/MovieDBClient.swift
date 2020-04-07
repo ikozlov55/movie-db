@@ -40,28 +40,28 @@ final public class MovieDBClient: APIClient {
             logger?.log(request)
             let task = session.dataTask(with: request) { [weak self] data, response, error in
                 if let error = error {
-                    completion(.failure(error))
+                    self?.failOnMainThread(error, completion)
                     return
                 }
                 guard let response = response,
                     let data = data
                     else {
-                        completion(.failure(APIError.unknown))
+                        self?.failOnMainThread(APIError.unknown, completion)
                         return
                 }
                 self?.logger?.log(response)
                 self?.logger?.log(data)
                 do {
                     let content = try endpoint.content(from: data, response: response)
-                    completion(.success(content))
+                    self?.succeedOnMainThread(content, completion)
                 } catch {
-                    completion(.failure(error))
+                    self?.failOnMainThread(error, completion)
                 }
             }
             task.resume()
             return task.progress
         } catch {
-            completion(.failure(error))
+            failOnMainThread(error, completion)
             return Progress()
         }
     }

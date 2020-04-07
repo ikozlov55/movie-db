@@ -1,5 +1,5 @@
 //
-//  FilmSearchView.swift
+//  MovieSearchWelcomeView.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 09.03.2020.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class FilmSearchView: UIView {
+/// Корневая `view` первого экрана вкладки поиска фильмов
+final class MovieSearchWelcomeView: UIView {
 
     // MARK: - Subviews
 
@@ -20,6 +21,7 @@ final class FilmSearchView: UIView {
         view.contentMode = .scaleAspectFit
         return view
     }()
+    let searchBar = MovieSearchBar()
     
     // MARK: - Init
     
@@ -38,17 +40,23 @@ final class FilmSearchView: UIView {
     private func setupView() {
         addSubview(backgroundImageView)
         addSubview(header)
+        addSubview(searchBar)
         
         let safeArea = safeAreaLayoutGuide
         let inset: CGFloat = 24
         
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             backgroundImageView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             
             header.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 91),
             header.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
-            header.trailingAnchor.constraint(lessThanOrEqualTo: safeArea.trailingAnchor, constant: -inset)
+            header.trailingAnchor.constraint(lessThanOrEqualTo: safeArea.trailingAnchor, constant: -inset),
+            
+            searchBar.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 33),
+            searchBar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
+            searchBar.trailingAnchor.constraint(lessThanOrEqualTo: safeArea.trailingAnchor, constant: -inset)
         ])
     }
 

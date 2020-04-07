@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// `Endpoint` добавления фильма в список избранного
 final class AddFavoriteMovieEndpoint: JSONEndpoint {
     typealias Content = MoviesListDTO
     

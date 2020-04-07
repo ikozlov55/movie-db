@@ -11,6 +11,10 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// Что-то пошло не так
+  internal static let alertDefaultMessage = L10n.tr("Localizable", "alert_default_message")
+  /// Ошибка!
+  internal static let alertDefaultTitle = L10n.tr("Localizable", "alert_default_title")
   /// Придумайте пин-код для быстрого входа
   internal static let enterNewPinTitle = L10n.tr("Localizable", "enter_new_pin_title")
   /// Вы не добавили ни одного фильма

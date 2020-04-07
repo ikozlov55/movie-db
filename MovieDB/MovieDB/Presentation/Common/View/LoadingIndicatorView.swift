@@ -1,5 +1,5 @@
 //
-//  LoadingIndicatorVIew.swift
+//  LoadingIndicatorView.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 14.03.2020.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class LoadingIndicatorVIew: UIView {
+/// `UIView` с вложенным по центру `UIActivityIndicatorView` и методами для управления его анимацией
+final class LoadingIndicatorView: UIView {
     
     // MARK: - Subviews
     
@@ -48,12 +49,14 @@ final class LoadingIndicatorVIew: UIView {
     
     // MARK: - Public methods
     
+    /// Старт анимации вложенного `UIActivityIndicatorView`
     func startAnimating() {
         activityIndicator.startAnimating()
     }
     
+    /// Остановка анимации вложенного `UIActivityIndicatorView`
     func stopAnimating() {
         activityIndicator.stopAnimating()
     }
-
+    
 }

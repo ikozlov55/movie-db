@@ -27,4 +27,17 @@ class ServiceLayer {
         AuthService(apiClient: apiClient)
     }()
     
+    /// Сервис поиска фильмов
+    static let searchService: MovieSearchServiceProtocol = {
+        MovieSearchService(apiClient: apiClient)
+    }()
+    
+    /// Сервис загрузки изображений
+    static let imagesService: ImagesServiceProtocol = {
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        let client = ImagesClient(configuration: configuration)
+         
+        return ImagesService(apiClient: client)
+    }()
 }
