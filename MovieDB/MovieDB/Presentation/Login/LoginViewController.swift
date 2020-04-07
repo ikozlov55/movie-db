@@ -36,10 +36,17 @@ final class LoginViewController: BaseViewController {
         loginView.addGestureRecognizer(hideKeyboardOnTap)
         loginView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         loginView.textFields.forEach { $0.delegate = self }
+        
+        let pinImageTap = UITapGestureRecognizer(target: self, action: #selector(pinImageTapped))
+        loginView.pinImage.addGestureRecognizer(pinImageTap)
     }
     
     @objc private func hideKeyboard() {
         loginView.textFields.forEach { $0.resignFirstResponder() }
+    }
+    
+    @objc private func pinImageTapped() {
+        loginView.pinImage.blink { self.coordinator?.authorizeWithPin() }
     }
     
     @objc private func login() {

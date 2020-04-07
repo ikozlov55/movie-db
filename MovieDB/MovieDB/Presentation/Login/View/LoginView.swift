@@ -14,11 +14,25 @@ final class LoginView: ViewWithLoadingIndicator {
     // MARK: - Subviews
     
     let header = HeaderLabel(L10n.welcomeTitle)
+    
     let subtitle = SubtitleLabel(L10n.welcomeSubtitle)
+    
     let loginTextField = LoginTextField()
+    
     let passwordTextField = PasswordTextField()
+    
     let errorLabel = ErrorLabel()
+    
+    let pinImage: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.image = Asset.pin.image
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
     let loginButton = LoginButton()
+    
     lazy var textFields = [loginTextField, passwordTextField]
     
     // MARK: - Init
@@ -41,6 +55,7 @@ final class LoginView: ViewWithLoadingIndicator {
         addSubview(loginTextField)
         addSubview(passwordTextField)
         addSubview(errorLabel)
+        addSubview(pinImage)
         addSubview(loginButton)
         loginButton.isEnabled = false
         
@@ -50,6 +65,7 @@ final class LoginView: ViewWithLoadingIndicator {
         
         let safeArea = safeAreaLayoutGuide
         let inset: CGFloat = 24
+        let pinImageSize: CGFloat = 80
         
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 91),
@@ -71,6 +87,11 @@ final class LoginView: ViewWithLoadingIndicator {
             errorLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: inset),
             errorLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
             errorLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -inset),
+            
+            pinImage.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            pinImage.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -50),
+            pinImage.widthAnchor.constraint(equalToConstant: pinImageSize),
+            pinImage.heightAnchor.constraint(equalToConstant: pinImageSize),
             
             loginButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
             loginButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -inset),

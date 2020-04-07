@@ -12,3 +12,9 @@ protocol Coordinator {
     var navigationController: BaseNavigationController { get }
     func start()
 }
+
+extension Coordinator {
+    func back() {
+        navigationController.popViewController(animated: true)
+    }
+}

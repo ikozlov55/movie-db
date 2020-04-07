@@ -44,6 +44,7 @@
 		14551D10242F7510008F5D25 /* MovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14551D0E242F7510008F5D25 /* MovieSearchViewController.swift */; };
 		14551D15242F7FDD008F5D25 /* MovieSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14551D14242F7FDD008F5D25 /* MovieSearchView.swift */; };
 		14551D17242F9A3F008F5D25 /* MovieSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14551D16242F9A3F008F5D25 /* MovieSearchService.swift */; };
+		1485A113243CE80100E8D13B /* NumpadDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485A112243CE80100E8D13B /* NumpadDataSource.swift */; };
 		148C5DD4242768A200C38742 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148C5DD3242768A200C38742 /* ServiceLayer.swift */; };
 		148EB4C524330C8200F45BBA /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB4C424330C8200F45BBA /* ImagesService.swift */; };
 		148EB5FE24162D2C00AE511D /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EB5FD24162D2C00AE511D /* ErrorLabel.swift */; };
@@ -64,6 +65,10 @@
 		14A2944E241508B900E846D6 /* FilmsTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2944D241508B900E846D6 /* FilmsTabCoordinator.swift */; };
 		14A294502415090100E846D6 /* ProfileTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2944F2415090100E846D6 /* ProfileTabCoordinator.swift */; };
 		14A294522415094600E846D6 /* FavoriteTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A294512415094600E846D6 /* FavoriteTabCoordinator.swift */; };
+		14A29B6F243B86C700BC42C6 /* MakePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A29B6E243B86C700BC42C6 /* MakePinViewController.swift */; };
+		14A29B72243B86FE00BC42C6 /* MakePinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A29B71243B86FE00BC42C6 /* MakePinView.swift */; };
+		14A29B74243B889400BC42C6 /* NumpadIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A29B73243B889400BC42C6 /* NumpadIndicator.swift */; };
+		14A29B76243B88B300BC42C6 /* NumpadButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A29B75243B88B300BC42C6 /* NumpadButtonCell.swift */; };
 		14AE8EAF2414EF59006D9D3C /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14AE8EAE2414EF59006D9D3C /* swiftgen.yml */; };
 		14AE8EB12414EFF9006D9D3C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE8EB02414EFF9006D9D3C /* Images.swift */; };
 		14B3815E24264F5800855832 /* JSONEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3815D24264F5800855832 /* JSONEndpoint.swift */; };
@@ -170,6 +175,7 @@
 		14551D0E242F7510008F5D25 /* MovieSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewController.swift; sourceTree = "<group>"; };
 		14551D14242F7FDD008F5D25 /* MovieSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchView.swift; sourceTree = "<group>"; };
 		14551D16242F9A3F008F5D25 /* MovieSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchService.swift; sourceTree = "<group>"; };
+		1485A112243CE80100E8D13B /* NumpadDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadDataSource.swift; sourceTree = "<group>"; };
 		148C5DD3242768A200C38742 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		148EB4C424330C8200F45BBA /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
 		148EB5FD24162D2C00AE511D /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
@@ -191,6 +197,10 @@
 		14A2944D241508B900E846D6 /* FilmsTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsTabCoordinator.swift; sourceTree = "<group>"; };
 		14A2944F2415090100E846D6 /* ProfileTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabCoordinator.swift; sourceTree = "<group>"; };
 		14A294512415094600E846D6 /* FavoriteTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTabCoordinator.swift; sourceTree = "<group>"; };
+		14A29B6E243B86C700BC42C6 /* MakePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePinViewController.swift; sourceTree = "<group>"; };
+		14A29B71243B86FE00BC42C6 /* MakePinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePinView.swift; sourceTree = "<group>"; };
+		14A29B73243B889400BC42C6 /* NumpadIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadIndicator.swift; sourceTree = "<group>"; };
+		14A29B75243B88B300BC42C6 /* NumpadButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadButtonCell.swift; sourceTree = "<group>"; };
 		14AE8EAE2414EF59006D9D3C /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		14AE8EB02414EFF9006D9D3C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		14B3815D24264F5800855832 /* JSONEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEndpoint.swift; sourceTree = "<group>"; };
@@ -464,6 +474,17 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		14A29B70243B86E700BC42C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14A29B71243B86FE00BC42C6 /* MakePinView.swift */,
+				14A29B73243B889400BC42C6 /* NumpadIndicator.swift */,
+				14A29B75243B88B300BC42C6 /* NumpadButtonCell.swift */,
+				1485A112243CE80100E8D13B /* NumpadDataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		14C18A092413B7BA00332C65 = {
 			isa = PBXGroup;
 			children = (
@@ -514,8 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				14C18A2E2413DB8D00332C65 /* Login */,
-				14C18A2F2413DBD500332C65 /* Make PIN */,
-				14C18A312413DCB000332C65 /* Login with PIN */,
+				14C18A2F2413DBD500332C65 /* PIN Authorization */,
 				14C18A302413DBE800332C65 /* Movie Search */,
 				14C18A322413DCF500332C65 /* Film Detail */,
 				14C18A332413DD0100332C65 /* Favorite */,
@@ -544,11 +564,13 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		14C18A2F2413DBD500332C65 /* Make PIN */ = {
+		14C18A2F2413DBD500332C65 /* PIN Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				14A29B6E243B86C700BC42C6 /* MakePinViewController.swift */,
+				14A29B70243B86E700BC42C6 /* View */,
 			);
-			path = "Make PIN";
+			path = "PIN Authorization";
 			sourceTree = "<group>";
 		};
 		14C18A302413DBE800332C65 /* Movie Search */ = {
@@ -563,13 +585,6 @@
 				14461AD32430C14800F3A11A /* EmptySearchResultsViewController.swift */,
 			);
 			path = "Movie Search";
-			sourceTree = "<group>";
-		};
-		14C18A312413DCB000332C65 /* Login with PIN */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Login with PIN";
 			sourceTree = "<group>";
 		};
 		14C18A322413DCF500332C65 /* Film Detail */ = {
@@ -896,6 +911,7 @@
 				14B5640F243094A900EF2B2B /* MoviesList.swift in Sources */,
 				14F2366624150BF50094444E /* BaseViewController.swift in Sources */,
 				14C18A1A2413B7BA00332C65 /* LoginViewController.swift in Sources */,
+				14A29B6F243B86C700BC42C6 /* MakePinViewController.swift in Sources */,
 				14461AD42430C14800F3A11A /* EmptySearchResultsViewController.swift in Sources */,
 				14AE8EB12414EFF9006D9D3C /* Images.swift in Sources */,
 				14A294472415070700E846D6 /* MainTabBarController.swift in Sources */,
@@ -913,6 +929,7 @@
 				14E28087241541D3004167EB /* PasswordTextField.swift in Sources */,
 				14461AD62430C24900F3A11A /* EmptySearchResultsView.swift in Sources */,
 				14461AE32430DCDC00F3A11A /* IdentifiableCell.swift in Sources */,
+				14A29B76243B88B300BC42C6 /* NumpadButtonCell.swift in Sources */,
 				14F927272415158400215707 /* Strings.swift in Sources */,
 				148FE9D9241686E10079111E /* LogoutButton.swift in Sources */,
 				14F927332415367900215707 /* SubtitleLabel.swift in Sources */,
@@ -926,12 +943,14 @@
 				14F9272D24152D2400215707 /* LoginView.swift in Sources */,
 				14A294522415094600E846D6 /* FavoriteTabCoordinator.swift in Sources */,
 				14DC572B241CC92C00FC58D8 /* LoadingIndicatorView.swift in Sources */,
+				14A29B72243B86FE00BC42C6 /* MakePinView.swift in Sources */,
 				14F2366824150D6E0094444E /* FavoriteViewController.swift in Sources */,
 				14F927352415381000215707 /* LoginButton.swift in Sources */,
 				14E2808524153E1E004167EB /* LoginTextField.swift in Sources */,
 				14551D0B242F6DB4008F5D25 /* MovieSearchCoordinatingController.swift in Sources */,
 				14A2944C241507D700E846D6 /* LoginCoordinator.swift in Sources */,
 				148EB6052416431500AE511D /* MovieSearchWelcomeView.swift in Sources */,
+				14A29B74243B889400BC42C6 /* NumpadIndicator.swift in Sources */,
 				148C5DD4242768A200C38742 /* ServiceLayer.swift in Sources */,
 				14461ADB2430D3B600F3A11A /* MoviesListView.swift in Sources */,
 				14461AEA2430EE4600F3A11A /* MovieViewModelTransformer.swift in Sources */,
@@ -941,6 +960,7 @@
 				148EB4C524330C8200F45BBA /* ImagesService.swift in Sources */,
 				14551D15242F7FDD008F5D25 /* MovieSearchView.swift in Sources */,
 				14A294502415090100E846D6 /* ProfileTabCoordinator.swift in Sources */,
+				1485A113243CE80100E8D13B /* NumpadDataSource.swift in Sources */,
 				14461ADD2430DA2600F3A11A /* LightDescriptionLabel.swift in Sources */,
 				149796202438C12400A1A158 /* UIView+Extension.swift in Sources */,
 				1495AFF0243A0AED007319F0 /* LoginAnimator.swift in Sources */,

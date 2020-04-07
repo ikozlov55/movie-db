@@ -21,4 +21,19 @@ extension UIView {
             view.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
+    
+    /// Проигрывает анимацию моргания изменением alpha и выполняет переданное замыкание
+    /// - Parameter completion: Замыкание, выполняемое после анимации
+    func blink(completion: (() -> Void)? = nil) {
+        let initialAlpha = self.alpha
+        UIView.animate(
+            withDuration: 0.15,
+            animations: {
+                self.alpha = 0.5
+            },
+            completion: { _ in
+                self.alpha = initialAlpha
+                completion?()
+            })
+    }
 }
