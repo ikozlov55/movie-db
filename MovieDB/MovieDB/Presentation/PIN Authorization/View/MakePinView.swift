@@ -12,6 +12,7 @@ import UIKit
 class MakePinView: UIView {
     
     // MARK: - Subviews
+    
     let arrowBackImage: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -32,13 +33,13 @@ class MakePinView: UIView {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         return view
     }()
     
     // MARK: - Private Properties
     
-    private let numpadDataSource = NumpadDataSource()
+    private lazy var numpadDataSource = NumpadDataSource()
     
     // MARK: - Init
     
@@ -69,7 +70,7 @@ class MakePinView: UIView {
             arrowBackImage.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: inset / 2),
             arrowBackImage.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset / 2),
             
-            title.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 100),
+            title.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 80),
             title.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
             title.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -inset),
             
@@ -78,7 +79,7 @@ class MakePinView: UIView {
             inputIndicator.widthAnchor.constraint(equalToConstant: frame.width / 3),
             inputIndicator.heightAnchor.constraint(equalToConstant: 8),
             
-            numpad.topAnchor.constraint(equalTo: inputIndicator.bottomAnchor, constant: 70),
+            numpad.topAnchor.constraint(equalTo: inputIndicator.bottomAnchor, constant: 30),
             numpad.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
             numpad.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -inset),
             numpad.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -inset)
@@ -88,6 +89,20 @@ class MakePinView: UIView {
     private func setupNumPad() {
         numpad.register(NumpadButtonCell.self, forCellWithReuseIdentifier: NumpadButtonCell.identifier)
         numpad.dataSource = numpadDataSource
+        numpad.delegate = self
     }
     
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension MakePinView: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let diameter = numpad.frame.width / 3 - 20
+
+        return CGSize(width: diameter, height: diameter)
+    }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 /// Индикатор ввода символов ПИН кода
 final class NumpadIndicator: UIPageControl {
-    
+
     // MARK: - Init
     
     override init(frame: CGRect) {

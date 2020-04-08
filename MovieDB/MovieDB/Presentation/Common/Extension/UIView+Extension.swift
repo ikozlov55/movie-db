@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     
     /// Прикрепляет переданное `view` к краям `UIView`
-    /// - Parameter view: `UIView` которые нужно зафиксировать внутри текущего
+    /// - Parameter view: `UIView` которое нужно зафиксировать внутри текущего
     func fill(with view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -19,6 +19,16 @@ extension UIView {
             view.bottomAnchor.constraint(equalTo: bottomAnchor),
             view.leadingAnchor.constraint(equalTo: leadingAnchor),
             view.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+
+    /// Располагает переданное `view` по центру текущего
+    /// - Parameter view: `UIView` которое нужно расположить по центру
+    func center(_ view: UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            view.centerXAnchor.constraint(equalTo: centerXAnchor),
+            view.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
