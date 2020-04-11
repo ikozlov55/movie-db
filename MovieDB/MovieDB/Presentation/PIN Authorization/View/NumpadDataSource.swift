@@ -25,8 +25,8 @@ class NumpadDataSource: NSObject, UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         switch indexPath.row {
-        case 0...9:
-            cell.present(.number(indexPath.row))
+        case 0...8:
+            cell.present(.number(indexPath.row + 1))
         case 9:
             cell.present(.number(0))
         case 10:
