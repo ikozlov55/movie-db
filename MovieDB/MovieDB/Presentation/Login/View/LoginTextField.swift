@@ -52,5 +52,37 @@ class LoginTextField: UITextField {
         autocapitalizationType = .none
         autocorrectionType = .no
     }
+    
+    // MARK: - Public methods
+    
+    /// Анимация ошибки в поле ввода
+    func dangle() {
+        let duration = 0.5
+        let borderAnimation = CABasicAnimation(keyPath: "borderColor")
+        borderAnimation.duration = duration
+        borderAnimation.autoreverses = true
+        borderAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+        borderAnimation.toValue = ColorName.red.color.cgColor
+        layer.add(borderAnimation, forKey: "flashBorderColor")
+        
+        let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 0.4)
+        animator.addAnimations {
+            self.transform = CGAffineTransform(translationX: -15, y: 0)
+        }
+        animator.addAnimations({
+            self.transform = CGAffineTransform(translationX: 15, y: 0)
+        }, delayFactor: 0.2)
+        animator.addAnimations({
+            self.transform = CGAffineTransform(translationX: -10, y: 0)
+        }, delayFactor: 0.4)
+        animator.addAnimations({
+            self.transform = CGAffineTransform(translationX: 10, y: 0)
+        }, delayFactor: 0.6)
+        animator.addAnimations({
+            self.transform = CGAffineTransform(translationX: 0, y: 0)
+        }, delayFactor: 0.8)
+        animator.addCompletion { _ in self.transform = .identity }
+        animator.startAnimation()
+    }
 
 }

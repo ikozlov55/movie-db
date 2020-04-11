@@ -18,6 +18,7 @@
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
+  internal static let arrowBack = ImageAsset(name: "arrow_back")
   internal static let collectionLayoutList = ImageAsset(name: "collection_layout_list")
   internal static let collectionLayoutWidgets = ImageAsset(name: "collection_layout_widgets")
   internal static let favoriteDisabled = ImageAsset(name: "favorite_disabled")
@@ -25,6 +26,7 @@ internal enum Asset {
   internal static let filmRuntime = ImageAsset(name: "film_runtime")
   internal static let numpadBackspace = ImageAsset(name: "numpad_backspace")
   internal static let numpadFaceId = ImageAsset(name: "numpad_face id")
+  internal static let pin = ImageAsset(name: "pin")
   internal static let search = ImageAsset(name: "search")
   internal static let searchClear = ImageAsset(name: "search_clear")
   internal static let visibility = ImageAsset(name: "visibility")

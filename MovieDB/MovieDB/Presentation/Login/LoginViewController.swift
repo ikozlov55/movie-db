@@ -36,10 +36,17 @@ final class LoginViewController: BaseViewController {
         loginView.addGestureRecognizer(hideKeyboardOnTap)
         loginView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         loginView.textFields.forEach { $0.delegate = self }
+        
+        let pinImageTap = UITapGestureRecognizer(target: self, action: #selector(pinImageTapped))
+        loginView.pinImage.addGestureRecognizer(pinImageTap)
     }
     
     @objc private func hideKeyboard() {
         loginView.textFields.forEach { $0.resignFirstResponder() }
+    }
+    
+    @objc private func pinImageTapped() {
+        loginView.pinImage.blink { self.coordinator?.authorizeWithPin() }
     }
     
     @objc private func login() {
@@ -50,10 +57,11 @@ final class LoginViewController: BaseViewController {
         authService.login(username: login, password: password) { [weak self] result in
             switch result {
             case .success:
-                self?.coordinator?.login()
+                self?.coordinator?.login(self)
             case .failure(let error):
                 self?.loginView.errorLabel.text = self?.message(for: error)
                 self?.loginView.stopLoadingIndicator()
+                self?.loginView.textFields.forEach { if $0.isEditing { $0.dangle() } }
             }
         }
     }
@@ -87,4 +95,15 @@ extension LoginViewController: UITextFieldDelegate {
         textField.layer.borderColor = ColorName.darkBlue.color.cgColor
     }
     
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+
+extension LoginViewController: UIViewControllerTransitioningDelegate {
+    func animationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController,
+        source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        LoginAnimator()
+    }
 }
