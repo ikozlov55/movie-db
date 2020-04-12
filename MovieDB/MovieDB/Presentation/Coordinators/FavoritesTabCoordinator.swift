@@ -1,5 +1,5 @@
 //
-//  FavoriteTabCoordinator.swift
+//  FavoritesTabCoordinator.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 08.03.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class FavoriteTabCoordinator: Coordinator {
+final class FavoritesTabCoordinator: Coordinator {
     
     // MARK: - Properties
     
@@ -23,7 +23,7 @@ final class FavoriteTabCoordinator: Coordinator {
     // MARK: - Navigation methods
     
     func start() {
-        let controller = FavoriteViewController()
+        let controller = FavoritesCoordinatingController()
         controller.coordinator = self
         let tabBarItem = UITabBarItem(
             title: L10n.favoriteTitle,

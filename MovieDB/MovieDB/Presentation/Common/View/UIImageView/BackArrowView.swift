@@ -8,32 +8,18 @@
 
 import UIKit
 
-/// `UIImageView` - изображение стрелочки - навигация на прошлый экран
-class BackArrowView: UIImageView {
+/// Иконка в виде стрелочки - навигация на прошлый экран
+final class BackArrowView: BaseIconView {
 
     // MARK: - Init
     
     init() {
         super.init(frame: .zero)
-        setupView()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
+        image = Asset.arrowBack.image
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupView()
-    }
-    
-    // MARK: - Setup View
-    
-    private func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
-        isUserInteractionEnabled = true
-        image = Asset.arrowBack.image
     }
 
 }

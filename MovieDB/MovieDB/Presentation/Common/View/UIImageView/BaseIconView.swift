@@ -1,22 +1,17 @@
 //
-//  PosterView.swift
+//  BaseIconView.swift
 //  MovieDB
 //
-//  Created by Илья Козлов on 11.04.2020.
+//  Created by Илья Козлов on 12.04.2020.
 //  Copyright © 2020 Илья Козлов. All rights reserved.
 //
 
 import UIKit
 
-/// `UIImageView` для отображения постера фильма
-final class PosterView: UIImageView {
+/// Базовая `UIImageView` - интерактивная иконка
+class BaseIconView: UIImageView {
 
     // MARK: - Init
-    
-    init() {
-        super.init(frame: .zero)
-        setupView()
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,9 +27,7 @@ final class PosterView: UIImageView {
     
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
-        layer.cornerRadius = 8
-        clipsToBounds = true
-        backgroundColor = .gray
+        isUserInteractionEnabled = true
     }
-    
+
 }

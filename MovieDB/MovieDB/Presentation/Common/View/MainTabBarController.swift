@@ -15,7 +15,7 @@ final class MainTabBarController: UITabBarController {
     let filmsTabCoordinator = FilmsTabCoordinator(
         BaseNavigationController()
     )
-    let favoriteTabCoordinator = FavoriteTabCoordinator(
+    let favoriteTabCoordinator = FavoritesTabCoordinator(
         BaseNavigationController()
     )
     let profileTabCoordinator = ProfileTabCoordinator(

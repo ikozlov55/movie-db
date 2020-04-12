@@ -1,5 +1,5 @@
 //
-//  FilmDetailCoordinatingController.swift
+//  FavoritesCoordinatingController.swift
 //  MovieDB
 //
 //  Created by Илья Козлов on 12.04.2020.
@@ -8,31 +8,28 @@
 
 import UIKit
 
-/// `CoordinatingController` экрана детальной информации о фильме
-final class FilmDetailCoordinatingController: BaseViewController {
-    
+/// `CoordinatingController` флоу экрана Избранное'
+final class FavoritesCoordinatingController: BaseViewController {
+
     // MARK: - Public Properties
     
-    var coordinator: FilmsTabCoordinator?
+    var coordinator: FavoritesTabCoordinator?
     
     // MARK: - Private Properties
     
+    private let loader = LoadingViewController()
+    
     private let accountService = ServiceLayer.accountService
     
-    private let movie: MovieViewModel
+    private let topBarViewController: FavoritesTopBarViewControllerProtocol
     
-    private let topBarViewController: FilmDetailTopBarViewControllerProtocol
-    
-    private let detailViewController: FilmDetailViewControllerProtocol
-    
-    private let loader = LoadingViewController()
+    private let moviesListController: MoviesListViewControllerProtocol
     
     // MARK: - Init
     
-    init(_ movie: MovieViewModel) {
-        self.movie = movie
-        topBarViewController = FilmDetailTopBarViewController()
-        detailViewController = FilmDetailViewController()
+    init() {
+        topBarViewController = FavoritesTopBarViewController()
+        moviesListController = MoviesListViewController()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,8 +42,7 @@ final class FilmDetailCoordinatingController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTopBar()
-        setupDetailView()
-        topBarViewController.delegate = self
+        showFavoritesList()
     }
     
     // MARK: - Private Methods
@@ -59,13 +55,21 @@ final class FilmDetailCoordinatingController: BaseViewController {
             topBarViewController.view.topAnchor.constraint(equalTo: safeArea.topAnchor),
             topBarViewController.view.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             topBarViewController.view.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            topBarViewController.view.heightAnchor.constraint(equalToConstant: 80)
+            topBarViewController.view.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
     
-    private func setupDetailView() {
-        addChildToContentArea(detailViewController)
-        detailViewController.present(movie: movie)
+    private func showFavoritesList() {
+        showLoader()
+        accountService.getFavorites { [weak self] result in
+            switch result {
+            case .success(let moviesList):
+                self?.showMoviesList(moviesList)
+            case .failure(let error):
+                self?.showAlert(message: error.localizedDescription)
+            }
+            self?.hideLoader()
+        }
     }
     
     private func showLoader() {
@@ -74,6 +78,12 @@ final class FilmDetailCoordinatingController: BaseViewController {
     
     private func hideLoader() {
         loader.remove()
+    }
+    
+    private func showMoviesList(_ moviesList: MoviesList) {
+        addChildToContentArea(moviesListController)
+        let movieViewModels = moviesList.results.map { MovieViewModelTransformer.viewModel(from: $0) }
+        moviesListController.show(movieViewModels)
     }
     
     private func addChildToContentArea(_ viewController: UIViewController) {
@@ -87,28 +97,4 @@ final class FilmDetailCoordinatingController: BaseViewController {
             viewController.view.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
     }
-    
-}
-
-// MARK: - FilmDetailTopBarViewControllerDelegate
-
-extension FilmDetailCoordinatingController: FilmDetailTopBarViewControllerDelegate {
-    func arrowBackTapped() {
-        coordinator?.back()
-    }
-    
-    func favoriteIconTapped() {
-        showLoader()
-        accountService.addToFavorites(mediaId: movie.id) { [weak self] result in
-            switch result {
-            case .success:
-                self?.topBarViewController.toogleFavoriteIcon()
-            case .failure(let error):
-                self?.showAlert(message: error.localizedDescription)
-            }
-            self?.hideLoader()
-        }
-        
-    }
-
 }

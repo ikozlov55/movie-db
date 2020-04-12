@@ -13,12 +13,7 @@ final class MovieSearchView: UIView {
     
     // MARK: - Subviews
     let searchBar = MovieSearchBar()
-    let layoutSwitch: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = true
-        return view
-    }()
+    let layoutSwitch = LayoutSwitchView()
     
     // MARK: - Init
     

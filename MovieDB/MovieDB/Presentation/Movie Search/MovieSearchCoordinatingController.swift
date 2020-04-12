@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// `ViewController` контейнер для флоу авторизации
+/// `CoordinatingController` флоу авторизации
 final class MovieSearchCoordinatingController: BaseViewController {
     
     // MARK: - Public Properties

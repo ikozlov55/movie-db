@@ -59,7 +59,6 @@ final class MovieSearchViewController: BaseViewController, MovieSearchViewContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         setupInteractions()
     }
     
@@ -79,10 +78,6 @@ final class MovieSearchViewController: BaseViewController, MovieSearchViewContro
     
     // MARK: - Private Methods
     
-    private func setupView() {
-        movieSearchView.layoutSwitch.image = Asset.collectionLayoutList.image
-    }
-    
     private func setupInteractions() {
         movieSearchView.searchBar.delegate = self
         movieSearchView.searchBar.becomeFirstResponder()
@@ -100,7 +95,6 @@ final class MovieSearchViewController: BaseViewController, MovieSearchViewContro
             movieSearchView.layoutSwitch.image = Asset.collectionLayoutList.image
             delegate?.resultsLayoutChanged(to: .list)
         }
-        
     }
     
 }

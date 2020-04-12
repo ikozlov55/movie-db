@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// `UIImageView` - иконка для добавления/удаления фильма в избранное
-class AddFavoriteView: UIImageView {
+/// Иконка для добавления/удаления фильма в избранное
+final class AddFavoriteView: UIImageView {
     
     // MARK: - Public Properties
     
