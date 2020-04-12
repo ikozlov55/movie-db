@@ -67,7 +67,7 @@ final class LoginViewController: BaseViewController {
     }
     
     private func message(for error: Error) -> String {
-        if let errorDTO = error as? ErrorDTO,
+        if let errorDTO = error as? RequestStatusDTO,
             let statusCode = StatusCode(rawValue: errorDTO.statusCode),
             statusCode == .invalidCredentials {
             return L10n.invalidCredentialsError

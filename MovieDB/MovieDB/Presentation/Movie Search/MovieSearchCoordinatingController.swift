@@ -11,15 +11,24 @@ import UIKit
 /// `ViewController` контейнер для флоу авторизации
 final class MovieSearchCoordinatingController: BaseViewController {
     
+    // MARK: - Public Properties
+    
+    var coordinator: FilmsTabCoordinator?
+    
     // MARK: - Private Properties
     
     private let welcomeController: MovieSearchWelcomeViewController
+    
     private var filmSearchController: MovieSearchViewControllerProtocol
+    
     private let emptySearchResultsController: EmptySearchResultsViewController
-    private let moviesListController: MoviesListViewController
+    
+    private let moviesListController: MoviesListViewControllerProtocol
+    
     private let loader: LoadingViewController
     
     // MARK: - Init
+    
     init() {
         welcomeController = MovieSearchWelcomeViewController()
         filmSearchController = MovieSearchViewController()
@@ -40,6 +49,7 @@ final class MovieSearchCoordinatingController: BaseViewController {
         showWelcomeController()
         filmSearchController.delegate = self
         welcomeController.delegate = self
+        moviesListController.delegate = self
     }
     
     // MARK: - Private Methods
@@ -58,8 +68,7 @@ final class MovieSearchCoordinatingController: BaseViewController {
     
     private func showSearchResults(_ moviesList: MoviesList) {
         addChildToContentArea(moviesListController)
-        let movieViewModels = moviesList.results.map { MovieViewModelTransformer.viewModel(from: $0)
-        }
+        let movieViewModels = moviesList.results.map { MovieViewModelTransformer.viewModel(from: $0) }
         moviesListController.show(movieViewModels)
     }
     
@@ -118,4 +127,12 @@ extension MovieSearchCoordinatingController: MovieSearchViewControllerDelegate {
     }
     
     func resultsLayoutChanged(to layout: SearchResultsLayout) {}
+}
+
+// MARK: - MoviesListViewControllerDelegate
+
+extension MovieSearchCoordinatingController: MoviesListViewControllerDelegate {
+    func listItemTapped(_ movie: MovieViewModel) {
+        coordinator?.showDetailView(for: movie)
+    }
 }

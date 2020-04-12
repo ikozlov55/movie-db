@@ -13,14 +13,7 @@ final class MovieListCell: UICollectionViewCell {
     
     // MARK: - Subviews
     
-    private let posterView: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 8
-        view.clipsToBounds = true
-        view.backgroundColor = .gray
-        return view
-    }()
+    private let posterView = PosterView()
     
     private let runtimeIcon: UIImageView = {
         let view = UIImageView()

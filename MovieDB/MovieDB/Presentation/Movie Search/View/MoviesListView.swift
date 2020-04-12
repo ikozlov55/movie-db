@@ -68,18 +68,7 @@ final class MoviesListView: UIView {
             MovieListCell.self,
             forCellWithReuseIdentifier: MovieListCell.identifier
         )
-        collectionView.delegate = self
         collectionView.dataSource = dataSource
     }
     
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension MoviesListView: UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 120)
-    }
 }

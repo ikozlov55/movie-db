@@ -9,22 +9,20 @@
 import Foundation
 
 /// `Endpoint` добавления фильма в список избранного
-final class AddFavoriteMovieEndpoint: JSONEndpoint {
-    typealias Content = MoviesListDTO
+final public class AddFavoriteMovieEndpoint: JSONEndpoint {
+    public typealias Content = RequestStatusDTO
     
-    private let accountId: Int
     private let body: AddFavoriteMovieRequestDTO
     
-    public init(accountId: Int, body: AddFavoriteMovieRequestDTO) {
-        self.accountId = accountId
+    public init(body: AddFavoriteMovieRequestDTO) {
         self.body = body
     }
     
-    func makeRequest() throws -> URLRequest {
+    public func makeRequest() throws -> URLRequest {
         try URLRequest.jsonBodyRequest(
             .POST,
             Config.baseUrl,
-            path: "account/\(accountId)/favorite",
+            path: "account/\(String(describing: Config.accountId)))/favorite",
             parameters: Config.sessionParameters,
             body: body
         )

@@ -12,16 +12,12 @@ import Foundation
 final public class GetFavoriteMoviesEndpoint: JSONEndpoint {
     public typealias Content = MoviesListDTO
     
-    private let accountId: Int
-    
-    public init(accountId: Int) {
-        self.accountId = accountId
-    }
+    public init() {}
     
     public func makeRequest() throws -> URLRequest {
         try URLRequest.plainRequest(
             Config.baseUrl,
-            path: "account/\(accountId)/favorite/movies",
+            path: "account/\(String(describing: Config.accountId))/favorite/movies",
             parameters: Config.sessionParameters
         )
     }

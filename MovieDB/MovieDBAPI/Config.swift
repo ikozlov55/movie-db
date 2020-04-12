@@ -23,6 +23,9 @@ public class Config {
     /// ID текущей сессии
     public static var sessionId: String?
     
+    /// ID авторизованного в данный момент пользователя
+    public static var accountId: Int = 0
+    
     /// ISO 639-1 код текущего языка приложения
     public static var language: String? {
         guard let languageCode = Locale.current.languageCode,

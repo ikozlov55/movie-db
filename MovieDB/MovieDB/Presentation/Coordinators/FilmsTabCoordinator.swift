@@ -30,7 +30,13 @@ final class FilmsTabCoordinator: Coordinator {
             tag: 0
         )
         controller.tabBarItem = tabBarItem
+        controller.coordinator = self
         navigationController.pushViewController(controller, animated: false)
     }
-
+    
+    func showDetailView(for movie: MovieViewModel) {
+        let controller = FilmDetailCoordinatingController(movie)
+        controller.coordinator = self
+        navigationController.pushViewController(controller, animated: true)
+    }
 }

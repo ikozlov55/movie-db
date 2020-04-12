@@ -30,7 +30,7 @@ class MakePinViewController: BaseViewController {
     
     private func setupInteraction() {
         let goBackOnArrowTap = UITapGestureRecognizer(target: self, action: #selector(back))
-        makePinView.arrowBackImage.addGestureRecognizer(goBackOnArrowTap)
+        makePinView.backArrow.addGestureRecognizer(goBackOnArrowTap)
     }
     
     @objc private func back() {
