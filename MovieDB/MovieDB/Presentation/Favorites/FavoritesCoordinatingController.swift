@@ -25,6 +25,8 @@ final class FavoritesCoordinatingController: BaseViewController {
     
     private let moviesListController: MoviesListViewControllerProtocol
     
+    private let storageService = ServiceLayer.storageService
+    
     // MARK: - Init
     
     init() {
@@ -38,11 +40,14 @@ final class FavoritesCoordinatingController: BaseViewController {
     }
     
     // MARK: - Lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showFavoritesList()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTopBar()
-        showFavoritesList()
     }
     
     // MARK: - Private Methods
@@ -60,15 +65,17 @@ final class FavoritesCoordinatingController: BaseViewController {
     }
     
     private func showFavoritesList() {
-        showLoader()
+        showMovies(storageService.read())
+        //showLoader()
         accountService.getFavorites { [weak self] result in
             switch result {
             case .success(let moviesList):
-                self?.showMoviesList(moviesList)
+                self?.showMovies(moviesList.results)
+                self?.storageService.save(moviesList.results)
             case .failure(let error):
                 self?.showAlert(message: error.localizedDescription)
             }
-            self?.hideLoader()
+            //self?.hideLoader()
         }
     }
     
@@ -80,9 +87,9 @@ final class FavoritesCoordinatingController: BaseViewController {
         loader.remove()
     }
     
-    private func showMoviesList(_ moviesList: MoviesList) {
+    private func showMovies(_ movies: [Movie]) {
         addChildToContentArea(moviesListController)
-        let movieViewModels = moviesList.results.map { MovieViewModelTransformer.viewModel(from: $0) }
+        let movieViewModels = movies.map { MovieViewModelTransformer.viewModel(from: $0) }
         moviesListController.show(movieViewModels)
     }
     

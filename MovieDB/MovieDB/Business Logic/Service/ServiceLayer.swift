@@ -46,4 +46,8 @@ class ServiceLayer {
         return ImagesService(apiClient: client)
     }()
     
+    /// Сервис сохранения даннных
+    static let storageService: StorageServiceProtocol = {
+        StorageService(.coreData)
+    }()
 }
