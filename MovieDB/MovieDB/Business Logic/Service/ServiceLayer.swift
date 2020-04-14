@@ -48,6 +48,6 @@ class ServiceLayer {
     
     /// Сервис сохранения даннных
     static let storageService: StorageServiceProtocol = {
-        StorageService(.coreData)
+        StorageService(.realm)
     }()
 }

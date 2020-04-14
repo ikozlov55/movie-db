@@ -12,9 +12,9 @@ import Foundation
 public protocol MovieDBStorage {
     
     /// Получение списка сохранённых фильмов из хранилища
-    func read() throws -> [StorageMovie]
+    func read() throws -> [DBMovie]
     
     /// Запись списка фильмов в хранилище
     /// - Parameter movies: Список фильмов, который необходимо сохранить
-    func save(_ movies: [StorageMovie]) throws
+    func save(_ movies: [DBMovie]) throws
 }

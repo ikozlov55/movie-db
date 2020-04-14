@@ -49,7 +49,7 @@ final class MoviesTransformer {
     
     /// Преобразование модели слоя данных `StorageMovie` в `Movie`
     /// - Parameter storageObject: модель слоя данных, которую необходимо преобразовать
-    static func movie(from storageObject: StorageMovie) -> Movie {
+    static func movie(from storageObject: DBMovie) -> Movie {
         Movie(
             id: storageObject.id,
             voteCount: storageObject.voteCount,
@@ -65,8 +65,8 @@ final class MoviesTransformer {
     
     /// Преобразование бизнес объекта `Movie` в модель слоя данных
     /// - Parameter movie: бизнес объект, который необходимо преобразовать
-    static func storageObject(from movie: Movie) -> StorageMovie {
-        StorageMovie(
+    static func storageObject(from movie: Movie) -> DBMovie {
+        DBMovie(
             id: movie.id,
             voteCount: movie.voteCount,
             voteAverage: movie.voteAverage,

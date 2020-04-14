@@ -31,7 +31,13 @@ final class StorageService: StorageServiceProtocol {
     private let storage: MovieDBStorage
     
     init(_ type: StorageType) {
-        storage = CoreDataStorage()
+        switch type {
+        case .coreData:
+            storage = CoreDataStorage()
+        case .realm:
+            storage = RealmStorage()
+        }
+        
     }
     
     func read() -> [Movie] {

@@ -9,6 +9,7 @@
 import CoreData
 import Foundation
 
+/// Реализация `MovieDBStorage` работающая через Core Data
 final public class CoreDataStorage: MovieDBStorage {
     
     // MARK: - Private Properties
@@ -50,10 +51,10 @@ final public class CoreDataStorage: MovieDBStorage {
     
     // MARK: - Public methods
     
-    public func read() throws -> [StorageMovie] {
+    public func read() throws -> [DBMovie] {
         let objects = try container.viewContext.fetch(getMoviesRequest)
         return objects.map {
-            StorageMovie(
+            DBMovie(
                 id: Int($0.id),
                 voteCount: Int($0.voteCount),
                 voteAverage: $0.voteAverage,
@@ -67,7 +68,7 @@ final public class CoreDataStorage: MovieDBStorage {
         }
     }
     
-    public func save(_ movies: [StorageMovie]) throws {
+    public func save(_ movies: [DBMovie]) throws {
         let context = container.newBackgroundContext()
         try context.execute(deleteMoviesRequest)
         movies.forEach { movie in

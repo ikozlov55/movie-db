@@ -9,7 +9,7 @@
 import Foundation
 
 /// Структура с информацией о фильме или сериале слоя данных
-public struct StorageMovie {
+public struct DBMovie {
     
     /// Id сущности
     public let id: Int

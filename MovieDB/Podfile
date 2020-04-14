@@ -16,3 +16,11 @@ target 'MovieDBAPI' do
   # Pods for MovieDBAPI
 
 end
+
+target 'MovieDBStorage' do
+  use_frameworks!
+
+  # Pods for MovieDBAPI
+  pod 'RealmSwift', '4.3.2'
+
+end
