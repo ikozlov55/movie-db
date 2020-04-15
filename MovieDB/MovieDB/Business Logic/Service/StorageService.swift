@@ -24,32 +24,39 @@ protocol StorageServiceProtocol {
     /// Запись фильмов в БД
     /// - Parameter movies: Список фильмов, который необходимо сохранить
     func save(_ movies: [Movie])
+    
+    /// Тип БД: Cored Data  или Realm
+    var storageType: StorageType { get set }
 }
 
 final class StorageService: StorageServiceProtocol {
     
-    private let storage: MovieDBStorage
+    private var storage: MovieDBStorage
     
-    init(_ type: StorageType) {
-        switch type {
+    var storageType: StorageType {
+        didSet {
+            storage = buildStorage(storageType)
+        }
+    }
+    
+    init(_ storageType: StorageType) {
+        self.storageType = storageType
+        switch storageType {
         case .coreData:
             storage = CoreDataStorage()
         case .realm:
             storage = RealmStorage()
         }
-        
     }
     
     func read() -> [Movie] {
-        var result = [Movie]()
+        var result: [Movie]
         do {
             let storageMovies = try storage.read()
             result = storageMovies.map { MoviesTransformer.movie(from: $0) }
         } catch {
-            print("STORAGE READ FAIL!!! \(error)")
+            result = []
         }
-        print("READ SUCCESS!!")
-        result.forEach { movie in print(movie.title) }
         return result
     }
     
@@ -58,9 +65,17 @@ final class StorageService: StorageServiceProtocol {
         do {
             try storage.save(storageMovies)
         } catch {
-            print("STORAGE SAVE FAIL!!! \(error)")
+            return
         }
-        print("SAVE SUCCESS!!")
+    }
+    
+    private func buildStorage(_ type: StorageType) -> MovieDBStorage {
+        switch storageType {
+        case .coreData:
+            return CoreDataStorage()
+        case .realm:
+            return RealmStorage()
+        }
     }
     
 }

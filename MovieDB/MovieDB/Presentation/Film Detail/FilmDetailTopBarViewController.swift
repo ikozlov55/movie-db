@@ -14,8 +14,12 @@ protocol FilmDetailTopBarViewControllerProtocol: UIViewController {
     /// `FilmDetailTopBarViewControllerDelegate` который обрабатывает взаимодействие с модулем
     var delegate: FilmDetailTopBarViewControllerDelegate? { get set }
     
-    ///Изменить иконку надичия фильма в списке избранного - в списке/не в списке
+    /// Изменить иконку наличия фильма в списке избранного - в списке/не в списке
     func toogleFavoriteIcon()
+    
+    /// Установить иконку сердечка в определённое состояние - в списке/не в списке
+    /// - Parameter active: Состояние, в которые необходиво установить иконку
+    func setFavoriteIcon(active: Bool)
 }
 
 /// Тип, ответсвенный за обработку взаимодействия с экраном подробной информации о фильме
@@ -53,6 +57,11 @@ final class FilmDetailTopBarViewController: BaseViewController, FilmDetailTopBar
     
     func toogleFavoriteIcon() {
         topBarView.favoriteIcon.isFavorite.toggle()
+    }
+    
+    func setFavoriteIcon(active: Bool) {
+        topBarView.favoriteIcon.isFavorite = active
+        topBarView.favoriteIcon.isHidden = false
     }
     
     // MARK: - Private Methods

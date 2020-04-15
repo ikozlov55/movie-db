@@ -30,8 +30,7 @@ final class MovieSearchView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(searchBar)
-        addSubview(layoutSwitch)
+        addSubviews(searchBar, layoutSwitch)
 
         let inset: CGFloat = 24
 

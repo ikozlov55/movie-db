@@ -23,6 +23,8 @@
 		1408DF69244417C4004CA58D /* MovieDBStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1408DF61244417C4004CA58D /* MovieDBStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1408DF6F24441832004CA58D /* MovieDBStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1408DF6D24441832004CA58D /* MovieDBStorage.xcdatamodeld */; };
 		1408DF7224441CDF004CA58D /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408DF7124441CDF004CA58D /* CoreDataStorage.swift */; };
+		140CACD82446BA3500435773 /* GetMovieAccountStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CACD72446BA3500435773 /* GetMovieAccountStates.swift */; };
+		140CACDA2446BB1800435773 /* AccountStatesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CACD92446BB1800435773 /* AccountStatesDTO.swift */; };
 		14127AF4241E6F89000780CC /* GetAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14127AF3241E6F89000780CC /* GetAccountEndpoint.swift */; };
 		14167EEB2444330000687E0C /* MovieDBStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14167EEA2444330000687E0C /* MovieDBStorage.swift */; };
 		142195F52443587E0049856A /* FavoritesCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142195F42443587E0049856A /* FavoritesCoordinatingController.swift */; };
@@ -188,6 +190,8 @@
 		1408DF64244417C4004CA58D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1408DF6E24441832004CA58D /* MovieDBStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieDBStorage.xcdatamodel; sourceTree = "<group>"; };
 		1408DF7124441CDF004CA58D /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		140CACD72446BA3500435773 /* GetMovieAccountStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMovieAccountStates.swift; sourceTree = "<group>"; };
+		140CACD92446BB1800435773 /* AccountStatesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStatesDTO.swift; sourceTree = "<group>"; };
 		14127AF3241E6F89000780CC /* GetAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountEndpoint.swift; sourceTree = "<group>"; };
 		14167EEA2444330000687E0C /* MovieDBStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBStorage.swift; sourceTree = "<group>"; };
 		142195F42443587E0049856A /* FavoritesCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinatingController.swift; sourceTree = "<group>"; };
@@ -421,6 +425,7 @@
 				14038A4F241E59F3006040EA /* CloseSessionRequestDTO.swift */,
 				14C9654224212C07000D0960 /* AddFavoriteMovieRequestDTO.swift */,
 				14B564122430A07D00EF2B2B /* GenresListDTO.swift */,
+				140CACD92446BB1800435773 /* AccountStatesDTO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -814,6 +819,7 @@
 				14C9653E24212B4E000D0960 /* GetFavoriteMoviesEndpoint.swift */,
 				14C9654024212BF1000D0960 /* AddFavoriteMovieEndpoint.swift */,
 				14B564102430A05800EF2B2B /* GetGenresEndpoint.swift */,
+				140CACD72446BA3500435773 /* GetMovieAccountStates.swift */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -1133,9 +1139,11 @@
 				14038A47241E476E006040EA /* MovieDBCoder.swift in Sources */,
 				14038A49241E5200006040EA /* GetNewSessionRequestDTO.swift in Sources */,
 				1432D30A241D118000F8E6A6 /* MovieDBClient.swift in Sources */,
+				140CACD82446BA3500435773 /* GetMovieAccountStates.swift in Sources */,
 				14B564132430A07D00EF2B2B /* GenresListDTO.swift in Sources */,
 				14C9654124212BF1000D0960 /* AddFavoriteMovieEndpoint.swift in Sources */,
 				14038A4B241E522D006040EA /* GetNewSessionEndpoint.swift in Sources */,
+				140CACDA2446BB1800435773 /* AccountStatesDTO.swift in Sources */,
 				14038A42241E41F7006040EA /* ValidateTokenRequestDTO.swift in Sources */,
 				14C9653B24212604000D0960 /* SearchMovieEndpoint.swift in Sources */,
 				14C9654324212C07000D0960 /* AddFavoriteMovieRequestDTO.swift in Sources */,

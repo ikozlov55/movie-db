@@ -22,7 +22,7 @@ final public class AddFavoriteMovieEndpoint: JSONEndpoint {
         try URLRequest.jsonBodyRequest(
             .POST,
             Config.baseUrl,
-            path: "account/\(String(describing: Config.accountId)))/favorite",
+            path: "account/\(String(describing: Config.accountId))/favorite",
             parameters: Config.sessionParameters,
             body: body
         )

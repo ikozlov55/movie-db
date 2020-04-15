@@ -15,7 +15,11 @@ final class FilmDetailTopBarView: UIView {
     
     let backArrow = BackArrowView()
     
-    let favoriteIcon = AddFavoriteView()
+    let favoriteIcon: AddFavoriteView = {
+        let icon = AddFavoriteView()
+        icon.isHidden = true
+        return icon
+    }()
     
     // MARK: - Init
     
@@ -32,8 +36,7 @@ final class FilmDetailTopBarView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(backArrow)
-        addSubview(favoriteIcon)
+        addSubviews(backArrow, favoriteIcon)
         let safeArea = safeAreaLayoutGuide
         let topInset: CGFloat = 20
         let inset: CGFloat = 24

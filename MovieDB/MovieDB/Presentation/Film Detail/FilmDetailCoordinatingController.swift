@@ -21,6 +21,8 @@ final class FilmDetailCoordinatingController: BaseViewController {
     
     private let movie: MovieViewModel
     
+    private var isFavorite: Bool = false
+    
     private let topBarViewController: FilmDetailTopBarViewControllerProtocol
     
     private let detailViewController: FilmDetailViewControllerProtocol
@@ -45,6 +47,7 @@ final class FilmDetailCoordinatingController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTopBar()
+        setFavoriteIcon()
         setupDetailView()
         topBarViewController.delegate = self
     }
@@ -61,6 +64,18 @@ final class FilmDetailCoordinatingController: BaseViewController {
             topBarViewController.view.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             topBarViewController.view.heightAnchor.constraint(equalToConstant: 80)
         ])
+    }
+    
+    private func setFavoriteIcon() {
+        accountService.isFavorite(movieId: movie.id) { [weak self] result in
+            switch result {
+            case .success(let status):
+                self?.isFavorite = status
+                self?.topBarViewController.setFavoriteIcon(active: status)
+            case .failure:
+                return
+            }
+        }
     }
     
     private func setupDetailView() {
@@ -98,17 +113,24 @@ extension FilmDetailCoordinatingController: FilmDetailTopBarViewControllerDelega
     }
     
     func favoriteIconTapped() {
-        showLoader()
-        accountService.addToFavorites(mediaId: movie.id) { [weak self] result in
+        let handler: (Result<Bool, Error>) -> Void = { result in
             switch result {
             case .success:
-                self?.topBarViewController.toogleFavoriteIcon()
+                self.isFavorite.toggle()
+                self.topBarViewController.toogleFavoriteIcon()
             case .failure(let error):
-                self?.showAlert(message: error.localizedDescription)
+                self.showAlert(message: error.localizedDescription)
             }
-            self?.hideLoader()
+            self.hideLoader()
+        }
+        showLoader()
+        
+        if !isFavorite {
+            accountService.addToFavorites(mediaId: movie.id, completion: handler)
+        } else {
+            accountService.removeFromFavorites(mediaId: movie.id, completion: handler)
         }
         
     }
-
+    
 }

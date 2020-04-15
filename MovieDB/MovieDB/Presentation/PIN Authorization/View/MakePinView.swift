@@ -52,10 +52,7 @@ class MakePinView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(backArrow)
-        addSubview(title)
-        addSubview(inputIndicator)
-        addSubview(numpad)
+        addSubviews(backArrow, title, inputIndicator, numpad)
         inputIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         let inset: CGFloat = 40

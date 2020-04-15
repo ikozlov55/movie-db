@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FavoritesTopBarView: UIView {
+/// Корневая `view` модуля верхней панели экрана Избранное
+final class FavoritesTopBarView: UIView {
 
     // MARK: - Subviews
     

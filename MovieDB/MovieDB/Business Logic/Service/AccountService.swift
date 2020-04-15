@@ -31,6 +31,12 @@ protocol AccountServiceProtocol {
     ///   - mediaId: Id сущности, которую необходимо удалить из избранного
     ///   - completion: Замыкание, на вход получает true в случае успеха или ошибку
     func removeFromFavorites(mediaId: Int, completion: @escaping ((Result<Bool, Error>) -> Void))
+    
+    /// Находится ли фильм в списке избранного
+    /// - Parameters:
+    ///   - movieId: Id фильма
+    ///   - completion: Замыкание, на вход получает признак, находится ли фильм в избранном или ошибку
+    func isFavorite(movieId: Int, completion: @escaping ((Result<Bool, Error>) -> Void))
 }
 
 final class AccountService: AccountServiceProtocol {
@@ -78,6 +84,16 @@ final class AccountService: AccountServiceProtocol {
         postAccountFavorite(mediaId: mediaId, favorite: false, completion: completion)
     }
     
+    func isFavorite(movieId: Int, completion: @escaping ((Result<Bool, Error>) -> Void)) {
+        apiClient.request(GetMovieAccountStates(movieId: movieId)) { result in
+            switch result {
+            case .success(let accountStates):
+                completion(.success(accountStates.favorite))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     // MARK: - Private Methods
     
     private func postAccountFavorite(

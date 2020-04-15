@@ -35,7 +35,7 @@ protocol FavoritesTopBarViewControllerDelegate: class {
     func searchFinished(with result: MoviesList)
 }
 
-class FavoritesTopBarViewController: BaseViewController, FavoritesTopBarViewControllerProtocol {
+final class FavoritesTopBarViewController: BaseViewController, FavoritesTopBarViewControllerProtocol {
 
     // MARK: - Public Properties
     

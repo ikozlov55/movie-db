@@ -69,14 +69,9 @@ final class MovieListCell: UICollectionViewCell {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(posterView)
-        addSubview(runtimeIcon)
-        addSubview(titleLabel)
-        addSubview(subtitleLabel)
-        addSubview(genresLabel)
-        addSubview(ratingLabel)
-        addSubview(votesCountLabel)
-        addSubview(runtimeLabel)
+        addSubviews(posterView, runtimeIcon, titleLabel,
+                    subtitleLabel, genresLabel, ratingLabel,
+                    votesCountLabel, runtimeLabel)
         
         let margins = layoutMarginsGuide
         let posterWidth: CGFloat = 80

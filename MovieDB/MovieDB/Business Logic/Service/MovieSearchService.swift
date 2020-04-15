@@ -25,6 +25,7 @@ protocol MovieSearchServiceProtocol {
     /// Получение и сохранение словаря жанров
     /// - Parameter completion: Замыкание, на вход получает список `GenresListDTO` или ошибку
     func getGenres(completion: ((Result<Bool, Error>) -> Void)?)
+    
 }
 
 final class MovieSearchService: MovieSearchServiceProtocol {
@@ -67,4 +68,5 @@ final class MovieSearchService: MovieSearchServiceProtocol {
             }
         }
     }
+    
 }

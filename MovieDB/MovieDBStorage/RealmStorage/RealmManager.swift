@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-/// Класс, отвечающий за обощённое низоуровневое взаимодействие с Realm
+/// Класс, отвечающий за обощённое низкоуровневое взаимодействие с Realm
 final class RealmManager {
     
     // MARK: - Private Properties
@@ -29,7 +29,7 @@ final class RealmManager {
     // MARK: - Public Methods
     
     /// Чтение объектов указанного типа
-    /// - Parameter type: Тип объектов, которые необъодимо получить
+    /// - Parameter type: Тип объектов, которые необходимо получить
     func read<T: Object>(_ type: T.Type) throws -> Results<T> {
         let realm = try Realm(configuration: configuration)
         return realm.objects(type)
@@ -54,7 +54,7 @@ final class RealmManager {
     }
     
     /// Удаление из Realm всех объектов определённого типа
-    /// - Parameter type: ип объектов, которые необъодимо удалить
+    /// - Parameter type: Тип объектов, которые необъодимо удалить
     func deleteAll<T: Object>(_ type: T.Type) throws {
         let objects = Array(try read(type))
         try delete(objects)
