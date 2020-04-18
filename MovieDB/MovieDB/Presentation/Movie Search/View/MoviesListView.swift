@@ -69,6 +69,7 @@ final class MoviesListView: UIView {
             forCellWithReuseIdentifier: MovieListCell.identifier
         )
         collectionView.dataSource = dataSource
+        collectionView.keyboardDismissMode = .onDrag
     }
     
 }
