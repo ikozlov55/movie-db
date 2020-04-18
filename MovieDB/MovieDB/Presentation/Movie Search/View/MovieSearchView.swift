@@ -13,12 +13,7 @@ final class MovieSearchView: UIView {
     
     // MARK: - Subviews
     let searchBar = MovieSearchBar()
-    let layoutSwitch: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = true
-        return view
-    }()
+    let layoutSwitch = LayoutSwitchView()
     
     // MARK: - Init
     
@@ -35,8 +30,7 @@ final class MovieSearchView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(searchBar)
-        addSubview(layoutSwitch)
+        addSubviews(searchBar, layoutSwitch)
 
         let inset: CGFloat = 24
 

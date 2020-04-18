@@ -52,8 +52,7 @@ class NumpadButtonCell: UICollectionViewCell {
     }
 
     private func setupSubviews() {
-        addSubview(numberLabel)
-        addSubview(imageView)
+        addSubviews(numberLabel, imageView)
         center(numberLabel)
         center(imageView)
     }

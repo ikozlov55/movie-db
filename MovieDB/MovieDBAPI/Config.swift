@@ -9,7 +9,7 @@
 import Foundation
 
 /// Конфиг сессии API themoviedb.org
-public class Config {
+final public class Config {
     
     /// `URL` themoviedb.org API
     static let baseUrl = URL(string: "https://api.themoviedb.org/3")!
@@ -22,6 +22,9 @@ public class Config {
     
     /// ID текущей сессии
     public static var sessionId: String?
+    
+    /// ID авторизованного в данный момент пользователя
+    public static var accountId: Int = 0
     
     /// ISO 639-1 код текущего языка приложения
     public static var language: String? {

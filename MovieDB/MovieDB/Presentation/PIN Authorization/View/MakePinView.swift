@@ -13,13 +13,7 @@ class MakePinView: UIView {
     
     // MARK: - Subviews
     
-    let arrowBackImage: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = true
-        view.image = Asset.arrowBack.image
-        return view
-    }()
+    let backArrow = BackArrowView()
     
     let title: HeaderLabel = {
         let label = HeaderLabel(L10n.enterNewPinTitle)
@@ -58,17 +52,14 @@ class MakePinView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(arrowBackImage)
-        addSubview(title)
-        addSubview(inputIndicator)
-        addSubview(numpad)
+        addSubviews(backArrow, title, inputIndicator, numpad)
         inputIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         let inset: CGFloat = 40
         let safeArea = safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            arrowBackImage.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: inset / 2),
-            arrowBackImage.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset / 2),
+            backArrow.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: inset / 2),
+            backArrow.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset / 2),
             
             title.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 80),
             title.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),

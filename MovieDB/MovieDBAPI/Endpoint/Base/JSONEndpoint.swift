@@ -19,10 +19,10 @@ extension JSONEndpoint {
                 throw APIError.unknown
         }
         let decoder = MovieDBCoder.decoder
-        guard statusCode == .ok else {
+        guard statusCode.isSuccessful else {
             switch statusCode {
             case .unauthorized, .badRequest, .notFound:
-                throw try decoder.decode(ErrorDTO.self, from: data)
+                throw try decoder.decode(RequestStatusDTO.self, from: data)
             default:
                 throw APIError.server
             }

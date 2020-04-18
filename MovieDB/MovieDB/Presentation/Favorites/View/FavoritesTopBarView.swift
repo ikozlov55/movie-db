@@ -1,18 +1,23 @@
 //
-//  FavoriteView.swift
+//  FavoritesTopBarView.swift
 //  MovieDB
 //
-//  Created by Илья Козлов on 09.03.2020.
+//  Created by Илья Козлов on 12.04.2020.
 //  Copyright © 2020 Илья Козлов. All rights reserved.
 //
 
 import UIKit
 
-final class FavoriteView: UIView {
-    
-    // MARK: - Subviews
+/// Корневая `view` модуля верхней панели экрана Избранное
+final class FavoritesTopBarView: UIView {
 
+    // MARK: - Subviews
+    
     let header = HeaderLabel(L10n.favoriteTitle)
+    
+    let searchIcon = SearchIconView()
+    
+    let layoutSwitch = LayoutSwitchView()
     
     // MARK: - Init
     
@@ -29,12 +34,18 @@ final class FavoriteView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(header)
-        
+        addSubviews(header, searchIcon, layoutSwitch)
         let safeArea = safeAreaLayoutGuide
         let inset: CGFloat = 24
+        let topInset: CGFloat = 20
         
         NSLayoutConstraint.activate([
+            layoutSwitch.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: topInset),
+            layoutSwitch.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -inset),
+            
+            searchIcon.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: topInset),
+            searchIcon.trailingAnchor.constraint(equalTo: layoutSwitch.leadingAnchor, constant: -inset),
+                        
             header.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 91),
             header.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
             header.trailingAnchor.constraint(lessThanOrEqualTo: safeArea.trailingAnchor, constant: -inset)

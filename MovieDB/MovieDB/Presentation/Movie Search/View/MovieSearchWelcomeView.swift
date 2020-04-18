@@ -38,10 +38,8 @@ final class MovieSearchWelcomeView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(backgroundImageView)
-        addSubview(header)
-        addSubview(searchBar)
-        
+        addSubviews(backgroundImageView, header, searchBar)
+
         let safeArea = safeAreaLayoutGuide
         let inset: CGFloat = 24
         

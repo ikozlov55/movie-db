@@ -50,13 +50,7 @@ final class LoginView: ViewWithLoadingIndicator {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(header)
-        addSubview(subtitle)
-        addSubview(loginTextField)
-        addSubview(passwordTextField)
-        addSubview(errorLabel)
-        addSubview(pinImage)
-        addSubview(loginButton)
+        addSubviews(header, subtitle, loginTextField, passwordTextField, errorLabel, pinImage, loginButton)
         loginButton.isEnabled = false
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false

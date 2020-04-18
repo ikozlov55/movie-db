@@ -11,6 +11,9 @@ import Foundation
 /// Модель фильма для отображаения в ячейке
 struct MovieViewModel {
     
+    //Идентификатор сущности
+    let id: Int
+    
     /// Локализованное название
     let title: String
     

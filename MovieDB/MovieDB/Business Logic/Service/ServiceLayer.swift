@@ -32,6 +32,11 @@ class ServiceLayer {
         MovieSearchService(apiClient: apiClient)
     }()
     
+    /// Сервис получения и обновлениеяданных аккаунта пользователя
+    static let accountService: AccountServiceProtocol = {
+        AccountService(apiClient: apiClient)
+    }()
+    
     /// Сервис загрузки изображений
     static let imagesService: ImagesServiceProtocol = {
         let configuration = URLSessionConfiguration.ephemeral
@@ -39,5 +44,10 @@ class ServiceLayer {
         let client = ImagesClient(configuration: configuration)
          
         return ImagesService(apiClient: client)
+    }()
+    
+    /// Сервис сохранения даннных
+    static var storageService: StorageServiceProtocol = {
+        StorageService(.coreData)
     }()
 }

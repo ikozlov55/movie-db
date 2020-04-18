@@ -36,8 +36,7 @@ final class EmptySearchResultsView: UIView {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(backgroundImageView)
-        addSubview(header)
+        addSubviews(backgroundImageView, header)
         
         let inset: CGFloat = 24
         let imageSize: CGFloat = 300

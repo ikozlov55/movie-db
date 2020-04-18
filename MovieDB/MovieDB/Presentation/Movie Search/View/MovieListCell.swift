@@ -13,14 +13,7 @@ final class MovieListCell: UICollectionViewCell {
     
     // MARK: - Subviews
     
-    private let posterView: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 8
-        view.clipsToBounds = true
-        view.backgroundColor = .gray
-        return view
-    }()
+    private let posterView = PosterView()
     
     private let runtimeIcon: UIImageView = {
         let view = UIImageView()
@@ -76,14 +69,9 @@ final class MovieListCell: UICollectionViewCell {
     // MARK: - Setup View
     
     private func setupView() {
-        addSubview(posterView)
-        addSubview(runtimeIcon)
-        addSubview(titleLabel)
-        addSubview(subtitleLabel)
-        addSubview(genresLabel)
-        addSubview(ratingLabel)
-        addSubview(votesCountLabel)
-        addSubview(runtimeLabel)
+        addSubviews(posterView, runtimeIcon, titleLabel,
+                    subtitleLabel, genresLabel, ratingLabel,
+                    votesCountLabel, runtimeLabel)
         
         let margins = layoutMarginsGuide
         let posterWidth: CGFloat = 80

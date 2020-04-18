@@ -1,5 +1,5 @@
 //
-//  ErrorDTO.swift
+//  RequestStatusDTO.swift
 //  MovieDBAPI
 //
 //  Created by Илья Козлов on 21.03.2020.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// Структура ответа с данными ошибки
-public struct ErrorDTO: Decodable, Error {
+public struct RequestStatusDTO: Decodable, Error {
     
     /// Код ошибки
     public let statusCode: Int

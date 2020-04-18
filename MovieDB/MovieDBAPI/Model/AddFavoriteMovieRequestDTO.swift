@@ -15,12 +15,12 @@ public struct AddFavoriteMovieRequestDTO: Encodable {
     public let mediaType: String
     
     /// Id добавляемой сущности
-    public let mediaId: String
+    public let mediaId: Int
     
     /// Признак - добавить или удалить сущность
     public let favorite: Bool
     
-    public init(mediaType: String, mediaId: String, favorite: Bool) {
+    public init(mediaType: String, mediaId: Int, favorite: Bool) {
         self.mediaType = mediaType
         self.mediaId = mediaId
         self.favorite = favorite

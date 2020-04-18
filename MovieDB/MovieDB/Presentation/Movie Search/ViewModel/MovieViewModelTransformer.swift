@@ -34,6 +34,7 @@ final class MovieViewModelTransformer {
             }
         }
         return MovieViewModel(
+            id: model.id,
             title: model.title,
             subtitle: subtitle,
             genres: GenresDict.stringFrom(model.genres),

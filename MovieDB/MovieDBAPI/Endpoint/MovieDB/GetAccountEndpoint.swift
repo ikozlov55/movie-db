@@ -12,6 +12,8 @@ import Foundation
 final public class GetAccountEndpoint: JSONEndpoint {
     public typealias Content = GetAccountDTO
     
+    public init() {}
+    
     public func makeRequest() throws -> URLRequest {
         try URLRequest.plainRequest(
             Config.baseUrl,
