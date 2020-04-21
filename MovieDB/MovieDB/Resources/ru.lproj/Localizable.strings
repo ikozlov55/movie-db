@@ -21,6 +21,7 @@
 "enter_new_pin_title" = "Придумайте пин-код для быстрого входа";
 "repeat_pin_title" = "Повторите ваш пин-код";
 "invalid_pin_error" = "Неверный пин-код";
+"pin_doesnt_match_error" = "Введённые пин-коды не совпадают";
 "logut_numpad_button_text" = "Выйти";
 
 // TabBar

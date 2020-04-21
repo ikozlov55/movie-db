@@ -17,6 +17,7 @@ final class LoginViewController: BaseViewController {
     
     private var loginView = LoginView()
     private let authService = ServiceLayer.authService
+    private let accountService = ServiceLayer.accountService
     
     // MARK: - Lifecycle
     
@@ -46,7 +47,7 @@ final class LoginViewController: BaseViewController {
     }
     
     @objc private func pinImageTapped() {
-        loginView.pinImage.blink { self.coordinator?.authorizeWithPin() }
+        loginView.pinImage.blink { self.coordinator?.makePin() }
     }
     
     @objc private func login() {
@@ -57,7 +58,8 @@ final class LoginViewController: BaseViewController {
         authService.login(username: login, password: password) { [weak self] result in
             switch result {
             case .success:
-                self?.coordinator?.login(self)
+                self?.accountService.getAccountData(completion: nil)
+                self?.coordinator?.makePin()
             case .failure(let error):
                 self?.loginView.errorLabel.text = self?.message(for: error)
                 self?.loginView.stopLoadingIndicator()

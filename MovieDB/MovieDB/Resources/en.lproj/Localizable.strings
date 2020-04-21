@@ -20,8 +20,9 @@
 // Make PIN
 "enter_new_pin_title" = "Придумайте пин-код для быстрого входа";
 "repeat_pin_title" = "Повторите ваш пин-код";
-"invalid_pin_error" = "Неверный пин-код";
 "logut_numpad_button_text" = "Выйти";
+"pin_doesnt_match_error" = "Введённые пин-коды не совпадают";
+"invalid_pin_error" = "Неверный пин-код";
 
 // TabBar
 "films_tab_title" = "Фильмы";

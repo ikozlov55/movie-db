@@ -8,11 +8,17 @@
 
 import UIKit
 
-/// `UICollectionViewDataSource` для клавиатуры ввода ПИН кода
-class NumpadDataSource: NSObject, UICollectionViewDataSource {
-
+/// `UICollectionViewDataSource` для клавиатуры ввода пин-кода
+final class NumpadDataSource: NSObject, UICollectionViewDataSource {
+    
+    // MARK: - Public Properties
+    
+    var buttons: [NumpadButtonType] = []
+    
+    // MARK: - UICollectionViewDataSource
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        11
+        buttons.count
     }
     
     func collectionView(
@@ -24,16 +30,8 @@ class NumpadDataSource: NSObject, UICollectionViewDataSource {
             else {
                 return UICollectionViewCell()
         }
-        switch indexPath.row {
-        case 0...8:
-            cell.present(.number(indexPath.row + 1))
-        case 9:
-            cell.present(.number(0))
-        case 10:
-            cell.present(.backspace)
-        default:
-            break
-        }
+        cell.present(buttons[indexPath.row])
+        
         return cell
     }
 }

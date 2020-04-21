@@ -53,6 +53,8 @@ internal enum L10n {
   internal static let logutNumpadButtonText = L10n.tr("Localizable", "logut_numpad_button_text")
   /// Пароль
   internal static let passwordFieldPlaceholder = L10n.tr("Localizable", "password_field_placeholder")
+  /// Введённые пин-коды не совпадают
+  internal static let pinDoesntMatchError = L10n.tr("Localizable", "pin_doesnt_match_error")
   /// Профиль
   internal static let profileTabTitle = L10n.tr("Localizable", "profile_tab_title")
   /// Повторите ваш пин-код

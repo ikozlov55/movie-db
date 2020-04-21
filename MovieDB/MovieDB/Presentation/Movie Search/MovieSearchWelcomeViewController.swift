@@ -25,7 +25,6 @@ final class MovieSearchWelcomeViewController: BaseViewController {
     
     private var movieSearchStartView = MovieSearchWelcomeView()
     private let searchService = ServiceLayer.searchService
-    private let accountService = ServiceLayer.accountService
     
     // MARK: - Lifecycle
     
@@ -37,7 +36,6 @@ final class MovieSearchWelcomeViewController: BaseViewController {
         super.viewDidLoad()
         movieSearchStartView.searchBar.delegate = self
         searchService.getGenres(completion: nil)
-        accountService.getAccountData(completion: nil)
     }
     
 }
