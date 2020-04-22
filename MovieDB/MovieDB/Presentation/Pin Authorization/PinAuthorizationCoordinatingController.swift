@@ -27,13 +27,16 @@ final class PinAuthorizationCoordinatingController: BaseViewController {
     private let setPinHeaderController: PinAuthorizationHeaderViewController
     private let setPinNumpadController: PinAuthorizationNumpadViewController
     
-    private let pinAuthorizationService = ServiceLayer.pinAuthorizationService
+    private let authorizationService = ServiceLayer.pinAuthorizationService
     private let keychain = ServiceLayer.keychainService
     
     private var stage: PinAuthorizationStage
     private let pinLenght = 4
     private var firstInput = [Int]()
     private var currentInput = [Int]()
+    
+    private let maxInputsCount = 5
+    private var failedInputCount = 0
     
     // MARK: - Init
     
@@ -87,7 +90,7 @@ final class PinAuthorizationCoordinatingController: BaseViewController {
         case .fastLogin:
             let userName = keychain.getString(key: "userName") ?? ""
             setPinHeaderController.setHeaderState(.fastLogin(userName: userName))
-            setPinNumpadController.setNumpadState(.fastLogin)
+            setPinNumpadController.setNumpadState(.fastLoginNoInput)
         }
         setPinHeaderController.showInputFor(pageNumber: 0)
     }
@@ -114,16 +117,29 @@ extension PinAuthorizationCoordinatingController: PinAuthorizationNumpadDelegate
         case .backspace:
             _ = currentInput.popLast()
             setPinHeaderController.showInputFor(pageNumber: currentInput.count)
+            resolveInputState()
         case .exit:
-            pinAuthorizationService.clearCredentials()
-            coordinator?.start()
-        default:
+            abortFastLogin()
+        case .faceId:
+            authorizationService.checkBiometrics { [weak self] success in
+                if success { self?.coordinator?.login(self) }
+            }
+        case .placeholder:
             break
         }
     }
     
     private func resolveInputState() {
-        guard currentInput.count == pinLenght else { return }
+        guard currentInput.count == pinLenght else {
+            if stage == .fastLogin {
+                if currentInput.isEmpty {
+                    setPinNumpadController.setNumpadState(.fastLoginNoInput)
+                } else {
+                    setPinNumpadController.setNumpadState(.fastLogin)
+                }
+            }
+            return
+        }
         
         switch stage {
         case .makePin:
@@ -135,22 +151,28 @@ extension PinAuthorizationCoordinatingController: PinAuthorizationNumpadDelegate
         case .repeatPin:
             if currentInput == firstInput {
                 let pin = currentInput.map { String($0) }.joined(separator: "")
-                print("Pin is now set!: \(pin)")
-                pinAuthorizationService.setCredentials(pin)
+                authorizationService.setCredentials(pin)
                 coordinator?.login(self)
             } else {
                 setPinHeaderController.showError(L10n.pinDoesntMatchError)
             }
         case .fastLogin:
             let pin = currentInput.map { String($0) }.joined(separator: "")
-            print("Checking pin: \(pin)")
-            if pinAuthorizationService.isPinCorrect(pin) {
-                print("pin is correct!")
-                coordinator?.login(self)
-            } else {
-                setPinHeaderController.showError(L10n.invalidPinError)
+            authorizationService.checkPin(pin) { success in
+                if success {
+                    coordinator?.login(self)
+                } else {
+                    setPinHeaderController.showError(L10n.invalidPinError)
+                    failedInputCount += 1
+                    if failedInputCount >= maxInputsCount { abortFastLogin() }
+                }
             }
         }
+    }
+    
+    func abortFastLogin() {
+        authorizationService.clearCredentials()
+        coordinator?.start()
     }
     
 }

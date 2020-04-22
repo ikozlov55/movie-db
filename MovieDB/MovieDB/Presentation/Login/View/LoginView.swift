@@ -28,6 +28,7 @@ final class LoginView: ViewWithLoadingIndicator {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.image = Asset.pin.image
         view.isUserInteractionEnabled = true
+        view.isHidden = true
         return view
     }()
     

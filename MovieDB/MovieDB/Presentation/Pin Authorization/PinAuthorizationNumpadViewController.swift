@@ -67,8 +67,10 @@ final class PinAuthorizationNumpadViewController: BaseViewController {
             numpad[11] = .faceId
         case .fastLogin:
             numpad[9] = .exit
+            numpad[11] = .backspace
         }
         numpadDataSource.buttons = numpad
+        numpadView.collectionView.reloadData()
     }
     
 }

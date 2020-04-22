@@ -6,6 +6,7 @@
 //  Copyright © 2020 Илья Козлов. All rights reserved.
 //
 
+import LocalAuthentication
 import MovieDBAPI
 
 /// Тип, ответсвенный за создание, удаление и проверку пин-кода
@@ -21,9 +22,15 @@ protocol PinAuthorizationServiceProtocol {
     /// Удаление сохранённых в системе данных сессии
     func clearCredentials()
     
-    /// Проверка введённого пользователем пин-кода
-    /// - Parameter pin: Введённый пользователем пин-код, который необходимо проверить
-    func isPinCorrect(_ pin: String) -> Bool
+    /// Проверка введённого пользователем пин-кода и восстановление данных сессии из Keychain
+    /// - Parameters:
+    ///   - pin: Введённый пользователем пин-код, который необходимо проверить
+    ///   - completion: Замыкание, которое выполняется после проверки. На вход получет результат проверки типа `Bool`
+    func checkPin(_ pin: String, completion: (Bool) -> Void)
+    
+    /// Восстановление пин-кода  и данных сессии из Keychain с использованием биометрии
+    /// - Parameter completion: Замыкание, которое выполняется после проверки. На вход получет результат проверки типа `Bool`
+    func checkBiometrics(completion: @escaping (Bool) -> Void)
 }
 
 final class PinAuthorizationService: PinAuthorizationServiceProtocol {
@@ -35,16 +42,17 @@ final class PinAuthorizationService: PinAuthorizationServiceProtocol {
         case accountId
         case userName
     }
+    
     // MARK: - Private Properties
     
     private let cryptoService = ServiceLayer.cryptoService
-    private let keyChainService = KeyChainService()
+    private let keychain = ServiceLayer.keychainService
     
     // MARK: - Public methods
     
     var credentialsFound: Bool {
-        guard keyChainService.getBytes(key: Keys.salt.rawValue) != nil,
-            keyChainService.getBytes(key: Keys.sessionId.rawValue) != nil
+        guard keychain.getBytes(key: Keys.salt.rawValue) != nil,
+            keychain.getBytes(key: Keys.sessionId.rawValue) != nil
             else { return false }
         return true
     }
@@ -56,33 +64,67 @@ final class PinAuthorizationService: PinAuthorizationServiceProtocol {
             let encryptedSessionId = cryptoService.encrypt(string: sessionId, key: key)
             else { return }
         
-        keyChainService.save(encryptedSessionId, key: Keys.sessionId.rawValue)
-        keyChainService.save(salt, key: Keys.salt.rawValue)
-        keyChainService.save(Config.accountId, key: Keys.accountId.rawValue)
-        keyChainService.save(Config.userName, key: Keys.userName.rawValue)
+        keychain.save(encryptedSessionId, key: Keys.sessionId.rawValue)
+        keychain.save(salt, key: Keys.salt.rawValue)
+        keychain.save(Config.accountId, key: Keys.accountId.rawValue)
+        keychain.save(Config.userName, key: Keys.userName.rawValue)
+        
+        storePinWithBiometrics(pin)
     }
     
     func clearCredentials() {
-        Keys.allCases.forEach { keyChainService.remove($0.rawValue) }
+        Keys.allCases.forEach { keychain.remove($0.rawValue) }
     }
     
-    func isPinCorrect(_ pin: String) -> Bool {
+    func checkPin(_ pin: String, completion: (Bool) -> Void) {
         guard
-            let salt = keyChainService.getBytes(key: Keys.salt.rawValue),
-            let encryptedSessionId = keyChainService.getBytes(key: Keys.sessionId.rawValue),
+            let salt = keychain.getBytes(key: Keys.salt.rawValue),
+            let encryptedSessionId = keychain.getBytes(key: Keys.sessionId.rawValue),
             let key = cryptoService.makePBKDF2Key(password: pin, salt: salt),
             let decryptedSessionIdData = cryptoService.decrypt(data: encryptedSessionId, key: key),
             let decryptedSessionId = String(bytes: decryptedSessionIdData, encoding: .utf8)
-            else { return false }
+            else {
+                completion(false)
+                return
+        }
         Config.sessionId = decryptedSessionId
         restoreAccountData()
-        return true
+        completion(true)
+    }
+    
+    func checkBiometrics(completion: @escaping (Bool) -> Void) {
+        let context = LAContext()
+        context.localizedCancelTitle = "OK"
+        var error: NSError?
+        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+            completion(false)
+            return
+        }
+        context.evaluatePolicy(
+            .deviceOwnerAuthenticationWithBiometrics,
+            localizedReason: L10n.authorizationReason) { [weak self] success, _ in
+                guard success,
+                    let pin = self?.keychain.getString(key: Keys.pin.rawValue) else {
+                        completion(false)
+                        return
+                }
+                DispatchQueue.main.async {
+                    self?.checkPin(pin, completion: completion)
+                }
+        }
     }
     
     // MARK: - Private Methods
     
+    private func storePinWithBiometrics(_ pin: String) {
+        let context = LAContext()
+        var error: NSError?
+        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else { return }
+        keychain.save(pin, key: Keys.pin.rawValue)
+    }
+    
     private func restoreAccountData() {
-        Config.accountId = keyChainService.getInt(key: Keys.accountId.rawValue) ?? 0
-        Config.userName = keyChainService.getString(key: Keys.userName.rawValue) ?? ""
+        Config.accountId = keychain.getInt(key: Keys.accountId.rawValue) ?? 0
+        Config.userName = keychain.getString(key: Keys.userName.rawValue) ?? ""
     }
 }

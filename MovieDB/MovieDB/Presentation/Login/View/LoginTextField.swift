@@ -40,6 +40,16 @@ class LoginTextField: UITextField {
         bounds.inset(by: padding)
     }
     
+    // MARK: - UIResponder Overrides
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        let disabledActions = [
+            #selector(UIResponderStandardEditActions.copy(_:)),
+            #selector(UIResponderStandardEditActions.paste(_:))
+        ]
+        return disabledActions.contains(action) ? false : super.canPerformAction(action, withSender: sender)
+    }
+    
     // MARK: - Setup View
     
     func setupView() {

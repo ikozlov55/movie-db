@@ -28,6 +28,7 @@
 		140CACDA2446BB1800435773 /* AccountStatesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CACD92446BB1800435773 /* AccountStatesDTO.swift */; };
 		14127AF4241E6F89000780CC /* GetAccountEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14127AF3241E6F89000780CC /* GetAccountEndpoint.swift */; };
 		14167EEB2444330000687E0C /* MovieDBStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14167EEA2444330000687E0C /* MovieDBStorage.swift */; };
+		1420D4A3244FF96A003ACEB5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1420D4A5244FF96A003ACEB5 /* InfoPlist.strings */; };
 		142195F52443587E0049856A /* FavoritesCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142195F42443587E0049856A /* FavoritesCoordinatingController.swift */; };
 		142195F724435DDB0049856A /* FavoritesTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142195F624435DDB0049856A /* FavoritesTopBarViewController.swift */; };
 		142195F924435F470049856A /* FavoritesTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142195F824435F470049856A /* FavoritesTopBarView.swift */; };
@@ -46,6 +47,7 @@
 		1432D30A241D118000F8E6A6 /* MovieDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432D309241D118000F8E6A6 /* MovieDBClient.swift */; };
 		143BE6112441EDA5001FE6EC /* FilmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143BE6102441EDA5001FE6EC /* FilmDetailViewController.swift */; };
 		143BE6132441EDBA001FE6EC /* FilmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143BE6122441EDBA001FE6EC /* FilmDetailView.swift */; };
+		144350362450073E0004BFA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1420D4A5244FF96A003ACEB5 /* InfoPlist.strings */; };
 		14461ACE2430A6B700F3A11A /* ViewWithLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14461ACD2430A6B700F3A11A /* ViewWithLoadingIndicator.swift */; };
 		14461AD22430B7B200F3A11A /* MoviesTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14461AD12430B7B200F3A11A /* MoviesTransformer.swift */; };
 		14461AD42430C14800F3A11A /* EmptySearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14461AD32430C14800F3A11A /* EmptySearchResultsViewController.swift */; };
@@ -202,6 +204,8 @@
 		140CACD92446BB1800435773 /* AccountStatesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStatesDTO.swift; sourceTree = "<group>"; };
 		14127AF3241E6F89000780CC /* GetAccountEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountEndpoint.swift; sourceTree = "<group>"; };
 		14167EEA2444330000687E0C /* MovieDBStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBStorage.swift; sourceTree = "<group>"; };
+		1420D4A4244FF96A003ACEB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1420D4A6244FF96E003ACEB5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		142195F42443587E0049856A /* FavoritesCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinatingController.swift; sourceTree = "<group>"; };
 		142195F624435DDB0049856A /* FavoritesTopBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTopBarViewController.swift; sourceTree = "<group>"; };
 		142195F824435F470049856A /* FavoritesTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTopBarView.swift; sourceTree = "<group>"; };
@@ -718,6 +722,7 @@
 				14C18A3D2413E4B600332C65 /* colors.json */,
 				14C18A1E2413B7BE00332C65 /* Assets.xcassets */,
 				14C18A202413B7BE00332C65 /* LaunchScreen.storyboard */,
+				1420D4A5244FF96A003ACEB5 /* InfoPlist.strings */,
 				14A2943F2414FB6800E846D6 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -1014,6 +1019,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144350362450073E0004BFA5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1035,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A2943D2414FB6800E846D6 /* Localizable.strings in Resources */,
+				1420D4A3244FF96A003ACEB5 /* InfoPlist.strings in Resources */,
 				14F2366C24150E040094444E /* swiftlint.yml in Resources */,
 				14C18A3E2413E4B600332C65 /* colors.json in Resources */,
 				14C18A222413B7BE00332C65 /* LaunchScreen.storyboard in Resources */,
@@ -1304,6 +1311,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1420D4A5244FF96A003ACEB5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1420D4A4244FF96A003ACEB5 /* en */,
+				1420D4A6244FF96E003ACEB5 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		14A2943F2414FB6800E846D6 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
