@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   MovieDB
 
@@ -20,8 +20,9 @@
 // Make PIN
 "enter_new_pin_title" = "Придумайте пин-код для быстрого входа";
 "repeat_pin_title" = "Повторите ваш пин-код";
-"invalid_pin_error" = "Неверный пин-код";
 "logut_numpad_button_text" = "Выйти";
+"pin_doesnt_match_error" = "Введённые пин-коды не совпадают";
+"invalid_pin_error" = "Неверный пин-код";
 
 // TabBar
 "films_tab_title" = "Фильмы";
@@ -33,18 +34,21 @@
 "film_search_bar_placeholder" = "Поиск фильмов";
 "film_not_found_title" = "По вашему запросу ничего не найдено :(";
 
-//Film Detail
+// Film Detail
 "film_runtime" = "Время";
 "film_raiting" = "Рейтинг фильма";
 
-//Favorite
+// Favorite
 "favorite_title" = "Избранное";
 "favorite_empty_title" = "Вы не добавили ни одного фильма";
 "favorite_find_title" = "Найти любимые фильмы";
 
-//Profile
+// Profile
 "logout_button_text" = "Выйти";
 
-//Alert
+// Alert
 "alert_default_title" = "Ошибка!";
 "alert_default_message" = "Что-то пошло не так";
+
+// Pin Athorization
+"authorization_reason" = "Авторизуйтесь с помощью данных биометрии";

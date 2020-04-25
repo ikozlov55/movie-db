@@ -26,6 +26,9 @@ final public class Config {
     /// ID авторизованного в данный момент пользователя
     public static var accountId: Int = 0
     
+    /// Имя авторизованного в данный момент пользователя
+    public static var userName: String = ""
+    
     /// ISO 639-1 код текущего языка приложения
     public static var language: String? {
         guard let languageCode = Locale.current.languageCode,

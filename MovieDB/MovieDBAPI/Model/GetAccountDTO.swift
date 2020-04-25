@@ -17,7 +17,7 @@ public struct Gravatar: Decodable {
 }
 
 /// Структура с данными аватара пользователя
-public struct Avatatar: Decodable {
+public struct Avatar: Decodable {
     
     /// Данными пользователя в сервисе gravatar
     public let gravatar: Gravatar
@@ -27,8 +27,8 @@ public struct Avatatar: Decodable {
 /// Структура ответа на запрос получения информации об аккаунте
 public struct GetAccountDTO: Decodable {
     
-    /// Аватара пользователя
-    public let avatar: Avatatar
+    /// Аватар пользователя
+    public let avatar: Avatar
     
     /// Id пользователя
     public let id: Int

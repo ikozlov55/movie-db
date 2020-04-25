@@ -15,6 +15,8 @@ internal enum L10n {
   internal static let alertDefaultMessage = L10n.tr("Localizable", "alert_default_message")
   /// Ошибка!
   internal static let alertDefaultTitle = L10n.tr("Localizable", "alert_default_title")
+  /// Авторизуйтесь с помощью данных биометрии
+  internal static let authorizationReason = L10n.tr("Localizable", "authorization_reason")
   /// Придумайте пин-код для быстрого входа
   internal static let enterNewPinTitle = L10n.tr("Localizable", "enter_new_pin_title")
   /// Вы не добавили ни одного фильма
@@ -53,6 +55,8 @@ internal enum L10n {
   internal static let logutNumpadButtonText = L10n.tr("Localizable", "logut_numpad_button_text")
   /// Пароль
   internal static let passwordFieldPlaceholder = L10n.tr("Localizable", "password_field_placeholder")
+  /// Введённые пин-коды не совпадают
+  internal static let pinDoesntMatchError = L10n.tr("Localizable", "pin_doesnt_match_error")
   /// Профиль
   internal static let profileTabTitle = L10n.tr("Localizable", "profile_tab_title")
   /// Повторите ваш пин-код

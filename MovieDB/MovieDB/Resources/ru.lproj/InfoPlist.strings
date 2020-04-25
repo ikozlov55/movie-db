@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  MovieDB
+
+  Created by Илья Козлов on 22.04.2020.
+  Copyright © 2020 Илья Козлов. All rights reserved.
+*/
+
+// Pin code authorization
+
+NSFaceIDUsageDescription = "Быстрая авторизация с использованием TouchId или FaceID";

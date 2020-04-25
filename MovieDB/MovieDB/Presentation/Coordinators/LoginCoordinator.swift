@@ -26,9 +26,13 @@ final class LoginCoordinator: Coordinator {
     
     /// Старт флоу авторизации
     func start() {
-        let controller = LoginViewController()
-        controller.coordinator = self
-        navigationController.pushViewController(controller, animated: true)
+        if ServiceLayer.pinAuthorizationService.credentialsFound {
+            authorizeWithPin()
+        } else {
+            let controller = LoginViewController()
+            controller.coordinator = self
+            navigationController.pushViewController(controller, animated: true)
+        }
     }
     
     /// Успешная авторизация, переход на основной TabBar приложения
@@ -41,10 +45,18 @@ final class LoginCoordinator: Coordinator {
         navigationController.present(tabBar, animated: true)
     }
     
-    /// Переход на флоу авторизации по ПИН коду
-    func authorizeWithPin() {
-        let controller = MakePinViewController()
+    /// Переход на флоу создания пин-кода
+    func makePin() {
+        let controller = PinAuthorizationCoordinatingController(stage: .makePin)
         controller.coordinator = self
         navigationController.pushViewController(controller, animated: true)
     }
+    
+    /// Переход на флоу быстрой авторизации по пин-коду
+    func authorizeWithPin() {
+        let controller = PinAuthorizationCoordinatingController(stage: .fastLogin)
+        controller.coordinator = self
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
 }

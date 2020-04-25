@@ -13,8 +13,8 @@ import MovieDBAPI
 protocol AccountServiceProtocol {
     
     /// Получение данных аккаунта и запись id пользователя в `Config` сессии
-    /// - Parameter completion: Замыкание, на вход получает список `GetAccountDTO` или ошибку
-    func getAccountData(completion: ((Result<GetAccountDTO, Error>) -> Void)?)
+    /// - Parameter completion: Замыкание, на вход получает данные пользователя - `Account` или ошибку
+    func getAccountData(completion: ((Result<Account, Error>) -> Void)?)
     
     /// Получение списка избранного
     /// - Parameter completion: Замыкание, на вход получает список `MoviesList` или ошибку
@@ -53,12 +53,14 @@ final class AccountService: AccountServiceProtocol {
     
     // MARK: - Public methods
     
-    func getAccountData(completion: ((Result<GetAccountDTO, Error>) -> Void)? = nil) {
+    func getAccountData(completion: ((Result<Account, Error>) -> Void)? = nil) {
         apiClient.request(GetAccountEndpoint()) { result in
             switch result {
-            case .success(let accountInfo):
-                completion?(.success(accountInfo))
-                Config.accountId = accountInfo.id
+            case .success(let accountDTO):
+                let account = Account.from(dto: accountDTO)
+                completion?(.success(account))
+                Config.accountId = account.id
+                Config.userName = account.name
             case .failure(let error):
                 completion?(.failure(error))
             }

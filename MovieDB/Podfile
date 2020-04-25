@@ -7,6 +7,7 @@ target 'MovieDB' do
   # Pods for MovieDB
   pod 'SwiftLint', '0.39.1'
   pod 'SwiftGen', '6.0'
+  pod 'KeychainAccess', '4.1.0'
 
 end
 

@@ -42,12 +42,27 @@ class ServiceLayer {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.requestCachePolicy = .returnCacheDataElseLoad
         let client = ImagesClient(configuration: configuration)
-         
+        
         return ImagesService(apiClient: client)
     }()
     
     /// Сервис сохранения даннных
     static var storageService: StorageServiceProtocol = {
         StorageService(.coreData)
+    }()
+    
+    /// Криптографический сервис
+    static var cryptoService: CryptoServiceProtocol = {
+        CryptoService()
+    }()
+    
+    /// Сервис для работы с Keychain
+    static var keychainService: KeyChainServiceProtocol = {
+        KeyChainService()
+    }()
+    
+    /// Сервис авторизации по пин-коду
+    static var pinAuthorizationService: PinAuthorizationServiceProtocol = {
+        PinAuthorizationService()
     }()
 }
