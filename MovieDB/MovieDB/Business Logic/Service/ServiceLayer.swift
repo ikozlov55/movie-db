@@ -40,6 +40,7 @@ class ServiceLayer {
     /// Сервис загрузки изображений
     static let imagesService: ImagesServiceProtocol = {
         let configuration = URLSessionConfiguration.ephemeral
+        configuration.urlCache = ImagesInMemoryCache()
         configuration.requestCachePolicy = .returnCacheDataElseLoad
         let client = ImagesClient(configuration: configuration)
         

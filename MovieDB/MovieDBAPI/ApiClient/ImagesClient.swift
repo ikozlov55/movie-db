@@ -33,6 +33,11 @@ public final class ImagesClient: APIClient {
                 return Progress()
         }
         
+        if let cachedResponse = session.configuration.urlCache?.cachedResponse(for: request) {
+            handleImageData(cachedResponse.data, nil, endpoint, completion)
+            return Progress()
+        }
+        
         let task = session.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
                 self?.failOnMainThread(error, completion)
@@ -47,15 +52,25 @@ public final class ImagesClient: APIClient {
                     return
             }
             
-            do {
-                let image = try endpoint.content(from: data, response: response)
-                self?.succeedOnMainThread(image, completion)
-            } catch {
-                self?.failOnMainThread(error, completion)
-            }
+            self?.handleImageData(data, response, endpoint, completion)
         }
         task.resume()
         return task.progress
+    }
+    
+    // MARK: - Private Methods
+    
+    private func handleImageData<T: Endpoint>(
+        _ data: Data,
+        _ response: HTTPURLResponse?,
+        _ endpoint: T,
+        _ completion: @escaping (Result<T.Content, Error>) -> Void) {
+        do {
+            let image = try endpoint.content(from: data, response: response)
+            succeedOnMainThread(image, completion)
+        } catch {
+            failOnMainThread(error, completion)
+        }
     }
     
 }
