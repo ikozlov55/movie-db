@@ -54,6 +54,12 @@ public final class ImagesClient: APIClient {
             
             self?.handleImageData(data, response, endpoint, completion)
         }
+        
+        session.configuration.urlCache?.getCachedResponse(for: task) { cachedResponse in
+            guard let response = cachedResponse else { return }
+            self.handleImageData(response.data, nil, endpoint, completion)
+        }
+        
         task.resume()
         return task.progress
     }
