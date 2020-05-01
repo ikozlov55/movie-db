@@ -40,13 +40,14 @@ class ServiceLayer {
     /// Сервис загрузки изображений
     static let imagesService: ImagesServiceProtocol = {
         let configuration = URLSessionConfiguration.ephemeral
+        configuration.urlCache = ImagesFileCache()
         configuration.requestCachePolicy = .returnCacheDataElseLoad
         let client = ImagesClient(configuration: configuration)
         
         return ImagesService(apiClient: client)
     }()
     
-    /// Сервис сохранения даннных
+    /// Сервис сохранения даннных"
     static var storageService: StorageServiceProtocol = {
         StorageService(.coreData)
     }()
